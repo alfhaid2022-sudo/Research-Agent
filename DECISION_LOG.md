@@ -72,3 +72,26 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Decision:** Scope the pilot as secondary research on published literature. No patient-level data, no IRB requirement.
 **Basis:** Conservative default. A scoping review of published studies does not require ethics approval. If the PI holds unpublished data, an original observational study is sequenced *after* the pilot rather than merged into it — merging would change the design and the reporting guideline (STROBE rather than PRISMA-ScR).
 **Decided by:** Principal Research Director (assumption; reversible on PI instruction)
+
+---
+
+### D008 — PILOT-01 STOPPED at Stage 1 feasibility: topic already published. D005 superseded.
+**Date:** 2026-09-11
+**Context:** Stage 1 duplication check (14 recorded searches, log at `02_Search/_working/FEASIBILITY_SEARCH_LOG.md`) returned NO-GO. Director independently re-verified the three decisive references against PubMed; metadata and content matched the agent's report exactly.
+**Finding:** The approved topic has been published twice in 2025 by other groups:
+- Al-Allawi N, et al. *Alloimmunization in β-Thalassemia and Sickle Cell Disease in Middle Eastern Countries: A Systemic Review.* Hemoglobin 2025;49(2):126-140. PMID 40069098, DOI 10.1080/03630269.2025.2471923. 39 thalassemia studies (9,005 patients) + 19 SCD studies (3,867). Reports pooled prevalence, specificity distribution, risk factors **and transfusion policies employed in these countries** — all three declared elements of the proposed topic.
+- Bawazir WM. *A Meta Analysis of RBC Alloimmunization in Transfused Sickle Cell and Thalassemia Patients in Saudi Arabia.* Clin Lab 2025;71(3). PMID 40066558, DOI 10.7754/Clin.Lab.2024.240827. Saudi-specific, PROSPERO CRD42023440761, 12 studies, 1,811 patients, pooled 18.2%. Searched six databases including Scopus, Embase, Web of Science and Google Scholar.
+- Matching policy is additionally owned globally by the GRADE-graded ICTMG guideline: Wolf J, et al. Br J Haematol 2024;206(1):94-108. PMID 39535318, DOI 10.1111/bjh.19837.
+**Decision:** Stop PILOT-01 as scoped. D005 superseded.
+**Basis:** No defensible gap remains for prevalence, specificities, or matching policy in GCC transfusion-dependent patients. Proceeding would produce a redundant review at high risk of desk rejection on novelty. Note that Bawazir searched six databases — so the environment's PubMed-only limitation is *not* the reason the topic is closed, and institutional database access would not reopen it.
+**Decided by:** Principal Research Director, on verified evidence. **Requires PI ratification and a decision on the pivot.**
+
+---
+
+### D009 — Residual defensible gap identified: donor-side antigen architecture and Rh variants in GCC populations
+**Date:** 2026-09-11
+**Context:** Having closed the recipient-side question, the feasibility check identified one gap it could defend from its own retrievals.
+**Finding:** 30 PubMed records exist on GCC donor red cell phenotype/genotype frequency, but no retrieved review links Gulf **donor** antigen frequencies to recipient alloimmunization patterns, or to the feasibility and inventory cost of extended matching in GCC blood services. Al-Allawi 2025 closes its own abstract by stating "the need for more research on Rhesus variants in this part of the world" — a call to action from the very systematic review that closes the original topic.
+**Relevance to PI:** Directly continuous with the PI's own donor-side work — Alanazi FM, *Prevalence of ABO, Rh, and Kell Antigens Among Blood Donors in Al-Qurayyat Region*, Clin Lab 2024;70(12). PMID 39662013, DOI 10.7754/Clin.Lab.2024.240710 (779 Saudi donors).
+**Status:** Candidate only. Not approved, not started. Requires PI decision, and a fresh Stage 1 feasibility check before any commitment — the same gate that just closed PILOT-01.
+**Decided by:** Principal Research Director (proposal)

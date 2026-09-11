@@ -10,10 +10,10 @@
 
 | Item | Value |
 |---|---|
-| **Active project** | PILOT-01: RBC alloimmunization in transfusion-dependent patients, Saudi Arabia & Gulf (scoping review) |
-| **Current stage** | Stage 1–2: Feasibility / duplication check + domain scoping |
-| **Current gate** | Working toward **G1** (protocol approval) |
-| **Blocked on** | Nothing. Q2 (database access) & Q3 (unpublished data/IRB) unanswered — proceeding on stated assumptions D006/D007 |
+| **Active project** | PILOT-01 **STOPPED** at Stage 1 — topic already published (see D008). Awaiting PI decision on pivot |
+| **Current stage** | Stage 1 complete — NO-GO returned and verified |
+| **Current gate** | Pre-G1 — no protocol drafted; project stopped before protocol work began |
+| **Blocked on** | **PI decision**: ratify the stop, and choose the pivot (donor-side gap D009, practice survey, or a different topic entirely) |
 
 ---
 
@@ -44,9 +44,9 @@
 | # | Stage | Gate | Status |
 |---|---|---|---|
 | 0 | Team setup & capability verification | — | ✅ Complete |
-| 1 | Project intake & feasibility | — | 🟡 In progress |
-| 2 | Research question & design selection | — | 🟡 In progress |
-| 3 | Protocol & reporting guideline | **G1** | ⬜ Next |
+| 1 | Project intake & feasibility | — | ✅ Complete — **NO-GO** |
+| 2 | Research question & design selection | — | 🔴 Reset — topic closed |
+| 3 | Protocol & reporting guideline | **G1** | ⬜ Not started |
 | 4 | Search-strategy development & peer review | — | ⬜ |
 | 5 | Literature search & deduplication | **G2** | ⬜ |
 | 6 | Screening & full-text eligibility | **G3** | ⬜ |
@@ -77,9 +77,15 @@ Legend: ⬜ not started · 🟡 in progress · 🔴 blocked · ✅ complete
 
 ## Next actions
 
-1. 🟡 Feasibility/duplication check — is there already an equivalent review? (GO/NO-GO)
-2. 🟡 Domain concept scoping for the PCC framework
-3. ⬜ `methodology-protocol-expert` drafts protocol + PRISMA-ScR checklist → **Gate G1 — PI approval required**
+1. ✅ Feasibility/duplication check → **NO-GO**, independently verified by the Director
+2. ⬜ **PI ratifies the stop** and selects a pivot
+3. ⬜ Fresh Stage 1 feasibility check on whichever topic is chosen — no protocol work until it passes
+
+## Why PILOT-01 stopped
+
+The topic was published twice in 2025 (PMID 40069098; PMID 40066558). Note that the Saudi meta-analysis searched six databases including Scopus and Embase — so this is **not** an artefact of this environment's PubMed-only limitation, and institutional database access would not reopen the topic.
+
+**The feasibility gate worked as designed: it cost one agent run instead of a desk rejection.**
 
 ## Pending PI input (non-blocking)
 
