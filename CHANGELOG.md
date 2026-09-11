@@ -27,3 +27,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D013 PILOT-02 opened (feasibility only); D014 feasibility runs alone before downstream work`
 - `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · PILOT-02 Stage 1 in progress`
 - `2026-09-11 · literature-search-expert · CREATE · 02_Search/_working/PILOT02_FEASIBILITY_LOG.md · PILOT-02 duplication check search log`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D015 PILOT-02 NO-GO (self-duplication); D016 reframe recommendation; D017 RHD search hazard`
+- `2026-09-11 · Director · UPDATE · .claude/agents/literature-search-expert.md · Added precision-hazard table (D017)`
+- `2026-09-11 · literature-search-expert · CREATE · 02_Search/_working/PILOT02_FEASIBILITY_LOG.md · 18 searches P1-P18`

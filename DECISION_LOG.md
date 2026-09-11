@@ -144,3 +144,35 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Basis:** Parallelism is only economical when tasks are independent *of each other's outcomes*. Domain scoping is not independent of feasibility — it is downstream of it, and a NO-GO discards it. The two tasks touched disjoint files, which is what the lock rule tests, so file-level independence was satisfied while logical dependence was not. Concurrency must be judged on outcome dependence, not only on write conflicts.
 **Note:** the one part of the voided run that did survive — the eleven documented definitional divergences in alloimmunization reporting — survived precisely because it was *not* topic-specific. That is the exception, not the justification.
 **Decided by:** Principal Research Director
+
+---
+
+### D015 — PILOT-02 NO-GO as a review: self-duplication plus insufficient RH-variant volume. D013 superseded.
+**Date:** 2026-09-11
+**Context:** Stage 1 feasibility (18 recorded searches, log at `02_Search/_working/PILOT02_FEASIBILITY_LOG.md`) returned NO-GO. Director independently re-verified the three decisive references against PubMed; metadata and content matched the agent's report exactly.
+**Finding 1 — self-duplication (decisive).** The donor-antigen-frequency core of PILOT-02 is already published **by the PI himself**: Alanazi FM. *Rh and Kell Blood Group Antigen Frequencies in Saudi Arabia: a Review.* Clin Lab 2025;71(2). PMID 39967527, DOI 10.7754/Clin.Lab.2024.240914. Sole-authored; searched PubMed, Embase and Cochrane; seven studies 2019–2024 across Samtah, Jazan, Hail, Riyadh, Eastern region, Taif and Najran; DCcee (R1r) most prevalent; already discusses donor recruitment, **blood inventory management** and personalised transfusion protocols.
+**Finding 2 — the RH-variant limb is too thin to review.** The gap Al-Allawi named yields ~6 GCC records, three of them single cases or small case series. Only two are donor-cohort molecular studies: Madkhali 2025 (Jazan, DOI 10.1111/tme.70040, self-described as the first RHD/RHCE molecular characterisation in Saudi Arabia) and Al-Riyami 2021 (Oman, n=180, DOI 10.1111/vox.13204). Kuwait, Qatar, Bahrain and UAE returned nothing.
+**Finding 3 — the framing is occupied.** Castillo & Quintero 2026 (Transfus Clin Biol 33(2):123-127, PMID 41833928, DOI 10.1016/j.tracli.2026.03.002) already proposes a tiered, feasibility- and cost-driven antigen-matching framework; Carminati et al. 2026 (Transfus Med 36(3):211-221, PMID 41631680, DOI 10.1111/tme.70064) covers phenotyping vs genotyping including RH variants and implementation cost.
+**Decision:** NO-GO on PILOT-02 **as a review**. D013 superseded.
+**Basis:** A scoping review of two donor cohorts across one Saudi province and one Omani centre would map an almost empty field and conclude "more research is needed" — which the PI's own 2025 review already concludes, and which Al-Allawi already published.
+**Decided by:** Principal Research Director, on verified evidence. **Requires PI ratification.**
+
+---
+
+### D016 — Recommendation: reframe as primary research, not a third review attempt
+**Date:** 2026-09-11
+**Context:** Two consecutive Stage 1 gates have closed on the same cause — the review space in this niche is occupied, in one case by the PI's own prior work.
+**Observation:** the PI's own review (PMID 39967527) closes by calling for exactly this: "Further studies are necessary to investigate the genetic and environmental factors influencing the regional similarity and differences in blood group antigen frequencies. Expanding the scope of data collection throughout Saudi Arabia is also imperative." The recommended next step is the one his own published work already named.
+**Recommendation (not a decision — PI's call):** a **primary multi-centre GCC donor RHD/RHCE genotyping study** (STROBE; ISBT allele nomenclature), optionally extended to match-probability modelling against local TDT/SCD recipient phenotypes.
+**Bearing on the stated mission:** the PI's brief sequenced reviews first, then original research. Two evidence-based gate closures argue for moving to original research earlier than planned. This is a change to the mission's sequencing and is therefore the PI's decision, not the Director's.
+**Decided by:** Principal Research Director (recommendation only)
+
+---
+
+### D017 — Search hazard recorded: bare `RHD` token is unusable in PubMed strings
+**Date:** 2026-09-11
+**Context:** During PILOT-02 feasibility, a string built on a bare `RHD` token returned 26 records of which roughly 14 of 20 inspected were rheumatic-heart-disease noise.
+**Decision:** No search strategy on this project may rely on an unqualified `RHD` token. It must be constrained by adjacent blood-group terms, MeSH anchoring, or explicit exclusion of rheumatic disease vocabulary, and any count derived from a bare token is void.
+**Basis:** `RHD` is a standard abbreviation for both the Rh D gene and rheumatic heart disease. A precision failure of this magnitude silently inflates apparent literature volume — exactly the quantity a feasibility gate depends on.
+**Applies to:** `literature-search-expert`, and any agent estimating literature volume.
+**Decided by:** Principal Research Director, on the `literature-search-expert`'s flag

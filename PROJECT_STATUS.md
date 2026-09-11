@@ -10,10 +10,10 @@
 
 | Item | Value |
 |---|---|
-| **Active project** | **PILOT-02** — donor-side antigen architecture & RH variants in GCC populations (feasibility only, D013) |
-| **Current stage** | Stage 1 feasibility running — no design fixed, no protocol drafted |
+| **Active project** | PILOT-02 **STOPPED** as a review (D015). Awaiting PI decision on reframing to primary research |
+| **Current stage** | Stage 1 complete — second NO-GO, verified |
 | **Current gate** | Pre-G1 — no protocol drafted; project stopped before protocol work began |
-| **Blocked on** | Stage 1 GO/NO-GO verdict. Nothing downstream is dispatched until it returns (D014) |
+| **Blocked on** | **PI decision**: ratify the stop; decide whether to move to primary research now (D016), which changes the mission's review-first sequencing |
 
 ---
 
@@ -44,7 +44,7 @@
 | # | Stage | Gate | Status |
 |---|---|---|---|
 | 0 | Team setup & capability verification | — | ✅ Complete |
-| 1 | Project intake & feasibility | — | 🟡 PILOT-02 running (PILOT-01: ✅ NO-GO) |
+| 1 | Project intake & feasibility | — | ✅ Run twice — **NO-GO** both times |
 | 2 | Research question & design selection | — | ⬜ Held pending Stage 1 |
 | 3 | Protocol & reporting guideline | **G1** | ⬜ Not started |
 | 4 | Search-strategy development & peer review | — | ⬜ |
@@ -77,13 +77,27 @@ Legend: ⬜ not started · 🟡 in progress · 🔴 blocked · ✅ complete
 
 ## Next actions
 
-1. 🟡 PILOT-02 Stage 1 feasibility — running alone, per D014
-2. ⬜ Director independently verifies the decisive citations before acting on the verdict
-3. ⬜ If GO: domain scoping, then protocol → **Gate G1 (PI approval)**. If NO-GO: report and re-scope.
+1. ✅ PILOT-02 Stage 1 → **NO-GO**, decisive citations verified by the Director
+2. ⬜ **PI ratifies the stop and chooses the direction** (D016)
+3. ⬜ Feasibility check on whichever direction is chosen — unchanged, and it has now paid for itself twice
 
-## Open question the gate must answer
+## Two gates, one pattern
 
-Whether the gap is **review-shaped** (enough scattered primary studies exist to map) or **primary-research-shaped** (the Gulf RH-variant studies do not exist, so there is nothing to review). This decides whether PILOT-02 is a review at all — and a "too sparse to review, good primary study" answer is a useful finding, not a failure.
+Both NO-GOs closed on the same cause: the review space in this niche is already occupied — in PILOT-02's case **by the PI's own 2025 review** (PMID 39967527). The gate answered its question: the gap is **primary-research-shaped**, not review-shaped.
+
+Cost so far: two agent runs. Cost avoided: two redundant manuscripts, one of which would have duplicated the PI's own prior publication.
+
+## Workflow validation status
+
+| Exercised and proven | Not yet exercised |
+|---|---|
+| Subagent spawning & isolation | Extraction & data management |
+| Tool scoping | Biostatistics & SAP |
+| PubMed/SciSpace retrieval | Manuscript drafting |
+| Director-side citation re-verification | Tables & figures |
+| Feasibility gating (×2) | Conceptual graphics |
+| Decision logging & collision recovery | Independent audit |
+| Concurrency control | Journal selection |
 
 ## Why PILOT-01 stopped
 

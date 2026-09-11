@@ -38,6 +38,20 @@ For **every** search, record in `02_Search/_working/SEARCH_LOG.md`:
 
 Also record: the exact `query_translation` PubMed returns (it reveals how PubMed actually mapped your terms — check it, automatic term mapping often misfires).
 
+## Known precision hazards (D017)
+
+Ambiguous tokens silently inflate apparent literature volume — the exact quantity a feasibility gate depends on. Never build a count on one.
+
+| Token | Collides with | Requirement |
+|---|---|---|
+| `RHD` | **rheumatic heart disease** | Never use bare. Constrain with blood-group terms, MeSH anchoring, or exclude rheumatic vocabulary. A count from a bare token is void. |
+| `RH` | rhesus / relative humidity / right hemisphere | Anchor to blood-group MeSH |
+| `TDT` | transfusion-dependent thalassemia / terminal deoxynucleotidyl transferase / TUNEL | Expand in full |
+| `SCD` | sickle cell disease / sudden cardiac death / spinal cord disease | Expand in full |
+| `PBM` | patient blood management / peripheral blood mononuclear | Expand in full |
+
+Always inspect a sample of returned records before reporting a count as evidence of literature volume. Report the precision you observed.
+
 ## Supplementary searching
 - **Backward citation chaining** — reference lists of included studies and relevant reviews
 - **Forward citation chaining** — who cited the key studies
