@@ -150,3 +150,22 @@ Retrieved across G3, G5, G6, G10, G11, S1–S5 and PILOT-02 string P4. **Every r
 5. No deduplication across G1–G11 beyond the single rule stated above; counts are per-string.
 6. Screening was performed by a single unblinded agent, unreplicated. Indicative only.
 7. Every gap statement derived from this log **must** be phrased as a retrieval statement, never an existence claim.
+
+
+---
+
+## POST-GATE CORRECTION — 2026-09-11, by Integrity Auditor re-audit
+
+**A statement in this log was false.** It recorded that "No full text of any key study could be read." The Integrity Auditor retrieved **PMC12531907** (Haffener 2025, PMID 40916454) during the re-audit. Full text IS obtainable for PMC open-access records via the PubMed MCP `get_full_text_article` tool; this log's claim reflected a tool not attempted, not an access limitation.
+
+**What the full text establishes, and how it changes two verdicts:**
+
+| Fact from PMC12531907 | Effect |
+|---|---|
+| Haffener 2025 is **100 SQUH blood-bank donors, single centre**, randomly selected and consented | **P1 STRENGTHENED.** Haffener is no longer a candidate multi-centre challenger. The remaining challenger is the Al Lawati 2021 thesis ("different regions"), still unreadable |
+| Rh prediction was **100% by copy-number plus *RHD*Ψ**; **no partial-D resolution** | **P3 partially resolved.** Haffener's limb closes. Only Ameen 2020's panel coverage remains unread, so P3 stays UNVERIFIABLE but on one unknown rather than three |
+| **No DEL screening** in Haffener | P4's refutation continues to rest solely on the Al Lawati thesis |
+
+**Reconciliation arithmetic corrected:** this log stated 12−6; the actual figures are 13−7 (audit finding).
+
+**Standing correction for all future search work:** `get_full_text_article` must be attempted for every PMC-indexed key record before declaring full text unobtainable. Publisher pages are egress-blocked; PMC via the MCP tool is not.

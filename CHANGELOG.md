@@ -68,3 +68,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · Rationale replaced with gate-supported wording`
 - `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · §1.3 fully rewritten; retraction table added`
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D042 D041 correction was incomplete; standing grep-before-announcing corrective`
+- `2026-09-11 · integrity-auditor · CREATE · 10_Audit/_working/10_reaudit_v1.0_2026-09-11.md · Re-audit, verdict FAIL`
+- `2026-09-11 · Director · UPDATE · protocol, methods-scoping, gate log, sample-size .py/.txt/registry, CAPABILITY_REPORT, DECISION_LOG · 12 audit corrections applied and verified`
+- `2026-09-11 · Director · UPDATE · 05_Analysis/_working/NUMBER_REGISTRY.csv · Provenance note: input SHA changed, all numeric values unchanged`

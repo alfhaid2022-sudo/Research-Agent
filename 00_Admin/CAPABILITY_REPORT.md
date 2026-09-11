@@ -11,7 +11,7 @@
 | **Genuine separate subagents** | ✅ Working | Spawned an agent in a separate context; it adopted a role file, called PubMed independently, returned real verified PMIDs |
 | **PubMed (via MCP)** | ✅ Working | Live searches; returns PMID, DOI, title, abstract, authors + affiliations, journal + ISO abbreviation, date, volume, issue, **pages**, MeSH terms, keywords, article types |
 | **PubMed full text (PMC open access)** | ✅ Tool present | `get_full_text_article` available |
-| **PubMed citation lookup** | ✅ Tool present | `lookup_article_by_citation` — resolves partial/suspect citations |
+| **PubMed citation lookup** | ❌ **NOT available** (corrected 2026-09-11, audit M5) | `lookup_article_by_citation` is **not exposed** by this server. Earlier entry was wrong. Verify a suspect citation via `search_articles` + `get_article_metadata` instead |
 | **SciSpace (280M+ papers, semantic)** | ✅ Working | Returns title, abstract, DOI, journal+ISSN, authors, affiliations, OA status, citation counts |
 | **WebSearch** | ✅ Available | US-region |
 | **File system (read/write/versioning)** | ✅ Working | Full read/write in project dir; git repository present |

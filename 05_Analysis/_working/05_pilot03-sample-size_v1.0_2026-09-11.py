@@ -382,7 +382,9 @@ def main():
         print(f"{lab[:52]:52s} {100*p:7.3f}% {'donors':>7s} {n5:11,d} {n10:12,d}")
     print("\n  NON-GULF rows are bracketing scenarios only (US / Brazil). They are")
     print("  NOT transferred onto the GCC donor pool; they bound the order of")
-    print("  magnitude for alleles that no GCC study has ever measured.")
+    print("  magnitude for alleles not yet measured in a Saudi donor cohort.")
+    print("  (NB: DEL has been reported in Oman - Al Lawati 2021 - so no")
+    print("   GCC-wide universal negative may be asserted. D041/D043.)")
 
     print("\n-- What a realistic n actually buys for the rarest targets --")
     for lab, p, unit, s in targets:

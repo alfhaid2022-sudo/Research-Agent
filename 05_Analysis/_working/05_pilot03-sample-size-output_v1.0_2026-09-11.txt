@@ -2,11 +2,11 @@
 ==============================================================================
 PILOT-03 PRECISION-BASED SAMPLE SIZE - UNEDITED OUTPUT
 ==============================================================================
-Generated       : 2026-09-11T08:54:35
+Generated       : 2026-09-11T09:26:28
 Python          : 3.11.15
 numpy 2.4.6 | scipy 1.17.1 | pandas 3.0.5 | statsmodels 0.15.0
 Input document  : /home/user/Research-Agent/01_Protocol/_working/01_pilot03-methods-scoping_v1.0_2026-09-11.md
-SHA-256 (input) : 1c8fb28d09aad05919b9368b54d1068762e1a3f5d039020af45f4efabe8c3599
+SHA-256 (input) : 7c3a67f5243dcc1e7e4fdb91112880ef1a0733843854e27794d43974e741e4d5
 Dataset version : NONE. No PILOT-03 data exist. This is pre-specification.
 
 ==============================================================================
@@ -139,7 +139,9 @@ Atypical/discrepant serologic D typing among donors    0.790%  donors         63
 
   NON-GULF rows are bracketing scenarios only (US / Brazil). They are
   NOT transferred onto the GCC donor pool; they bound the order of
-  magnitude for alleles that no GCC study has ever measured.
+  magnitude for alleles not yet measured in a Saudi donor cohort.
+  (NB: DEL has been reported in Oman - Al Lawati 2021 - so no
+   GCC-wide universal negative may be asserted. D041/D043.)
 
 -- What a realistic n actually buys for the rarest targets --
 

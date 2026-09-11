@@ -67,7 +67,7 @@ Residual alloimmunisation after serological Rh matching is consistent with — b
 
 ### 1.2 What is already known in the GCC
 
-Four donor-cohort molecular red cell genotyping datasets from GCC states were retrieved:
+**Six** donor-cohort molecular red cell genotyping datasets from GCC states have been retrieved across PILOT-02 and the PILOT-03 Stage 1 gate (`02_Search/_working/PILOT03_GATE_LOG.md`). The two final rows were retrieved by the gate and are the records that refuted the claims retracted in §1.3.3:
 
 | Study | State | n | Platform | RH depth | Concordance analysis |
 |---|---|---|---|---|---|
@@ -75,6 +75,8 @@ Four donor-cohort molecular red cell genotyping datasets from GCC states were re
 | Al-Riyami 2021, PMID 34647328, DOI 10.1111/vox.13204 | Oman | 180 genotyped (130 paired with serology) | RBC-FluoGene vERYfy eXtend | 12-system screen; "D variant 18.2% (22/121)" not resolved to allele in the abstract | Bare per-system percentages only; no taxonomy, no CI, no adjudication algorithm described |
 | Alalshaikh 2024, PMID 39055072, DOI 10.4103/sjmms.sjmms_664_23 | Saudi Arabia | 136 | Multiplex PCR exons 3/4/7 + hybrid Rhesus box | *RHD* presence/absence + zygosity; no *RHCE* | No |
 | Madkhali 2025, PMID 41147787, DOI 10.1111/tme.70040 | Saudi Arabia (Jazan) | 60 (*RHD*, D−/weak D only); 464 (*RHCE*) | ID RHD XT / ID CORE XT (Luminex) | Deepest *RHCE* dataset in the region | No — antigen frequencies are platform-**predicted**, not serologically observed |
+| Haffener 2025, PMID 40916454, DOI 10.1111/trf.18401 | Oman | 100 | Whole-genome sequencing vs serology, 24 antigens | Rh prediction 100% by copy-number + *RHD*Ψ; **no partial-D resolution, no DEL** `[EVIDENCE — PMC12531907 full text, read by Integrity Auditor 2026-09-11]` | **Yes — 98.7% accuracy; 12 discordances investigated with candidate variants proposed.** Single centre (SQUH blood bank), randomly selected consented donors |
+| Al Lawati 2021, DOI 10.24377/LJMU.T.00014274 (LJMU doctoral thesis; **no PMID, grey literature, abstract-level only**) | Oman | 203 serologic D− | Molecular *RHD* characterisation | Weak D types 45, 41, 4.2, DAR2.00, DIIIb, DVI.2; **includes a DEL allele (IVS8-31T>C)** | Not reported |
 
 `[EVIDENCE]` for all four rows, at the access level recorded in the methods scoping (Al-Riyami 2021 is abstract-only; full text was not obtainable — `[UNVERIFIED]` for all methods detail beyond its abstract).
 
@@ -127,7 +129,7 @@ No output of this study may claim to be "the first in Saudi Arabia", "the first 
 
 ### 1.5 Why this study is worth doing
 
-`[RECOMMENDATION]` A harmonised, multi-state, serology-anchored dataset would: (i) quantify how often routine donor serology misclassifies RH antigen status in this population and in which direction; (ii) identify serologically D-negative donors who carry a functional *RHD* gene, which is directly actionable for donor-unit labelling; (iii) supply the first *RH* variant allele frequencies from this population that are estimated on a single platform and are therefore comparable between centres; (iv) provide the input parameters for modelling the probability of finding RH-genotype-matched units for transfusion-dependent SCD/thalassaemia recipients. None of these outputs depends on the study finding a high discordance rate; a low discordance rate is an equally reportable and equally publishable result (`CLAUDE.md` §1.4).
+`[RECOMMENDATION]` A harmonised, multi-state, serology-anchored dataset would: (i) quantify how often routine donor serology misclassifies RH antigen status in this population and in which direction; (ii) identify serologically D-negative donors who carry a functional *RHD* gene, which is directly actionable for donor-unit labelling; (iii) supply *RH* variant allele frequencies from this population estimated on a **single harmonised platform** and therefore comparable between centres without confounding by assay `[no priority claim — see §1.4]`; (iv) provide the input parameters for modelling the probability of finding RH-genotype-matched units for transfusion-dependent SCD/thalassaemia recipients. None of these outputs depends on the study finding a high discordance rate; a low discordance rate is an equally reportable and equally publishable result (`CLAUDE.md` §1.4).
 
 ---
 
@@ -288,7 +290,7 @@ Blood-transfusion services in **at least two, and preferably ≥3, GCC states**.
 
 ### 6.4 Sample size
 
-**To be supplied by `biostatistics-expert`** (working in parallel per D031; deliverable in `05_Analysis/`). No sample size is stated here, and none may be inserted into this protocol except from that deliverable.
+**Supplied and adopted (D039): n = 3,000 donors as 12 centres x 250**, precision-based. Wilson primary; Clopper-Pearson when count <=5 or >=n-5; exact bound for zero cells; Wald nowhere. Allocation dominates total n (12x250 gives n_eff 808 vs 466 for 6x500), so **centre recruitment is the binding feasibility constraint**. Full justification: `05_Analysis/_working/05_pilot03-sample-size-justification_v1.0_2026-09-11.md`; every value traced in `NUMBER_REGISTRY.csv`. None may be inserted into this protocol except from that deliverable.
 
 The inputs the sample-size calculation must work from, with their provenance and their limitations, are tabulated in §6 of `01_Protocol/_working/01_pilot03-methods-scoping_v1.0_2026-09-11.md`. The methodological requirements the calculation must satisfy are:
 
@@ -541,7 +543,7 @@ This is an estimation study, not an effect-estimation study, so "confounder" car
 Primary data generated by this study: donor enrolment record, serology worksheet, molecular run records, adjudication forms. No routinely-collected clinical data are extracted beyond the eligibility and demographic fields in §9.1.
 
 ### 10.2 Literature/search strategy reference
-This is a primary study; no systematic search underpins its results. The background evidence base is documented in `01_Protocol/_working/01_pilot03-methods-scoping_v1.0_2026-09-11.md`, which records the searches performed, the databases used (PubMed via MCP, SciSpace), and — importantly — the search limitations. Director decision D024 records the specific retrieval failure mode that concealed Ameen 2020: multi-antigen panel studies evade antigen-specific search strings. Any pre-submission literature update must run broad panel-level strings in addition to RH-specific ones.
+This is a primary study; no systematic search underpins its results. The background evidence base is documented in `01_Protocol/_working/01_pilot03-methods-scoping_v1.0_2026-09-11.md`, which records the searches performed, the databases used (PubMed via MCP, SciSpace), and — importantly — the search limitations. Director decision **D024 was withdrawn as factually false (D036)**: Ameen 2020 was never concealed — PILOT-02 string P4 retrieved it and the log printed its PMID. The real failure was one of **reconciliation** — records were retrieved, tabulated, and then contradicted by a summary sentence written below the table. The governing evidence base for this protocol is `02_Search/_working/PILOT03_GATE_LOG.md`. Any pre-submission literature update must reconcile every summary claim against its own retrieval list, and run broad panel-level strings in addition to RH-specific ones.
 
 **`[UNVERIFIED]`** — the registry check has **not** been performed. Registries (ClinicalTrials.gov, WHO ICTRP, SCTR, OSF, ISRCTN) are not reachable from this environment (D030), and a negative web search is not evidence of absence (D019, D025). Whether a registered or ongoing GCC RH-genotyping study already exists is **unknown**. This is an access limitation, not a finding. It is escalated to Dr. Alanazi and carried into G1 as a declared residual risk.
 
@@ -745,7 +747,7 @@ Risks are ordered by the product of likelihood and consequence for the study's v
 | R12 | **A registered/ongoing GCC study duplicates this one** | Wasted effort; a scoop | §10.2 escalated to PI for manual registry search; direct enquiry to national blood services of Qatar, Bahrain, UAE, Kuwait, and to the Jazan and Oman groups, recommended | **Unresolved (U2).** |
 | R13 | **Vendor conflict of interest in a single-platform study** | Credibility of the concordance estimate | §14.6 mandatory declaration whether or not support is received | Low if declared. |
 | R14 | **Scope creep in the S9 modelling extension** | An exploratory simulation presented as a finding | §12.6 explicitly exploratory; full parameter provenance; no policy recommendation beyond a hedged `[RECOMMENDATION]` | Low. **`[FLAG F7]`** |
-| R15 | **Attrition of a participating centre mid-study** | Loss of the multi-centre claim, which is the study's central differentiator | Minimum of two states with a stated contingency; if the study reduces to one centre it **must be reported as single-centre**, and the rationale in §1.3 no longer holds | Moderate; an honest re-framing, not a re-labelling, is the only acceptable response. |
+| R15 | **Attrition of a participating centre mid-study** | Loss of the multi-centre design property — which §1.3.4 item 2 explicitly records as **the weakest claim in the protocol and not load-bearing** | Minimum of two states with a stated contingency; if the study reduces to one centre it **must be reported as single-centre**. The §1.3.2 rationale (Saudi allele-level resolution) and the §1.3.5 clinical motivation both survive that reduction; only §1.3.4 item 2 is lost | Moderate; an honest re-framing, not a re-labelling, is the only acceptable response. |
 
 ---
 
