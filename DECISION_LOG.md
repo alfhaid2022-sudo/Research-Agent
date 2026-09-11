@@ -43,3 +43,32 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Decision:** (b).
 **Basis:** Describing an unexecuted search as executed is fabrication of methods and is detectable at peer review. A PubMed+SciSpace search is defensible for a scoping review with the limitation stated; for a full systematic review the PI's institutional access should supply the remaining databases before Gate G2.
 **Decided by:** Principal Research Director
+
+---
+
+### D005 — Pilot project approved: scoping review of RBC alloimmunization in Saudi Arabia and the Gulf
+**Date:** 2026-09-11
+**Context:** PI approved the proposed pilot ("ok approve it").
+**Decision:** Proceed with the JBI/PRISMA-ScR scoping review on red blood cell alloimmunization in transfusion-dependent patients in Saudi Arabia and the Gulf — prevalence, antibody specificities, and matching policy.
+**Basis:** Builds on the PI's own published work (PMID 39662013; and Kuriri et al. 2023, DOI 10.1155/2023/3239960, PI co-author). Achievable within verified environment search limits. Exercises all 15 agents end-to-end.
+**Decided by:** Dr. Fehaid M. Alanazi (PI)
+**Conditional on:** Stage 1 feasibility/duplication check. If an equivalent review already exists, this decision is superseded and the topic is re-scoped.
+
+---
+
+### D006 — Design set as scoping review, not systematic review (assumption pending PI confirmation)
+**Date:** 2026-09-11
+**Context:** PI approved the pilot but did not answer Q2 (institutional database access). Verified: only PubMed + SciSpace are accessible here; Scopus, Embase, Cochrane CENTRAL and Web of Science are not.
+**Options:** (a) wait for the PI's answer before any work; (b) proceed as a scoping review — the design that is honestly defensible on PubMed + SciSpace — and upgrade if institutional access is confirmed before Gate G2.
+**Decision:** (b), stated explicitly to the PI as a working assumption.
+**Basis:** A scoping review's purpose is to map the extent and nature of evidence, and PRISMA-ScR/JBI permit a defined, transparently reported source set. A full systematic review claiming comprehensive retrieval on two databases would be criticised at peer review. Nothing done under this assumption is wasted — added databases extend the same protocol before Gate G2.
+**Decided by:** Principal Research Director (assumption; reversible on PI instruction)
+
+---
+
+### D007 — No original data collection; secondary research on published literature only (assumption pending PI confirmation)
+**Date:** 2026-09-11
+**Context:** PI did not answer Q3 (existing unpublished data / active IRB).
+**Decision:** Scope the pilot as secondary research on published literature. No patient-level data, no IRB requirement.
+**Basis:** Conservative default. A scoping review of published studies does not require ethics approval. If the PI holds unpublished data, an original observational study is sequenced *after* the pilot rather than merged into it — merging would change the design and the reporting guideline (STROBE rather than PRISMA-ScR).
+**Decided by:** Principal Research Director (assumption; reversible on PI instruction)

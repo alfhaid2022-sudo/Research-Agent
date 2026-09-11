@@ -10,10 +10,10 @@
 
 | Item | Value |
 |---|---|
-| **Active project** | None — team established, awaiting pilot approval |
-| **Current stage** | Stage 0: Team setup & capability verification |
-| **Current gate** | Pre-G1 — awaiting PI approval to begin |
-| **Blocked on** | PI decision on pilot topic + 3 setup questions |
+| **Active project** | PILOT-01: RBC alloimmunization in transfusion-dependent patients, Saudi Arabia & Gulf (scoping review) |
+| **Current stage** | Stage 1–2: Feasibility / duplication check + domain scoping |
+| **Current gate** | Working toward **G1** (protocol approval) |
+| **Blocked on** | Nothing. Q2 (database access) & Q3 (unpublished data/IRB) unanswered — proceeding on stated assumptions D006/D007 |
 
 ---
 
@@ -44,9 +44,9 @@
 | # | Stage | Gate | Status |
 |---|---|---|---|
 | 0 | Team setup & capability verification | — | ✅ Complete |
-| 1 | Project intake & feasibility | — | ⬜ Awaiting PI |
-| 2 | Research question & design selection | — | ⬜ |
-| 3 | Protocol & reporting guideline | **G1** | ⬜ |
+| 1 | Project intake & feasibility | — | 🟡 In progress |
+| 2 | Research question & design selection | — | 🟡 In progress |
+| 3 | Protocol & reporting guideline | **G1** | ⬜ Next |
 | 4 | Search-strategy development & peer review | — | ⬜ |
 | 5 | Literature search & deduplication | **G2** | ⬜ |
 | 6 | Screening & full-text eligibility | **G3** | ⬜ |
@@ -77,6 +77,11 @@ Legend: ⬜ not started · 🟡 in progress · 🔴 blocked · ✅ complete
 
 ## Next actions
 
-1. PI answers the 3 setup questions
-2. PI selects/approves pilot project
-3. `methodology-protocol-expert` drafts protocol → **Gate G1**
+1. 🟡 Feasibility/duplication check — is there already an equivalent review? (GO/NO-GO)
+2. 🟡 Domain concept scoping for the PCC framework
+3. ⬜ `methodology-protocol-expert` drafts protocol + PRISMA-ScR checklist → **Gate G1 — PI approval required**
+
+## Pending PI input (non-blocking)
+
+- **Q2 — institutional database access** (Scopus/Embase/Cochrane/WoS): determines whether the design can be upgraded from scoping review to systematic review. Must be resolved before Gate G2.
+- **Q3 — unpublished data / active IRB**: if held, an original observational study (STROBE) is sequenced after this pilot.
