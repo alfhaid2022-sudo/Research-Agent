@@ -203,3 +203,14 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Decision:** The team's deliverable for PILOT-03 is the **protocol and its supporting apparatus** — design, eligibility, variables, laboratory methods specification, statistical analysis plan, sample-size justification, STROBE checklist, data-management plan and IRB-ready documentation. Sample collection, laboratory execution, ethics submission and consent are the PI's, and cannot be performed or simulated here.
 **Basis:** `CLAUDE.md` §1.9 — never simulate a step not actually performed. A protocol is also precisely the artefact an IRB application requires, so this deliverable is useful whether or not sample access already exists, and does not depend on the unanswered question.
 **Decided by:** Principal Research Director
+
+---
+
+### D021 — Early journal/registration scan dispatched in parallel with methods scoping
+**Date:** 2026-09-11
+**Context:** `transfusion-medicine-expert` is scoping RH genotyping methods. D014 requires parallelism to be judged on **outcome dependence**, not merely on write conflicts.
+**Decision:** Dispatch `journal-submission-expert` concurrently for an **early scan only** — target journal landscape, and critically, whether candidate journals require prospective registration of observational studies and which reporting standard they mandate. This is explicitly **not** the Stage 13 final journal selection, which still happens after the manuscript exists.
+**Basis for concurrency:** the scan's inputs are the study *type* (primary observational laboratory study), *topic* (donor RH genotyping) and *region* (GCC) — all fixed by D018. None depends on which alleles or platform the methods scoping selects, so a change in that output cannot void this work. The two agents also write disjoint files (`09_Journal/` vs `01_Protocol/`).
+**Basis for doing it now rather than at Stage 13:** prospective registration must happen **before** data collection, and `CLAUDE.md` §5 requires the reporting guideline to be fixed in the protocol. Both are Gate G1 inputs. Discovering a registration requirement after the protocol is approved and samples are collected would be unrecoverable — registration cannot be applied retrospectively without disclosing it as retrospective.
+**Risk of voiding:** low. PILOT-03's novelty is established and verified (D019) and its design is fixed (D018), so the scan's premises are stable.
+**Decided by:** Principal Research Director

@@ -33,3 +33,4 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D018 PILOT-03 opened; D019 feasibility not re-run (novelty already verified); D020 wet-lab/regulatory scope boundary`
 - `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · PILOT-03 Stage 2-3`
 - `2026-09-11 · transfusion-medicine-expert · CREATE · 01_Protocol/_working/PILOT03_METHODS_SCOPING_2026-09-11.md · RH genotyping methods scoping`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D021 early journal/registration scan dispatched in parallel with methods scoping`
