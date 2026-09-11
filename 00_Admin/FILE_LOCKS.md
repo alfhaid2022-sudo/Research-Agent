@@ -4,7 +4,8 @@
 
 | File / path | Locked by | Claimed (UTC) | Released | Purpose |
 |---|---|---|---|---|
-| _(none — no active project)_ | | | | |
+| `02_Search/_working/FEASIBILITY_SEARCH_LOG.md` | literature-search-expert | 2026-09-11 07:5x | 🟡 active | Stage 1 duplication check |
+| `01_Protocol/_working/DOMAIN_SCOPING_2026-09-11.md` | transfusion-medicine-expert | 2026-09-11 07:5x | 🟡 active | Stage 2 domain concept scoping |
 
 ## Safe to parallelize
 - Independent searches across different databases/concepts
