@@ -497,3 +497,17 @@ The common mechanism is not carelessness about evidence. It is **announcing a co
 
 **Still open and NOT claimed as fixed:** §1.1's back-calculated Halawani figures (50/385, 7/53) presented as `[EVIDENCE]` when the full text reports 50 as the combined total — a `CLAUDE.md` §1.3 breach requiring the source to be re-read; `PROJECT_STATUS.md` M4 residue and new staleness; the protocol's missing citation of the gate log in several places; U17, the reference list still not citation-verified; and all items the auditor listed as unverifiable (Ameen's panel, the thesis full text, Al-Riyami full text, retraction status of every cited record, all registries).
 **Decided by:** Principal Research Director, accepting the auditor's verdict and its diagnosis of the Director in preference to the Director's own
+
+---
+
+### D044 — Halawani back-calculation corrected at source; the source itself is internally inconsistent
+**Date:** 2026-09-11
+**Context:** Audit MAJOR finding — protocol §1.1 presented "50/385 SCD (12.98%)" and "7/53 thalassaemia (13.21%)" as `[EVIDENCE]`. `CLAUDE.md` §1.3 prohibits back-calculation unless pre-specified, documented and flagged as derived. It was none of those.
+**Verified by the Director** using `get_full_text_article` on PMC9017690 — the tool the search agent had not attempted and whose omission the re-audit exposed. Applying that lesson resolved this finding on the first attempt.
+**Finding 1 — the numerators were fabricated by arithmetic.** Halawani 2022 (PMID 35450032) reports **rates only**. Its Discussion states "56 antibodies were detected in **50 immunized patients**" — **50 is a combined total across both disease groups**, not an SCD numerator, exactly as the auditor stated. The protocol's "50/385" was 12.98% × 385 rounded, and "7/53" was 13.21% × 53 rounded. Both are now recorded as **`NR`**.
+**Finding 2 — the source is internally inconsistent, which the Director records rather than resolves `[UNCERTAIN]`:**
+- Results state **57** patients had positive antibody screening; the stated group rates imply 57 alloimmunised **plus** 4 autoimmunised (61).
+- Commonest-antibody frequencies differ across the same paper: Abstract anti-E 17.19% / anti-K 14.06%; Results anti-E 19.64% / anti-K 14.28% (SCD only); Discussion anti-E 17.9% / anti-K 14.06%.
+**Decision:** only the two published **rates** may be cited from this source, explicitly as rates. **No count derived from it may enter any PILOT-03 output.** The correction is written into §1.1 in place, naming the earlier error, so the record is auditable rather than silently amended.
+**Wider significance:** this is the first defect found in an **external source** rather than in the team's own reasoning. It vindicates the rule against back-calculation on grounds beyond principle — the arithmetic looked clean and produced plausible integers, and only the full text revealed that one of them meant something else entirely. It also demonstrates why `U17` (the reference list has never been citation-verified) is a genuine blocker: if one of the few externally-checked citations contained this, the unchecked remainder cannot be assumed sound.
+**Decided by:** Principal Research Director
