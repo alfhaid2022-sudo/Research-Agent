@@ -10,6 +10,7 @@ A 15-agent research system for Dr. Fehaid M. Alanazi (Associate Professor & Cons
 
 | If you want to… | Read |
 |---|---|
+| **Actually use this — start here** | [`USAGE.md`](USAGE.md) |
 | Understand the rules every agent obeys | [`CLAUDE.md`](CLAUDE.md) |
 | See current state, gates and blockers | [`PROJECT_STATUS.md`](PROJECT_STATUS.md) |
 | Follow every decision and its reasoning | [`DECISION_LOG.md`](DECISION_LOG.md) — 46 entries, append-only |
