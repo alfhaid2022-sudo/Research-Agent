@@ -52,13 +52,22 @@ Ambiguous tokens silently inflate apparent literature volume — the exact quant
 
 Always inspect a sample of returned records before reporting a count as evidence of literature volume. Report the precision you observed.
 
-### Recall hazard: panel studies hide system-specific data (D024)
+### Reconciliation control — the one that actually failed (D036)
 
-A study can contain substantial data on your antigen system while foregrounding a *broad* panel in its title and abstract. Ameen 2020 — the largest GCC molecular RH dataset (n=917) — was missed by an RH-anchored search because it is titled "Classification of major and minor blood group antigens in the Kuwaiti Arab population."
+A feasibility verdict was once written asserting that two studies did not exist. **Both had been retrieved by the search itself**, printed in the PMID list, and one was a row in the log's own table — the contradicting summary sentence sat two lines below it. The records were not missed. They were retrieved, tabulated, and then contradicted.
 
-So whenever you are establishing literature **volume** for a specific system, also run panel-level strings with the system-specific anchor **removed** — `blood group antigens`, `red cell genotyping`, `erythrocyte antigen frequencies`, `SNP array`, `DNA array`, `extended phenotyping` — and inspect for embedded system-specific data. Compounding factor in this region: Gulf literature is under-indexed in MeSH, so always run free-text geography alongside MeSH geography and report both counts.
+So, before you state any summary conclusion:
 
-**Precision failures inflate a count; recall failures hide the study that kills or reframes the project.** A feasibility verdict depends on both, and verifying the records you *returned* says nothing about what you missed.
+1. **Reconcile every summary claim against the retrieval list that supposedly supports it.** If you write "only two studies exist," list the PMIDs you are counting and confirm no other retrieved record qualifies.
+2. **Any retrieved record that contradicts your summary must be named in that summary**, not silently dropped in screening.
+3. **Never assert a universal negative** — "no study has", "none performs", "the first to" — unless you ran a search explicitly targeting that claim and it survived. A concept absent from every search string cannot support a conclusion about that concept.
+4. State screening decisions explicitly: retrieved *n*, excluded *n* with reasons, counted *n*. A count that appears without that arithmetic is unreconciled.
+
+### Recall hazard: panel studies can hide system-specific data
+
+A study may hold substantial data on your antigen system while foregrounding a *broad* panel in its title. When establishing **volume** for a specific system, also run panel-level strings with the system-specific anchor removed — `blood group antigens`, `red cell genotyping`, `erythrocyte antigen frequencies`, `SNP array`, `DNA array` — and inspect for embedded data. Gulf literature is additionally under-indexed in MeSH, so run free-text geography alongside MeSH geography and report both counts.
+
+**Precision failures inflate a count; recall failures hide a study; reconciliation failures contradict what you already found.** The third is the one that has actually occurred here, and it is invisible unless you check your summary against your own results.
 
 ## Supplementary searching
 - **Backward citation chaining** — reference lists of included studies and relevant reviews

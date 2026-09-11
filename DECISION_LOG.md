@@ -359,3 +359,50 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 - **F7** — objective S9 (match-probability modelling) is a **simulation**; TRIPOD does not govern it and STROBE does not cover it. D029 lists modelling among the differentiators that must carry the paper, so a headline claim resting on an exploratory simulation is a genuine review vulnerability. Either the modelling is specified to a standard that can carry a claim, or the claim is downgraded.
 - **F8** — the §1.3 rationale depends on the study genuinely being multi-state. If enrolment reduces to a single centre, the rationale requires **re-framing, not re-labelling** — this is the D022 failure mode in advance.
 **Decided by:** Principal Research Director (adoptions); PI decision required (escalations)
+
+---
+
+### D035 — AUDIT VERDICT FAIL ACCEPTED. Gate G1 HALTED. D022 and D029 corrected.
+**Date:** 2026-09-11
+**Context:** `integrity-auditor` returned **FAIL** on the interim process audit (`10_Audit/_working/10_interim-process-audit_v1.0_2026-09-11.md`). Under D002 the Director may not override it. The Director does not seek to.
+**Accepted without qualification. Gate G1 is HALTED.** The protocol draft v0.1 may not be presented for PI approval while its stated rationale is false.
+
+**C1 — the finding that matters.** D022 and D029 assert universal negatives that the project's own verified evidence refutes. Both verified by the Director on receipt of the audit:
+1. *"none performs a concordance analysis"* (D022) — **FALSE.** Al-Riyami 2021, PMID 34647328, DOI 10.1111/vox.13204, states its aim as "to assess the concordance rate with obtained phenotypes" and reports "Concordance rate was >95% in all blood group systems with exception of Fy(b+) (87%)," across 130 paired samples including RH.
+2. *"RHD genotyping of D-positive donors, which no GCC study has done"* (D029) — **FALSE.** Alalshaikh 2024, PMID 39055072, genotyped 70 RhD-**positive** donors and reports the gene detected in 79% of them.
+3. *"DEL screening, which no GCC study has done"* (D029) — **UNVERIFIED**, not established. Ameen 2020's array panel content could not be read.
+
+**The aggravating fact.** D022 was the entry that diagnosed this exact failure mode — "verifying returned records says nothing about what a search missed" — and in the same entry committed it twice more. Both refuting abstracts were in the Director's own context window when the claims were written. This is not a retrieval failure and not a subagent failure. The Director read the evidence, then asserted its opposite. The corrective written into D022 was therefore inadequate, because it located the fault in the search rather than in the Director's own inference from correctly retrieved material.
+
+**C2 — the reframed rationale was never searched.** Grep across both feasibility logs returns **zero** occurrences of `concordan*`, `discordan*`, `kappa`, `agreement`, `multi-cent*` and `prospectiv*`. D022 defined the gap using precisely the concepts no search string contained. A gap asserted without a search for it is an assertion, not a finding.
+
+**C3 — D019's waiver of D014 does not survive.** "Re-running the *identical* searches" was a category error: PILOT-02 asked a **volume** question, PILOT-03 asks a **design-duplication** question, and C2 proves the strings were not identical. `PROJECT_STATUS.md` recording Stage 1 as "Run twice" conceals that **the active project has never been gated at all.** Corrected below.
+
+**M1 — the D022 correction was incomplete.** D015 Finding 2 carries the identical false count ("only two donor-cohort molecular studies") and was never superseded, while being the cited basis for D016 → D018. **D015 Finding 2 is hereby superseded**; D015's *decision* stands, because Finding 1 (self-duplication against PMID 39967527) is decisive and independently verified.
+
+**Positive finding, recorded with equal prominence per `CLAUDE.md` §1.4:** the auditor independently re-verified 19 PubMed records covering 100% of load-bearing citations across eleven decisions. Every record exists; every quoted figure reconciles to source, including Madkhali's 18.3% traced to Table 1 (11/60) via PMC full text. **No fabricated citation anywhere.** The citation-verification habit works. Every defect above is a faulty *inference from correctly verified records* — a distinct failure mode that citation checking cannot detect, and which no control in `CLAUDE.md` currently catches.
+**Decided by:** Principal Research Director, accepting the auditor's verdict in full
+
+---
+
+### D036 — D024 is FALSE and was propagated into agent instructions. Withdrawn and replaced.
+**Date:** 2026-09-11
+**Context:** Audit finding M2, verified by the Director against the search log.
+**What D024 claimed:** that Ameen 2020 was *missed* by RH-anchored searching, diagnosed as a recall failure, with a "panel studies evade antigen-specific strings" lesson written into `literature-search-expert.md`.
+**What actually happened:** search string P4 — an RH-anchored string — **retrieved both** PMID 32527616 and PMID 39055072; the log prints all eleven PMIDs at line 42, and Alalshaikh appears as a table row at line 165. The records were retrieved, tabulated, and then contradicted by the summary sentence written two lines below the table. **This was a screening and reconciliation failure, not a recall failure.**
+**Consequence of the error:** the search agent was taught a false example, and — worse — the *real* control was never created. D024 thus made the system less safe while appearing to harden it.
+**Decision:** D024 is **withdrawn**. Its guidance is removed from `literature-search-expert.md` and replaced with the control the incident actually warrants: **every summary claim must be reconciled against the retrieval list that supposedly supports it, and any record contradicting a summary statement must be named in that statement.** The panel-search guidance is retained as generally sound practice but explicitly stripped of the false Ameen example.
+**Decided by:** Principal Research Director
+
+---
+
+### D037 — PILOT-03 returned to Stage 1. The reframed rationale will be gated before any protocol advances.
+**Date:** 2026-09-11
+**Context:** C2 and C3. The protocol draft v0.1 is written from an unsearched and partly false rationale.
+**Decision:**
+1. **Gate G1 halted.** Protocol v0.1 is retained as a working artefact, marked as resting on a superseded rationale. It is not discarded — its methodological content (adjudication procedure, reference/index justification, RoB framing) is independent of the novelty argument and survives.
+2. **A genuine Stage 1 gate is run for PILOT-03**, searching the concepts D022 actually named: concordance/discordance, phenotype–genotype agreement, multi-centre, prospective donor cohorts — the design-duplication question, not the volume question.
+3. **No universal negative ("no study has", "none performs", "first to") may enter any PILOT-03 document** unless a search explicitly targeting that claim has been run and logged, and the claim survives it. This is now a standing rule, added to `CLAUDE.md`.
+4. The auditor's narrower candidate gap — **partial-D-resolving *RHD* genotyping in D-positive GCC donors, and allele-level resolution of Madkhali's unresolved 18.3%** — is a candidate for that gate, not a conclusion from it.
+**Basis:** the auditor's closing instruction: "Run the gate, then write the gap." The order was reversed twice; reversing it a third time would be a pattern, not an error.
+**Decided by:** Principal Research Director

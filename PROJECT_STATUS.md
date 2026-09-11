@@ -11,8 +11,8 @@
 | Item | Value |
 |---|---|
 | **Active project** | **PILOT-03** — primary multi-centre GCC donor RHD/RHCE genotyping study (D018) |
-| **Current stage** | Stage 3: protocol drafting + sample size (parallel, D031) |
-| **Current gate** | Working toward **G1** (protocol approval) |
+| **Current stage** | **Returned to Stage 1** — PILOT-03's rationale was never gated (D037) |
+| **Current gate** | **G1 HALTED** by audit FAIL (D035). Not presentable while the rationale is false |
 | **Blocked on** | Nothing. PI's sample/IRB/genotyping access (Q3) still unanswered but **non-blocking** — the deliverable is the protocol, which is what an IRB application needs (D020) |
 
 ---
@@ -44,9 +44,9 @@
 | # | Stage | Gate | Status |
 |---|---|---|---|
 | 0 | Team setup & capability verification | — | ✅ Complete |
-| 1 | Project intake & feasibility | — | ✅ Run twice — **NO-GO** both times |
+| 1 | Project intake & feasibility | — | 🔴 **PILOT-03 never gated** — run for PILOT-01/02 only (D037 C3) |
 | 2 | Research question & design selection | — | ✅ Primary observational lab study (D018) |
-| 3 | Protocol & reporting guideline | **G1** | 🟡 Drafting |
+| 3 | Protocol & reporting guideline | **G1** | 🔴 Halted — draft rests on superseded rationale |
 | 4 | Search-strategy development & peer review | — | ⬜ |
 | 5 | Literature search & deduplication | **G2** | ⬜ |
 | 6 | Screening & full-text eligibility | **G3** | ⬜ |

@@ -1,3 +1,12 @@
+> [!WARNING]
+> **SUPERSEDED RATIONALE — NOT PRESENTABLE AT G1 (D035, D037).**
+> The novelty argument in §1.3 rests on universal negatives shown to be false by audit on 2026-09-11:
+> "none performs a concordance analysis" is refuted by Al-Riyami 2021 (PMID 34647328), and
+> "no GCC study has genotyped RHD in D-positive donors" by Alalshaikh 2024 (PMID 39055072).
+> The rationale was also never searched (audit C2). Gate G1 is halted pending a genuine Stage 1 gate.
+> **The methodological content below — adjudication procedure, reference/index justification, RoB framing,
+> discordance taxonomy — is independent of the novelty argument and survives.**
+
 # PILOT-03 — Study Protocol
 
 **Full title:** Serology–genotype concordance and *RHD*/*RHCE* variant allele frequencies in Gulf Cooperation Council blood donors: a multi-centre, prospective, cross-sectional laboratory study (PILOT-03)

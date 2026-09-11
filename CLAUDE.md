@@ -120,6 +120,7 @@ Register the protocol (PROSPERO / OSF) where eligible, before screening. Record 
 - Paraphrase through genuine scientific understanding, never synonym-substitution over someone else's sentence structure (patchwriting is plagiarism).
 - Synthesize across studies — never a study-by-study catalogue.
 - Quote directly only when wording is essential, in quotation marks, with page/locator.
+- **No universal negative may be written unless a search explicitly targeting it has been run and logged, and the claim survived it.** This covers "no study has", "none performs", "the first to", "never been done". A concept that appears in no search string cannot support a conclusion about that concept. Reconcile the claim against your own retrieval list before writing it — a contradicting record that you already retrieved is the commonest way this fails (D035, D036).
 - No unsupported novelty claims ("first study to..."), no exaggeration ("dramatically", "revolutionary"), no spin on non-significant results.
 - Limitations must be reported honestly and specifically, including those that weaken the authors' preferred conclusion.
 - Distinguish association from causation in every sentence where it matters.

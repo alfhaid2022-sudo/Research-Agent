@@ -51,3 +51,9 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · methodology-protocol-expert · CREATE · 01_Protocol/_working/01_pilot03-strobe-checklist_v0.1_2026-09-11.md · STROBE 1-22 + STARD methods + JBI prevalence domains`
 - `2026-09-11 · methodology-protocol-expert · CREATE · 01_Protocol/_working/PROTOCOL_DEVIATIONS.md · Deviation log stub, inactive until G1 freeze`
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D033 parallel risk did not materialise; D034 flags F1-F8 triaged`
+- `2026-09-11 · integrity-auditor · CREATE · 10_Audit/_working/10_interim-process-audit_v1.0_2026-09-11.md · Interim audit, verdict FAIL`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D035 FAIL accepted, G1 halted, D022/D029 corrected, D015 Finding 2 superseded; D036 D024 withdrawn as false; D037 PILOT-03 returned to Stage 1`
+- `2026-09-11 · Director · UPDATE · .claude/agents/literature-search-expert.md · Removed false D024 lesson; installed reconciliation control`
+- `2026-09-11 · Director · UPDATE · CLAUDE.md · §7 universal-negative rule added`
+- `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · Corrected "Run twice" concealment; G1 marked halted`
+- `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · Superseded-rationale banner`
