@@ -4,7 +4,9 @@
 
 | File / path | Locked by | Claimed (UTC) | Released | Purpose |
 |---|---|---|---|---|
-| _(none — PILOT-01 stopped; no active project)_ | | | | |
+| `01_Protocol/_working/01_pilot03-protocol_v0.1_*` | methodology-protocol-expert | 2026-09-11 | 🟡 active | Gate G1 protocol draft |
+| `01_Protocol/_working/*strobe*` | methodology-protocol-expert | 2026-09-11 | 🟡 active | STROBE checklist |
+| `05_Analysis/_working/*` | biostatistics-expert | 2026-09-11 | 🟡 active | Sample size + SAP skeleton |
 
 ## Director-write-only files (never delegated)
 

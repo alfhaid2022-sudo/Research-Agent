@@ -40,3 +40,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D026 OSF prospective registration; D027 STROBE+STARD; D028 ISBT nomenclature; D029 mid-tier target, no "first" claim; D030 egress far broader than documented`
 - `2026-09-11 · Director · UPDATE · 00_Admin/CAPABILITY_REPORT.md · Corrected egress scope; added PI-must-verify table`
 - `2026-09-11 · journal-submission-expert · CREATE · 09_Journal/_working/PILOT03_EARLY_JOURNAL_SCAN_2026-09-11.md · Early scan; all journal pages blocked`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D031 protocol and sample-size dispatched in parallel`
+- `2026-09-11 · Director · UPDATE · 00_Admin/FILE_LOCKS.md · Claimed protocol and analysis working files`
+- `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · Stage 3; added PI-must-resolve list for G1`

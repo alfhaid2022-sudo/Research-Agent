@@ -11,7 +11,7 @@
 | Item | Value |
 |---|---|
 | **Active project** | **PILOT-03** — primary multi-centre GCC donor RHD/RHCE genotyping study (D018) |
-| **Current stage** | Stage 2–3: methods scoping → protocol drafting |
+| **Current stage** | Stage 3: protocol drafting + sample size (parallel, D031) |
 | **Current gate** | Working toward **G1** (protocol approval) |
 | **Blocked on** | Nothing. PI's sample/IRB/genotyping access (Q3) still unanswered but **non-blocking** — the deliverable is the protocol, which is what an IRB application needs (D020) |
 
@@ -46,7 +46,7 @@
 | 0 | Team setup & capability verification | — | ✅ Complete |
 | 1 | Project intake & feasibility | — | ✅ Run twice — **NO-GO** both times |
 | 2 | Research question & design selection | — | ✅ Primary observational lab study (D018) |
-| 3 | Protocol & reporting guideline | **G1** | 🟡 Methods scoping running |
+| 3 | Protocol & reporting guideline | **G1** | 🟡 Drafting |
 | 4 | Search-strategy development & peer review | — | ⬜ |
 | 5 | Literature search & deduplication | **G2** | ⬜ |
 | 6 | Screening & full-text eligibility | **G3** | ⬜ |
@@ -77,10 +77,21 @@ Legend: ⬜ not started · 🟡 in progress · 🔴 blocked · ✅ complete
 
 ## Next actions
 
-1. 🟡 `transfusion-medicine-expert` — RH genotyping methods scoping (alleles, platforms, ISBT nomenclature, sample-size inputs)
-2. ⬜ `methodology-protocol-expert` — draft protocol + STROBE checklist from that scoping
-3. ⬜ `biostatistics-expert` — sample-size justification and SAP skeleton
-4. ⬜ **Gate G1 — PI approval of the protocol**
+1. ✅ `transfusion-medicine-expert` — methods scoping (vetoed the Director's premise; D022)
+2. ✅ `journal-submission-expert` — early scan (mid-tier target, register prospectively; D026–D030)
+3. 🟡 `methodology-protocol-expert` — protocol + STROBE checklist
+4. 🟡 `biostatistics-expert` — sample size + SAP skeleton
+5. ⬜ Director integrates, re-verifies citations, checks constraint compliance
+6. ⬜ **Gate G1 — PI approval**
+
+## Items the PI must resolve before G1 can close
+
+| Item | Status |
+|---|---|
+| Current ISBT RH allele table version | `[UNVERIFIED]` — ISBT pages blocked (D028) |
+| Registry check for an ongoing GCC RH-genotyping study | Not performed — registries unreachable (D019) |
+| Per-journal registration policy | `[UNVERIFIED]` — all journal pages blocked (D030) |
+| Sample access, IRB status, genotyping capability | Unanswered since first response (D020) |
 
 ## What this team can and cannot deliver for PILOT-03 (D020)
 

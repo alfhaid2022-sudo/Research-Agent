@@ -311,3 +311,13 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Consequence:** **no journal author-instruction page, bibliometric source, registry or standards body is readable in this environment.** WebSearch returns AI-summarised snippets, not page text, and one returned snippet was internally implausible — so that channel is indicative only and can never support a verified claim. Therefore this team **cannot** verify impact factors, quartiles, CiteScore, APCs, acceptance rates, DOAJ listing, COPE membership, per-journal registration policy, word or figure limits, AI-disclosure policy, or data-sharing policy. All such items are `[UNVERIFIED — registry blocked]` and are escalated to Dr. Alanazi, who has institutional access.
 **Basis:** `CLAUDE.md` §10 requires the capability report to reflect tested reality. The previous report understated the blocking substantially, which risked an agent planning work it could not perform.
 **Decided by:** Principal Research Director
+
+---
+
+### D031 — Protocol drafting and sample-size work dispatched in parallel
+**Date:** 2026-09-11
+**Context:** D014 requires concurrency to be judged on **outcome dependence**, not merely write conflicts. Sample size would normally be downstream of the protocol.
+**Decision:** Dispatch `methodology-protocol-expert` (→ `01_Protocol/`) and `biostatistics-expert` (→ `05_Analysis/`) concurrently.
+**Basis:** the inputs sample size depends on are **already fixed by logged Director decisions**, not pending in the protocol draft: the primary outcomes and unit of analysis (antigen–donor pair) by D025, the agreement metric (kappa with 95% CI) by D027, and the variant-frequency inputs with their provenance by the methods scoping (D025). The protocol *documents* those choices; it does not originate them. The methodology agent is therefore instructed that D025 and D027 are fixed constraints it works within — if it disagrees it must flag the conflict to the Director rather than silently redefine an outcome, which would void the parallel work.
+**Residual risk, accepted:** if the methodology agent surfaces a defensible reason to change the primary outcome definition, the sample-size work is partially voided. Judged low, because those definitions were set by Director decision on domain-expert recommendation and are recorded, not provisional.
+**Decided by:** Principal Research Director
