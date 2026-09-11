@@ -60,3 +60,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D038 gate designed as five falsifiable propositions`
 - `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · Gate running; added open audit-correction tracker`
 - `2026-09-11 · literature-search-expert · CREATE · 02_Search/_working/PILOT03_GATE_LOG.md · PILOT-03 Stage 1 gate log`
+- `2026-09-11 · biostatistics-expert · CREATE · 05_Analysis/_working/*.md,.py,.txt,.sps,NUMBER_REGISTRY.csv · Sample size n=3000 (12x250), SAP skeleton, SPSS syntax, 15-entry number registry`
+- `2026-09-11 · Director · VERIFY · 05_Analysis/_working/05_pilot03-sample-size_v1.0_2026-09-11.py · Re-ran independently; output byte-identical except timestamp`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D039 sample-size package adopted; D040 parallelism cost recorded`
