@@ -63,3 +63,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · biostatistics-expert · CREATE · 05_Analysis/_working/*.md,.py,.txt,.sps,NUMBER_REGISTRY.csv · Sample size n=3000 (12x250), SAP skeleton, SPSS syntax, 15-entry number registry`
 - `2026-09-11 · Director · VERIFY · 05_Analysis/_working/05_pilot03-sample-size_v1.0_2026-09-11.py · Re-ran independently; output byte-identical except timestamp`
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D039 sample-size package adopted; D040 parallelism cost recorded`
+- `2026-09-11 · literature-search-expert · CREATE · 02_Search/_working/PILOT03_GATE_LOG.md · Stage 1 gate: 11 PubMed + 5 SciSpace strings, P1-P5 verdicts`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D041 gate result GO WITH NARROWED CLAIM; 3 of 5 propositions refuted`
+- `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · Rationale replaced with gate-supported wording`

@@ -1,11 +1,28 @@
-> [!WARNING]
-> **SUPERSEDED RATIONALE — NOT PRESENTABLE AT G1 (D035, D037).**
-> The novelty argument in §1.3 rests on universal negatives shown to be false by audit on 2026-09-11:
-> "none performs a concordance analysis" is refuted by Al-Riyami 2021 (PMID 34647328), and
-> "no GCC study has genotyped RHD in D-positive donors" by Alalshaikh 2024 (PMID 39055072).
-> The rationale was also never searched (audit C2). Gate G1 is halted pending a genuine Stage 1 gate.
-> **The methodological content below — adjudication procedure, reference/index justification, RoB framing,
-> discordance taxonomy — is independent of the novelty argument and survives.**
+> [!IMPORTANT]
+> **RATIONALE REPLACED 2026-09-11 following audit FAIL (D035) and the Stage 1 gate (D041).**
+> The original §1.3 novelty argument was false and unsearched. The gate-supported replacement below
+> is the ONLY wording authorised for this protocol. Three of five novelty propositions were refuted.
+>
+> **AUTHORISED RATIONALE — paste verbatim, do not paraphrase:**
+>
+> In a PubMed and SciSpace search executed on 2026-09-11 — without access to Scopus, Embase, Web of
+> Science, Cochrane/CENTRAL, trial registries, Arabic-language journals or the Saudi Digital Library —
+> no study was retrieved that resolves, at ISBT allele level, the *RHD* variants underlying
+> serologically weak or discrepant D in **Saudi** blood donors. The only Saudi donor cohort with *RHD*
+> genotyping (Madkhali et al. 2025, PMID 41147787) applied ID RHD XT to 60 D-negative/weak-D donors and
+> left the weak-D fraction unassigned to specific alleles; the only other (Alalshaikh et al. 2024,
+> PMID 39055072) tested exon 3/4/7 presence and the hybrid Rhesus box only and states that
+> variant-allele analysis remains to be done. **This is a retrieval statement, not an existence claim.**
+> Serology–genotype concordance in Gulf donors has already been reported (Al-Riyami et al. 2021,
+> PMID 34647328; Haffener et al. 2025, PMID 40916454), and allele-level *RHD* resolution including a
+> DEL allele has been reported in an Omani cohort (Al Lawati 2021, DOI 10.24377/LJMU.T.00014274).
+> **No priority or "first" claim is made on any of these grounds.**
+>
+> **PROHIBITED WORDING (false against retrieved records):** "no concordance analysis exists";
+> "no GCC study has screened for DEL"; "first in the Gulf"; any universal negative not separately searched.
+>
+> Methodological content below (adjudication procedure, reference/index justification, RoB framing,
+> discordance taxonomy) was unaffected by the rationale defect and stands.
 
 # PILOT-03 — Study Protocol
 
