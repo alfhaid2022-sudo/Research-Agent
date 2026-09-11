@@ -1,0 +1,8 @@
+# Never commit identifiable or confidential research data
+*_IDENTIFIABLE*
+*_PHI*
+*_RAW_PATIENT*
+.DS_Store
+__pycache__/
+*.pyc
+.env
