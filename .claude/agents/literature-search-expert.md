@@ -52,6 +52,14 @@ Ambiguous tokens silently inflate apparent literature volume — the exact quant
 
 Always inspect a sample of returned records before reporting a count as evidence of literature volume. Report the precision you observed.
 
+### Recall hazard: panel studies hide system-specific data (D024)
+
+A study can contain substantial data on your antigen system while foregrounding a *broad* panel in its title and abstract. Ameen 2020 — the largest GCC molecular RH dataset (n=917) — was missed by an RH-anchored search because it is titled "Classification of major and minor blood group antigens in the Kuwaiti Arab population."
+
+So whenever you are establishing literature **volume** for a specific system, also run panel-level strings with the system-specific anchor **removed** — `blood group antigens`, `red cell genotyping`, `erythrocyte antigen frequencies`, `SNP array`, `DNA array`, `extended phenotyping` — and inspect for embedded system-specific data. Compounding factor in this region: Gulf literature is under-indexed in MeSH, so always run free-text geography alongside MeSH geography and report both counts.
+
+**Precision failures inflate a count; recall failures hide the study that kills or reframes the project.** A feasibility verdict depends on both, and verifying the records you *returned* says nothing about what you missed.
+
 ## Supplementary searching
 - **Backward citation chaining** — reference lists of included studies and relevant reviews
 - **Forward citation chaining** — who cited the key studies

@@ -214,3 +214,48 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Basis for doing it now rather than at Stage 13:** prospective registration must happen **before** data collection, and `CLAUDE.md` §5 requires the reporting guideline to be fixed in the protocol. Both are Gate G1 inputs. Discovering a registration requirement after the protocol is approved and samples are collected would be unrecoverable — registration cannot be applied retrospectively without disclosing it as retrospective.
 **Risk of voiding:** low. PILOT-03's novelty is established and verified (D019) and its design is fixed (D018), so the scan's premises are stable.
 **Decided by:** Principal Research Director
+
+---
+
+### D022 — D019 premise CORRECTED: two further GCC molecular RH datasets exist. Rationale reframed.
+**Date:** 2026-09-11
+**Context:** `transfusion-medicine-expert` exercised its domain veto against the task premise the Director supplied. The Director independently verified both records against PubMed; both are real and the agent's characterisation is accurate.
+**What was wrong:** D019 asserted that "across all six GCC states only two donor-cohort molecular RH studies exist" and that Kuwait had nothing. Both claims are false.
+- **Ameen R, et al.** *Classification of major and minor blood group antigens in the Kuwaiti Arab population.* Transfus Apher Sci 2020;59(4):102748. PMID 32527616, DOI 10.1016/j.transci.2020.102748. **n = 917** Kuwaiti Arab donors, SNP DNA array; reports "weak D 1, 2, 3 phenotypes were not prevalent… however, other RHD variants were detected." Larger than either study named in D019.
+- **Alalshaikh MA, et al.** *Molecular Background of RhD-positive and RhD-negative Phenotypes in a Saudi Population.* Saudi J Med Med Sci 2024;12(3):210-215. PMID 39055072, DOI 10.4103/sjmms.sjmms_664_23. n = 136 Saudi donors; multiplex-PCR exons 3/4/7 plus hybrid Rhesus box zygosity.
+**Root cause — the substantive lesson.** The Director verified every record the PILOT-02 search *returned* and treated that as establishing novelty. Verifying returned records says nothing about what a search **missed**. Completeness and accuracy are different properties, and only accuracy was checked. D019's reasoning — that a finding disqualifying a review simultaneously enables a primary study — remains sound; the count it rested on did not.
+**Effect on PILOT-03:** the project survives, with a **narrower and better-specified** rationale. The defensible gap is no longer "almost no molecular RH data exist in the GCC" but: **no multi-centre, prospectively-sampled, single-platform, serology-anchored RHD/RHCE concordance study exists in the GCC.** Every retrieved study is single-centre or single-country, uses a different platform, and none performs a concordance analysis. That claim is stronger because it is survivable at peer review; the original was not.
+**Decided by:** Principal Research Director, correcting itself on the domain expert's evidence. The veto functioned exactly as the team design intends.
+
+---
+
+### D023 — Madkhali 2025 "first in Saudi Arabia" priority claim is CONTESTED; must not be restated as fact
+**Date:** 2026-09-11
+**Context:** Madkhali 2025 (DOI 10.1111/tme.70040) self-describes as the first RHD/RHCE molecular characterisation in Saudi Arabia. Alalshaikh 2024 (PMID 39055072) predates it and performed Saudi donor RHD genotyping — and Madkhali cites Alalshaikh.
+**Decision:** The priority claim is recorded as contested. No PILOT-03 output may restate it as fact, nor make any "first" claim of its own without a verified search supporting it.
+**Basis:** `CLAUDE.md` §7 prohibits unsupported novelty claims. Repeating another paper's unverified priority claim launders it into our own work. This also stands as direct evidence that "first study to…" claims survive peer review while being wrong, which is why our own are prohibited without verification.
+**Decided by:** Principal Research Director
+
+---
+
+### D024 — Search lesson: multi-antigen panel studies evade antigen-specific strings
+**Date:** 2026-09-11
+**Context:** Ameen 2020 is the largest GCC molecular RH dataset retrieved to date, yet the PILOT-02 feasibility search did not surface it.
+**Probable mechanism:** its title and abstract foreground a *broad* blood-group panel ("major and minor blood group antigens"), with RH reported as one component. Strings anchored on RH/RHD/RHCE-specific vocabulary miss studies where the RH data are real but not the headline. This compounds the known Gulf MeSH under-indexing already observed in PILOT-02, where free-text retrieval returned 14 records against 4 by MeSH geography.
+**Decision:** any search intended to establish literature *volume* for a specific antigen system must additionally run broad panel-level strings ("blood group antigens", "red cell genotyping", "erythrocyte antigen frequencies", "SNP array", "DNA array") without the antigen-specific anchor, and inspect results for embedded system-specific data.
+**Applies to:** `literature-search-expert`; propagated to its standing instructions alongside the D017 precision hazards.
+**Decided by:** Principal Research Director
+
+---
+
+### D025 — Methods recommendations adopted into the protocol brief
+**Date:** 2026-09-11
+**Context:** `transfusion-medicine-expert` returned five substantive design recommendations with its scoping.
+**Adopted as input to `methodology-protocol-expert`, subject to G1:**
+1. **Tiered platform architecture** — one harmonised commercial platform across all sites, with triggered escalation to zygosity/DEL testing, then Sanger, then NGS referral, each with a budgeted n. Rationale: bead/array platforms cannot detect off-panel alleles *by design*, which is what produced Madkhali's unresolved 18.3% "other than weak D 1/2/3" bucket. Platform-vs-platform discordance is a distinct risk class if sites differ.
+2. **Unit of analysis = antigen–donor pair**, with a 7-class discordance taxonomy (C, D1–D7). A bare "% concordance" is not analysable.
+3. **Anti-D clone identity, lot and class recorded as dataset variables**, not a Methods sentence — the serological method itself moves the discordance rate.
+4. **DEL screening included** — the highest-value donor-side target, a proven cause of primary anti-D, never examined in any GCC study; with RHD*Ψ discrimination so D-negative donors are not wrongly discarded.
+5. **hr^S^/hr^B^/V/VS excluded from the primary outcome** unless reference serology is obtainable. Madkhali's figures for these are platform-*predicted*, not serologically confirmed; presenting predicted phenotypes as observed would breach `CLAUDE.md` §2.
+**Carried to G1 as unresolved:** current ISBT RH allele table version `[UNVERIFIED]` — a November 2025 database migration is suggested but ISBT pages were not reachable; must be human-confirmed. Registry check still not performed (registries inaccessible; a negative WebSearch is not evidence of absence).
+**Decided by:** Principal Research Director
