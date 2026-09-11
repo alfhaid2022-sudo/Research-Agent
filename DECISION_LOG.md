@@ -124,3 +124,23 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Root cause:** `CLAUDE.md` §3 requires an agent to claim a file in `FILE_LOCKS.md` before editing, but the Director dispatched two agents having locked only their *working* files (`FEASIBILITY_SEARCH_LOG.md`, `DOMAIN_SCOPING_2026-09-11.md`), not the shared append-only governance files that any agent may write. The lock register was incomplete, so the rule could not prevent the collision.
 **Corrective action:** `DECISION_LOG.md`, `CHANGELOG.md` and `PROJECT_STATUS.md` are added to `FILE_LOCKS.md` as **Director-write-only**. Agents report decisions in their return message; the Director records them. This removes the shared-write path entirely rather than relying on lock discipline.
 **Decided by:** Principal Research Director
+
+---
+
+### D013 — PILOT-02 opened: donor-side antigen architecture and RH variants in GCC populations
+**Date:** 2026-09-11
+**Context:** PI ratified the PILOT-01 stop and approved the donor-side pivot recorded as the candidate in D009.
+**Decision:** Open PILOT-02 on donor red cell antigen architecture in Gulf/GCC populations and its implications for extended matching of transfusion-dependent patients. **Status: feasibility check only.** No design is fixed, no protocol is drafted, and no reporting guideline is selected until Stage 1 returns GO.
+**Basis:** D009. The gap is named by the very systematic review that closed PILOT-01 — Al-Allawi 2025 (PMID 40069098) closes its abstract on "the need for more research on Rhesus variants in this part of the world." It is directly continuous with the PI's own donor-side work (PMID 39662013, 779 Saudi donors).
+**Caveat carried forward:** this gap rests on a single agent's retrievals and has not itself been feasibility-tested. It receives the same Stage 1 gate that closed PILOT-01, with no presumption of passing.
+**Decided by:** Dr. Fehaid M. Alanazi (PI), on the Director's recommendation
+
+---
+
+### D014 — Feasibility runs alone; no parallel scoping until Stage 1 returns GO
+**Date:** 2026-09-11
+**Context:** In PILOT-01 the Director dispatched the feasibility check and domain scoping concurrently. Feasibility returned NO-GO, voiding most of a 184,000-token, 7-minute domain-scoping run whose PCC framework and population tiering were topic-specific and could not be reused.
+**Decision:** Stage 1 feasibility is run **alone** and must return GO before any domain scoping, protocol drafting, or design selection is dispatched.
+**Basis:** Parallelism is only economical when tasks are independent *of each other's outcomes*. Domain scoping is not independent of feasibility — it is downstream of it, and a NO-GO discards it. The two tasks touched disjoint files, which is what the lock rule tests, so file-level independence was satisfied while logical dependence was not. Concurrency must be judged on outcome dependence, not only on write conflicts.
+**Note:** the one part of the voided run that did survive — the eleven documented definitional divergences in alloimmunization reporting — survived precisely because it was *not* topic-specific. That is the exception, not the justification.
+**Decided by:** Principal Research Director

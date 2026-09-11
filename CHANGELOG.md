@@ -24,3 +24,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · .claude/agents/*.md (14) · Appended the governance-write prohibition to every agent with Write access`
 - `2026-09-11 · Director · UPDATE · 00_Admin/FILE_LOCKS.md · Added Director-write-only register; released PILOT-01 locks`
 - `2026-09-11 · transfusion-medicine-expert · CREATE · 01_Protocol/_working/DOMAIN_SCOPING_2026-09-11.md · PCC concept space + 11 documented definitional divergences`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D013 PILOT-02 opened (feasibility only); D014 feasibility runs alone before downstream work`
+- `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · PILOT-02 Stage 1 in progress`
+- `2026-09-11 · literature-search-expert · CREATE · 02_Search/_working/PILOT02_FEASIBILITY_LOG.md · PILOT-02 duplication check search log`

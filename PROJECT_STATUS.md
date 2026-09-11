@@ -10,10 +10,10 @@
 
 | Item | Value |
 |---|---|
-| **Active project** | PILOT-01 **STOPPED** at Stage 1 — topic already published (see D008). Awaiting PI decision on pivot |
-| **Current stage** | Stage 1 complete — NO-GO returned and verified |
+| **Active project** | **PILOT-02** — donor-side antigen architecture & RH variants in GCC populations (feasibility only, D013) |
+| **Current stage** | Stage 1 feasibility running — no design fixed, no protocol drafted |
 | **Current gate** | Pre-G1 — no protocol drafted; project stopped before protocol work began |
-| **Blocked on** | **PI decision**: ratify the stop, and choose the pivot (donor-side gap D009, practice survey, or a different topic entirely) |
+| **Blocked on** | Stage 1 GO/NO-GO verdict. Nothing downstream is dispatched until it returns (D014) |
 
 ---
 
@@ -44,8 +44,8 @@
 | # | Stage | Gate | Status |
 |---|---|---|---|
 | 0 | Team setup & capability verification | — | ✅ Complete |
-| 1 | Project intake & feasibility | — | ✅ Complete — **NO-GO** |
-| 2 | Research question & design selection | — | 🔴 Reset — topic closed |
+| 1 | Project intake & feasibility | — | 🟡 PILOT-02 running (PILOT-01: ✅ NO-GO) |
+| 2 | Research question & design selection | — | ⬜ Held pending Stage 1 |
 | 3 | Protocol & reporting guideline | **G1** | ⬜ Not started |
 | 4 | Search-strategy development & peer review | — | ⬜ |
 | 5 | Literature search & deduplication | **G2** | ⬜ |
@@ -77,9 +77,13 @@ Legend: ⬜ not started · 🟡 in progress · 🔴 blocked · ✅ complete
 
 ## Next actions
 
-1. ✅ Feasibility/duplication check → **NO-GO**, independently verified by the Director
-2. ⬜ **PI ratifies the stop** and selects a pivot
-3. ⬜ Fresh Stage 1 feasibility check on whichever topic is chosen — no protocol work until it passes
+1. 🟡 PILOT-02 Stage 1 feasibility — running alone, per D014
+2. ⬜ Director independently verifies the decisive citations before acting on the verdict
+3. ⬜ If GO: domain scoping, then protocol → **Gate G1 (PI approval)**. If NO-GO: report and re-scope.
+
+## Open question the gate must answer
+
+Whether the gap is **review-shaped** (enough scattered primary studies exist to map) or **primary-research-shaped** (the Gulf RH-variant studies do not exist, so there is nothing to review). This decides whether PILOT-02 is a review at all — and a "too sparse to review, good primary study" answer is a useful finding, not a failure.
 
 ## Why PILOT-01 stopped
 
