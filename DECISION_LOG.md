@@ -539,3 +539,27 @@ So "56 antibodies in 50 immunized patients" describes the **SCD group**, and **5
 **U17 re-scoped, not closed.** The fabrication risk is closed with a zero finding. Six specific correctable blockers remain, all inside the protocol and none requiring new literature.
 **Recorded limitation:** PubMed's `CommentsCorrections` field is not exposed by this MCP server, so **a published erratum cannot be positively excluded** for any cited record. Crossref DOI registration remains unverifiable for all 16.
 **Decided by:** Principal Research Director, retracting its own D044
+
+---
+
+### D046 — All twelve citation-verification blockers closed; U17 discharged
+**Date:** 2026-09-11
+**Context:** D045 left six blocker classes (C1, D1–D3, V1–V2, P1–P7) plus incomplete citation fields. All are now corrected in the protocol, each edit individually verified as applied.
+**Closed:**
+- **C1** — the false "Haffener's *RHD* results are behind egress blocks" row rewritten; P3 now rests on Ameen 2020 alone as the single unread limb.
+- **D1** — Halawani numerators, third and final form: `[DERIVED]` with the derivation shown, never `[EVIDENCE]`.
+- **D2** — "Deepest *RHCE* dataset in the region" superlative removed.
+- **D3** — Al Lawati row no longer asserts donor status; the source says "dry blood samples … from Omani cohort" and never says *donor*. The count of six datasets is flagged as depending on it.
+- **V1** — Rodrigues 2021 co-citation marked `[UNVERIFIED — full text needed]`; its abstract reports no clone-level result and no PMC record exists. The claim rests on Srivastava 2022, verified from full text. Also recorded: PubMed types Rodrigues as `Clinical Trial`, an indexing artefact for an observational donor study — **it must not be described as a trial.**
+- **V2** — the Al-Riyami concordance-column negative claim qualified to "not described in the abstract," since the full text is unreadable and the gate log records 14/112 Fy^b^ discrepancies that *were* adjudicated.
+- **P1** — the "61" figure tagged `[INFERENCE — this protocol's arithmetic]`.
+- **P2** — the "three different anti-E frequencies" overstatement withdrawn (already in D045).
+- **P3** — Haffener's "12 discordances investigated" corrected in both loci to: candidates proposed for **4**, genotyping error in **1**, **7 MNS unresolved**. That 58% non-resolution rate is now recorded as a **feasibility datum for this protocol's own adjudication workflow** — a directly useful finding, not merely a correction.
+- **P4** — modality drift repaired in two places: the source says high-sensitivity testing **"can reduce"** misclassification, inferred from finding no weak D in either screening population; it did not measure a reduction.
+- **P5** — the Srivastava claim narrowed to "clones vary in reactivity"; it is an n=1 case report and states no rate.
+- **P6** — the East/Southeast Asian repertoire limb demoted to `[HYPOTHESIS]`: Madkhali's non-Saudi group contained **2 of 110** East/SE Asian donors (Nepal 1, Philippines 1), which cannot support a repertoire claim. The African-ancestry limb is well supported by the same paper and is unaffected. Stratification is retained as a design rationale, not as evidence.
+- **P7** — Ameen's "no numerator given" relabelled `[UNVERIFIED]`; it was a claim about a full text that could not be read.
+- **Incomplete fields** — seven missing PMIDs added (Meshi 38947563, Kim 19726900, Owaidah 36883669, Srivastava 35852060, Rodrigues 33867285, de Paula Vendrame 31587310, Flegel 40537781); Vege & Westhoff completed with year, book title and publisher, pages left `[UNVERIFIED — registry blocked]`, and its referral-panel enrichment recorded so its discordance *rate* is not transferred to an unselected donor population.
+**Retraction notices retained deliberately.** A sweep confirms "50/385", "7/53", "three different anti-E" and "behind egress blocks" survive **only inside the correction notices that retract them**. Naming a retracted claim is what makes the correction auditable; removing the words entirely would erase the evidence that the error occurred.
+**U17 is discharged** as a reference-verification blocker. Standing limitations, unchanged and not closable here: Crossref DOI registration unverifiable for all 16 records; PubMed's `CommentsCorrections` field not exposed by this MCP, so **a published erratum cannot be positively excluded** for any record; and three full texts unreadable (Ameen 2020, Al-Riyami 2021, Al Lawati 2021 beyond abstract).
+**Decided by:** Principal Research Director
