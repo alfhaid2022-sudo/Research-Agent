@@ -1,0 +1,31 @@
+PILOT-03 SESSION / VERSION INFORMATION
+Generated: 2026-09-11T09:02:30+00:00
+Host platform: Linux 6.18.44-fc-v24 x86_64 GNU/Linux
+
+--- python -V ---
+Python 3.11.15
+
+--- package versions ---
+numpy          2.4.6
+scipy          1.17.1
+pandas         3.0.5
+statsmodels    0.15.0
+matplotlib     3.11.1
+openpyxl       3.1.5
+
+--- SPSS ---
+SPSS: NOT INSTALLED. Not on PATH. No SPSS output exists or is claimed (D003, CLAUDE.md 1.9).
+
+--- file hashes (this deliverable set) ---
+fad6d24be11c6c25a5ae14d596eb2e82ca9da502681feacb1604434fe16005f8  05_pilot03-sample-size_v1.0_2026-09-11.py
+490d99e0ab9216cfbf14906ef947d0f8c9930c55b731d97f769496a2140e3bae  05_pilot03-sample-size-output_v1.0_2026-09-11.txt
+239a0ce6b6334e90607887799cfb95e0f8dd6ee2df0a2241e4f8f4b558d5bcae  05_pilot03-sample-size-and-analysis_v1.0_2026-09-11.sps
+9a66f7ae582560e71c9bcffc7191f3d7c409e36f9e2ce78330a43e5e732313cf  05_pilot03-sample-size-justification_v1.0_2026-09-11.md
+2154e23bfa8564ebbf01df3bebb4578aa3e9a384d033bd587ee2015ce157b06f  05_pilot03-sap-skeleton_v1.0_2026-09-11.md
+65b8c1bf563afc0a17129cf01c4dd50f63e658023cb5eccfad337fcfc66e013f  NUMBER_REGISTRY.csv
+
+--- input document hash ---
+1c8fb28d09aad05919b9368b54d1068762e1a3f5d039020af45f4efabe8c3599  /home/user/Research-Agent/01_Protocol/_working/01_pilot03-methods-scoping_v1.0_2026-09-11.md
+
+--- analysis dataset ---
+NONE. No PILOT-03 data exist. All artefacts are pre-specification (Gate G4 pending).

@@ -11,7 +11,7 @@
 | Item | Value |
 |---|---|
 | **Active project** | **PILOT-03** — primary multi-centre GCC donor RHD/RHCE genotyping study (D018) |
-| **Current stage** | **Returned to Stage 1** — PILOT-03's rationale was never gated (D037) |
+| **Current stage** | Stage 1 gate **running** — five falsifiable propositions, each individually searched (D038) |
 | **Current gate** | **G1 HALTED** by audit FAIL (D035). Not presentable while the rationale is false |
 | **Blocked on** | Nothing. PI's sample/IRB/genotyping access (Q3) still unanswered but **non-blocking** — the deliverable is the protocol, which is what an IRB application needs (D020) |
 
@@ -44,7 +44,7 @@
 | # | Stage | Gate | Status |
 |---|---|---|---|
 | 0 | Team setup & capability verification | — | ✅ Complete |
-| 1 | Project intake & feasibility | — | 🔴 **PILOT-03 never gated** — run for PILOT-01/02 only (D037 C3) |
+| 1 | Project intake & feasibility | — | 🟡 PILOT-03 gate running (PILOT-01/02: ✅ NO-GO) |
 | 2 | Research question & design selection | — | ✅ Primary observational lab study (D018) |
 | 3 | Protocol & reporting guideline | **G1** | 🔴 Halted — draft rests on superseded rationale |
 | 4 | Search-strategy development & peer review | — | ⬜ |
@@ -77,12 +77,26 @@ Legend: ⬜ not started · 🟡 in progress · 🔴 blocked · ✅ complete
 
 ## Next actions
 
-1. ✅ `transfusion-medicine-expert` — methods scoping (vetoed the Director's premise; D022)
-2. ✅ `journal-submission-expert` — early scan (mid-tier target, register prospectively; D026–D030)
-3. 🟡 `methodology-protocol-expert` — protocol + STROBE checklist
-4. 🟡 `biostatistics-expert` — sample size + SAP skeleton
-5. ⬜ Director integrates, re-verifies citations, checks constraint compliance
-6. ⬜ **Gate G1 — PI approval**
+1. 🟡 **Stage 1 gate running** — five propositions P1–P5, each separately searched (D038)
+2. ⬜ Director verifies refuting PMIDs independently
+3. ⬜ If anything survives: rewrite §1.3 rationale to the *exact wording* the gate supports
+4. ⬜ Re-audit the rewritten rationale before it moves
+5. ⬜ **Gate G1 — PI approval**
+
+## Audit FAIL — open corrections
+
+| Finding | Status |
+|---|---|
+| C1 — D022/D029 false universal negatives | ✅ Corrected (D035) |
+| C2 — rationale never searched | 🟡 Gate running now |
+| C3 — D019 waiver / "run twice" concealment | ✅ Corrected (D035, status table above) |
+| M1 — D015 Finding 2 false count | ✅ Superseded (D035) |
+| M2 — D024 false, propagated to agent | ✅ Withdrawn, real control installed (D036) |
+| M3 — D031 overstates what is fixed | ⬜ Open |
+| M4 — PROJECT_STATUS review-era residue | 🟡 Partly corrected; R1/Q2/stages 4–6 still stale |
+| M5 — CAPABILITY_REPORT tool miscount | ⬜ Open |
+| m1–m10 minor | ⬜ Open |
+| U17 — reference list not citation-verified | ⬜ Open — blocks G1 |
 
 ## Items the PI must resolve before G1 can close
 

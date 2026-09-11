@@ -291,6 +291,8 @@ DATASET NAME hwe WINDOW=FRONT.
 COMPUTE n_tot  = n_AA + n_AB + n_BB.
 COMPUTE n_A    = 2*n_AA + n_AB.
 COMPUTE n_B    = 2*n_BB + n_AB.
+SELECT IF (n_tot > 0 AND n_A > 0 AND n_B > 0).
+* ^ guard: the placeholder row above is all zeros. Replace it with real counts.  .
 * Exact conditional probability of a heterozygote count h given n_A, n_B, n_tot  .
 * (Levene / Haldane conditional distribution). Computed with log-gamma to avoid  .
 * overflow. The two-sided p is the sum of probabilities <= P(observed).          .
@@ -384,6 +386,8 @@ BEGIN DATA
 END DATA.
 DATASET NAME agree2x2 WINDOW=FRONT.
 COMPUTE n     = a+b+c+d.
+SELECT IF (n > 0 AND (a+c) > 0 AND (b+d) > 0).
+* ^ guard: the placeholder row above is all zeros. Replace it with real counts.  .
 COMPUTE po    = (a+d)/n.
 COMPUTE pe    = ((a+b)/n)*((a+c)/n) + ((c+d)/n)*((b+d)/n).
 COMPUTE kappa = (po-pe)/(1-pe).

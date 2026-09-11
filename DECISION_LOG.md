@@ -406,3 +406,13 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 4. The auditor's narrower candidate gap — **partial-D-resolving *RHD* genotyping in D-positive GCC donors, and allele-level resolution of Madkhali's unresolved 18.3%** — is a candidate for that gate, not a conclusion from it.
 **Basis:** the auditor's closing instruction: "Run the gate, then write the gap." The order was reversed twice; reversing it a third time would be a pattern, not an error.
 **Decided by:** Principal Research Director
+
+---
+
+### D038 — PILOT-03 Stage 1 gate designed as falsifiable propositions, each individually searched
+**Date:** 2026-09-11
+**Context:** Two prior novelty arguments were written before being searched (D035 C2), and both contained universal negatives refuted by records the project had already retrieved.
+**Decision:** the PILOT-03 gate does not ask "is this novel?" — a question that invites a narrative answer. It states the novelty argument as **five separately falsifiable propositions**, each of which gets its own targeted search and its own verdict of `SURVIVES` / `REFUTED` / `UNVERIFIABLE`, with any refuting record named by PMID.
+**Basis:** a universal negative can only be tested by a search aimed at it. Bundling several such claims into one prose rationale is what allowed "none performs a concordance analysis" and "no GCC study has genotyped RHD in D-positive donors" to pass unexamined — neither was ever a search, only a sentence. Decomposition also makes partial failure visible: PILOT-03 does not need all five to survive, and knowing *which* survive determines what the study can honestly claim.
+**Expectation set in advance, to prevent motivated reading:** P2 is expected to be **REFUTED** by Al-Riyami 2021, which is already known to report RH concordance. The gate is not run to confirm a hoped-for answer, and a result of "most propositions refuted" is an acceptable and useful outcome that would close PILOT-03.
+**Decided by:** Principal Research Director

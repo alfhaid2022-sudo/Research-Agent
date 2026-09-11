@@ -57,3 +57,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · CLAUDE.md · §7 universal-negative rule added`
 - `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · Corrected "Run twice" concealment; G1 marked halted`
 - `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · Superseded-rationale banner`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D038 gate designed as five falsifiable propositions`
+- `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · Gate running; added open audit-correction tracker`
+- `2026-09-11 · literature-search-expert · CREATE · 02_Search/_working/PILOT03_GATE_LOG.md · PILOT-03 Stage 1 gate log`
