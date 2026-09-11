@@ -1,0 +1,517 @@
+
+==============================================================================
+PILOT-03 PRECISION-BASED SAMPLE SIZE - UNEDITED OUTPUT
+==============================================================================
+Generated       : 2026-09-11T08:54:35
+Python          : 3.11.15
+numpy 2.4.6 | scipy 1.17.1 | pandas 3.0.5 | statsmodels 0.15.0
+Input document  : /home/user/Research-Agent/01_Protocol/_working/01_pilot03-methods-scoping_v1.0_2026-09-11.md
+SHA-256 (input) : 1c8fb28d09aad05919b9368b54d1068762e1a3f5d039020af45f4efabe8c3599
+Dataset version : NONE. No PILOT-03 data exist. This is pre-specification.
+
+==============================================================================
+0. SELF-TEST - Fleiss-Cohen-Everitt variance vs statsmodels
+==============================================================================
+  n=  200  kappa(this script)=0.732739  kappa(statsmodels)=0.732739
+           SE(this script)=0.050919  SE(statsmodels, alternative)=0.050919
+  n= 2000  kappa(this script)=0.732739  kappa(statsmodels)=0.732739
+           SE(this script)=0.016102  SE(statsmodels, alternative)=0.016102
+  -> agreement to ~6 dp confirms the variance implementation.
+
+==============================================================================
+1. VARIANT ALLELE FREQUENCY - required n, GULF-DERIVED inputs ONLY
+==============================================================================
+Denominator is ALLELES (= 2 x donors). Donor n = ceil(allele n / 2).
+Every input below is a Jazan (single-region, single-centre) estimate.
+Its own precision is reported first so the fragility is visible.
+
+Allele (source estimate)                         x/n      p̂   95% CP CI of the INPUT
+RHCE*ce(733G) [Saudi, Jazan]                  67/708   9.46%          7.41% to 11.86%
+RHCE*ce(733G,1006T)                            6/708   0.85%           0.31% to 1.84%
+RHCE*ceAR                                      5/708   0.71%           0.23% to 1.64%
+RHCE*ce(712G)                                  3/708   0.42%           0.09% to 1.23%
+RHD*r's-RHCE*ce(733G,1006T)                    2/708   0.28%           0.03% to 1.02%
+
+  NOTE: RHCE*ceAR rests on 5 alleles, ce(712G) on 3, RHD*r's on 2.
+  A sample size planned on a proportion estimated from 2-6 observations
+  is conditional on an input whose own 95% CI spans roughly an order of
+  magnitude. The planning value is therefore varied across that CI below.
+
+-- Target ABSOLUTE half-width on the allele frequency: +/- 1.00 percentage points --
+Allele                                       p_plan  n alleles  n donors n donors @ CP
+RHCE*ce(733G) [Saudi, Jazan]                  9.46%       3295      1648          1696
+RHCE*ce(733G,1006T)                           0.85%        406       203           227
+RHCE*ceAR                                     0.71%        364       182           203
+RHCE*ce(712G)                                 0.42%        285       143           138
+RHD*r's-RHCE*ce(733G,1006T)                   0.28%        249       125           138
+
+-- Target ABSOLUTE half-width on the allele frequency: +/- 0.50 percentage points --
+Allele                                       p_plan  n alleles  n donors n donors @ CP
+RHCE*ce(733G) [Saudi, Jazan]                  9.46%      13169      6585          6683
+RHCE*ce(733G,1006T)                           0.85%       1390       695           762
+RHCE*ceAR                                     0.71%       1194       597           667
+RHCE*ce(712G)                                 0.42%        821       411           456
+RHD*r's-RHCE*ce(733G,1006T)                   0.28%        652       326           348
+
+-- Target ABSOLUTE half-width on the allele frequency: +/- 0.25 percentage points --
+Allele                                       p_plan  n alleles  n donors n donors @ CP
+RHCE*ce(733G) [Saudi, Jazan]                  9.46%      52664     26332         26530
+RHCE*ce(733G,1006T)                           0.85%       5269      2635          2813
+RHCE*ceAR                                     0.71%       4436      2218          2388
+RHCE*ce(712G)                                 0.42%       2797      1399          1527
+RHD*r's-RHCE*ce(733G,1006T)                   0.28%       2017      1009          1159
+
+-- Target ABSOLUTE half-width on the allele frequency: +/- 0.10 percentage points --
+Allele                                       p_plan  n alleles  n donors n donors @ CP
+RHCE*ce(733G) [Saudi, Jazan]                  9.46%     329130    164565        165064
+RHCE*ce(733G,1006T)                           0.85%      32386     16193         16675
+RHCE*ceAR                                     0.71%      27066     13533         14002
+RHCE*ce(712G)                                 0.42%      16426      8213          8630
+RHD*r's-RHCE*ce(733G,1006T)                   0.28%      11145      5573          5983
+
+  Wilson vs Clopper-Pearson: CP is conservative (guaranteed >=95%
+  coverage) and always demands the larger n. The SAP pre-specifies
+  Wilson for planning and the CP column as the conservative bound.
+
+-- Sensitivity of the planning n to the fragility of the input --
+   Planning value moved to each end of the input's own 95% CP CI.
+   Target half-width fixed at +/- 0.25 percentage points.
+
+Allele                                     p at CI lower        p̂ p at CI upper
+                                                n donors  n donors      n donors
+RHCE*ce(733G) [Saudi, Jazan]                       21086     26332         32131
+RHCE*ce(733G,1006T)                                 1087      2635          5560
+RHCE*ceAR                                            871      2218          4985
+RHCE*ce(712G)                                        539      1399          3779
+RHD*r's-RHCE*ce(733G,1006T)                          439      1009          3136
+
+==============================================================================
+2. RELATIVE PRECISION - the criterion that actually matters for rare alleles
+==============================================================================
+An absolute +/- 0.25pp CI on a 0.28% allele is useless: the interval
+still spans 0.03% to 0.53%, a ~18-fold range. Relative precision
+(half-width <= 50% and <= 25% of the point estimate) is reported too.
+
+Allele                                       p_plan  n donors @50%  n donors @25%
+RHCE*ce(733G) [Saudi, Jazan]                  9.46%             76            296
+RHCE*ce(733G,1006T)                           0.85%            950           3649
+RHCE*ceAR                                     0.71%           1142           4385
+RHCE*ce(712G)                                 0.42%           1910           7331
+RHD*r's-RHCE*ce(733G,1006T)                   0.28%           2870          11013
+
+==============================================================================
+3. ZERO-COUNT TARGETS - exact upper bound (Cw and any unobserved allele)
+==============================================================================
+Source: Cw (RH8) observed 0/354  [GULF Madkhali2025 - zero count, needs exact upper bound]
+  Exact 95% CP upper limit at n=354: 1.037%
+  Approximate rule of three (3/n)   : 0.847%   (approximation only)
+
+If PILOT-03 also observes zero, the upper bound it can claim is:
+  n donors   exact 95% upper bound
+       500                 0.7351%
+      1000                 0.3682%
+      2000                 0.1843%
+      3000                 0.1229%
+      5000                 0.0738%
+     10000                 0.0369%
+
+  To EXCLUDE a frequency of 0.1% (i.e. upper bound < 0.1%) requires
+  n = 3,688 donors with zero observed.
+  The SAP pre-specifies that zero cells are reported as '0/n (0%; 95% CI
+  0% to U%)' with U from the exact bound - never as 'absent'.
+
+==============================================================================
+4. RARE-ALLELE REALITY CHECK - where the expected count stays below 5
+==============================================================================
+Criterion: an estimate is treated as UNINFORMATIVE if either
+  (i) expected count E = n*p < 5, or
+  (ii) the 95% CI upper limit exceeds 3x the lower limit.
+Both are declared here, in advance, and applied mechanically.
+
+Target                                                      p    unit  n for E>=5  n for E>=10
+RHCE*ce(733G) [Saudi, Jazan]                           9.463%  donors          27           53
+RHCE*ce(733G,1006T)                                    0.847%  donors         295          590
+RHCE*ceAR                                              0.706%  donors         354          708
+RHCE*ce(712G)                                          0.424%  donors         590        1,180
+RHD*r's-RHCE*ce(733G,1006T)                            0.282%  donors         885        1,770
+RHD*DVI population frequency                           0.137%  donors       3,655        7,310
+Atypical/discrepant serologic D typing among donors    0.790%  donors         633        1,266
+
+  NON-GULF rows are bracketing scenarios only (US / Brazil). They are
+  NOT transferred onto the GCC donor pool; they bound the order of
+  magnitude for alleles that no GCC study has ever measured.
+
+-- What a realistic n actually buys for the rarest targets --
+
+  RHCE*ce(733G,1006T)   p_plan = 0.847%   [GULF Madkhali2025]
+    n donors  E[count]       95% CI at the expected count  ratio U/L
+       1,000     16.95                   0.496% to 1.357%       2.74
+       2,000     33.90                   0.589% to 1.186%       2.01
+       3,000     50.85                   0.634% to 1.116%       1.76
+       5,000     84.75                   0.679% to 1.050%       1.55
+      10,000    169.49                   0.723% to 0.982%       1.36
+
+  RHCE*ceAR   p_plan = 0.706%   [GULF Madkhali2025]
+    n donors  E[count]       95% CI at the expected count  ratio U/L
+       1,000     14.12                   0.383% to 1.172%       3.06   <- uninformative
+       2,000     28.25                   0.466% to 1.010%       2.17
+       3,000     42.37                   0.505% to 0.945%       1.87
+       5,000     70.62                   0.555% to 0.895%       1.61
+      10,000    141.24                   0.594% to 0.831%       1.40
+
+  RHCE*ce(712G)   p_plan = 0.424%   [GULF Madkhali2025]
+    n donors  E[count]       95% CI at the expected count  ratio U/L
+       1,000      8.47                   0.173% to 0.787%       4.55   <- uninformative
+       2,000     16.95                   0.248% to 0.680%       2.74
+       3,000     25.42                   0.270% to 0.614%       2.28
+       5,000     42.37                   0.303% to 0.567%       1.87
+      10,000     84.75                   0.340% to 0.525%       1.55
+
+  RHD*r's-RHCE*ce(733G,1006T)   p_plan = 0.282%   [GULF Madkhali2025]
+    n donors  E[count]       95% CI at the expected count  ratio U/L
+       1,000      5.65                   0.110% to 0.652%       5.92   <- uninformative
+       2,000     11.30                   0.137% to 0.492%       3.58   <- uninformative
+       3,000     16.95                   0.165% to 0.453%       2.74
+       5,000     28.25                   0.186% to 0.404%       2.17
+      10,000     56.50                   0.212% to 0.363%       1.72
+
+  RHD*DVI population frequency   p_plan = 0.137%   [NONGULF US Flegel2025 (1 in 731)]
+    n donors  E[count]       95% CI at the expected count  ratio U/L
+       1,000      1.37                   0.003% to 0.556%     219.57   <- uninformative
+       2,000      2.74                   0.031% to 0.438%      14.15   <- uninformative
+       3,000      4.10                   0.036% to 0.341%       9.38   <- uninformative
+       5,000      6.84                   0.056% to 0.288%       5.12   <- uninformative
+      10,000     13.68                   0.077% to 0.235%       3.07   <- uninformative
+
+  Atypical/discrepant serologic D typing among donors   p_plan = 0.790%   [NONGULF SE Brazil Rodrigues2021 10.1016/j.transci.2021.103135]
+    n donors  E[count]       95% CI at the expected count  ratio U/L
+       1,000      7.90                   0.346% to 1.570%       4.54   <- uninformative
+       2,000     15.80                   0.458% to 1.296%       2.83
+       3,000     23.70                   0.513% to 1.188%       2.31
+       5,000     39.50                   0.572% to 1.088%       1.90
+      10,000     79.00                   0.626% to 0.984%       1.57
+
+==============================================================================
+5. DEL AND THE D-NEGATIVE STRATUM - conditional, because pi_Dneg is UNKNOWN
+==============================================================================
+The scoping file contains NO GCC donor-pool serologic D-negative
+prevalence. It is therefore NOT assumed. Required stratum sizes are
+given first; total donor n is then shown as a function of pi_Dneg,
+with pi_Dneg carried as a LABELLED BRACKET, not as a sourced value.
+
+(a) n of serologic D-NEGATIVE donors needed, by planning value and target:
+Planning value for P(target | serologic D-neg)             +/-3pp   +/-2pp   +/-1pp
+RHD*01EL.01 Asian-type DEL | serologic D-neg  [NONGULF]       306      681    2,704
+RHD*01N.03 | serologic D-neg  [NONGULF]                       161      341    1,304
+Any RHD-gene-positive | serologic D-neg  [NONGULF]            109      212      744
+RHD deletion RHD*01N.01 | D-neg/weak  [GULF]                  762    1,716    6,870
+Unresolved 'other than weak D 1/2/3'  [GULF]                  638    1,437    5,751
+RHD*DIIIa-CE(3-7)-D het | D-neg/weak  [GULF]                  157      330    1,260
+Weak D type 1 | D-neg/weak  [GULF]                            103      197      677
+
+(b) TOTAL donors required = (D-negative stratum n) / pi_Dneg.
+    pi_Dneg values below are LABELLED BRACKETS spanning the range that
+    is plausible for any donor population; NONE is sourced for the GCC.
+    Illustrated at the Thai DEL bracket (7.60%), +/-2pp -> 681 D-negative donors needed.
+
+pi_Dneg (LABELLED BRACKET, unsourced)   total donors required
+3%                                                     22,700
+5%                                                     13,620
+8%                                                      8,513
+10%                                                     6,810
+15%                                                     4,540
+
+  READ THIS AS A DESIGN FINDING, NOT A SAMPLE SIZE: unless the D-negative
+  stratum can be ENRICHED rather than sampled at its natural prevalence,
+  a DEL frequency estimate of useful precision requires a total donor
+  intake in the tens of thousands. See the recommendation block below.
+
+==============================================================================
+6. KAPPA - precision, and the prevalence paradox
+==============================================================================
+Design: per antigen, one serologic call and one genotype-PREDICTED call
+per donor -> a 2x2 table per antigen. Kappa is computed PER ANTIGEN.
+Kappa is NOT computed by pooling antigen-donor pairs across antigens:
+pooling mixes tables with different marginals and correlated errors
+within donor, and the pooled kappa is then uninterpretable (D025's
+antigen-donor pair unit governs the 7-class taxonomy tabulation and the
+overall percent agreement, which is why that percent agreement needs a
+donor-clustered variance - see section 7).
+
+6a. THE PARADOX, made explicit. Observed agreement fixed at 98%:
+  marginal prevalence pi     p_o     p_e    kappa    PABAK
+                  50.00%   0.980  0.5000   0.9600   0.9600
+                  70.00%   0.980  0.5800   0.9524   0.9600
+                  80.00%   0.980  0.6800   0.9375   0.9600
+                  90.00%   0.980  0.8200   0.8889   0.9600
+                  95.00%   0.980  0.9050   0.7895   0.9600
+                  98.84%   0.980  0.9771   0.1278   0.9600
+                  99.00%   0.980  0.9802  -0.0101   0.9600
+
+  At pi = 98.84% (the Jazan PREDICTED e-antigen frequency) chance
+  agreement alone is p_e = 0.9771. Two methods agreeing on 98% of donors
+  then score kappa near or below zero. This is the kappa paradox, not
+  a failure of the assays. Reporting kappa alone for antigen e would
+  actively mislead.
+
+6b. n required for a 95% CI on kappa of stated half-width.
+    Marginal prevalences are GULF PLATFORM-PREDICTED (Madkhali 2025,
+    n=354, Jazan) - they are predicted, not serologic, and Jazan-specific.
+    Prevalence for D is NOT available (see missing inputs) and is shown
+    as a LABELLED BRACKET only.
+
+
+  Assumed true kappa = 0.80
+  antigen                          pi   V1=n*Var n for +/-0.10 n for +/-0.05 provenance
+  C (RH2)                      68.36%     0.4198           162           646 GULF PREDICTED Jazan n=354
+  E (RH3)                      23.44%     0.5109           197           786 GULF PREDICTED Jazan n=354
+  c (RH4)                      80.48%     0.5871           226           903 GULF PREDICTED Jazan n=354
+  e (RH5)                      98.84%     8.3490         3,208        12,829 GULF PREDICTED Jazan n=354
+  D (RH1) [BRACKET 0.85]       85.00%     0.7289           281         1,121 ASSUMPTION-BRACKET, unsourced
+  D (RH1) [BRACKET 0.92]       92.00%     1.2803           492         1,968 ASSUMPTION-BRACKET, unsourced
+  D (RH1) [BRACKET 0.97]       97.00%     3.2750         1,259         5,033 ASSUMPTION-BRACKET, unsourced
+
+  Assumed true kappa = 0.90
+  antigen                          pi   V1=n*Var n for +/-0.10 n for +/-0.05 provenance
+  C (RH2)                      68.36%     0.2209            85           340 GULF PREDICTED Jazan n=354
+  E (RH3)                      23.44%     0.2678           103           412 GULF PREDICTED Jazan n=354
+  c (RH4)                      80.48%     0.3071           118           472 GULF PREDICTED Jazan n=354
+  e (RH5)                      98.84%     4.3093         1,656         6,622 GULF PREDICTED Jazan n=354
+  D (RH1) [BRACKET 0.85]       85.00%     0.3802           147           585 ASSUMPTION-BRACKET, unsourced
+  D (RH1) [BRACKET 0.92]       92.00%     0.6646           256         1,022 ASSUMPTION-BRACKET, unsourced
+  D (RH1) [BRACKET 0.97]       97.00%     1.6930           651         2,602 ASSUMPTION-BRACKET, unsourced
+
+  V1 (= n x Var) rises steeply as pi approaches 0 or 1. For antigen e
+  at pi = 98.84% the n demanded for even +/-0.10 on kappa is an order of
+  magnitude above the n demanded at pi = 0.5. Kappa is UNSTABLE there.
+
+  PRE-SPECIFIED CONSEQUENCE (SAP sec.7): for any antigen whose observed
+  marginal prevalence falls outside 10%-90%, kappa is reported but is NOT
+  the lead statistic. The lead statistics for those antigens are the full
+  2x2 counts, positive percent agreement and negative percent agreement,
+  each with exact 95% CIs. PABAK is reported alongside kappa for ALL
+  antigens - and is explicitly labelled as a monotone relabelling of
+  observed agreement (2*po-1) that assumes balanced marginals the study
+  does not have. PABAK is context, never evidence of good agreement.
+  The 10%-90% rule is mechanical and declared before any data are seen,
+  so it cannot be used to select a favourable statistic after the fact.
+
+==============================================================================
+7. MULTI-CENTRE CLUSTERING - design effect
+==============================================================================
+Donors cluster by centre (the sampling unit) and are cross-classified
+by ancestry. Treating donors as independent would falsely narrow every
+CI in this study. ICC is UNKNOWN and is bracketed, not assumed.
+
+DEFF = 1 + ((cv^2+1)*mbar - 1)*ICC   (Kish, unequal cluster sizes)
+
+ donors per centre   ICC=0.002   ICC=0.005    ICC=0.01    ICC=0.02    ICC=0.05
+               100        1.22        1.54        2.08        3.16        6.40
+               200        1.43        2.08        3.17        5.34       11.85
+               300        1.65        2.63        4.26        7.52       17.30
+               500        2.09        3.72        6.44       11.88       28.20
+               800        2.74        5.36        9.71       18.42       44.55
+              1200        3.61        7.54       14.07       27.14       66.35
+
+  cv = 0.30 assumed for unequal centre sizes (LABELLED BRACKET).
+
+  The dominant term is ICC x mbar. With large clusters, adding donors
+  WITHIN a centre buys almost nothing once ICC*mbar >> 1. Adding CENTRES
+  is the efficient move. Worked example, holding the simple-random-
+  sample requirement fixed:
+
+  SRS requirement: RHCE*ce(733G) at 67/708 = 9.46% to +/-1.0pp = 3,295 alleles = 1,648 donors
+   donors/centre     ICC    DEFF  total donors  centres needed
+             200   0.005    2.08         3,437              18
+             200   0.010    3.17         5,225              27
+             200   0.020    5.34         8,801              45
+             400   0.005    3.18         5,233              14
+             400   0.010    5.35         8,817              23
+             400   0.020    9.70        15,986              40
+             800   0.005    5.36         8,826              12
+             800   0.010    9.71        16,003              21
+             800   0.020   18.42        30,357              38
+
+  ICC ESTIMATION (pre-specified, SAP sec.9): for each allele/antigen,
+  fit a random-intercept logistic model with centre as the random effect
+  and report BOTH the latent-scale ICC (sigma_u^2 / (sigma_u^2 + pi^2/3))
+  and the proportion-scale ICC (ANOVA/method-of-moments). The two scales
+  are NOT interchangeable and are commonly confused; both are reported
+  with the scale named. With few centres the between-centre variance is
+  estimated on very few degrees of freedom, so the ICC itself will carry
+  a wide interval - which is reported, not suppressed.
+
+  ANALYSIS CONSEQUENCE: with ~6-10 centres the GEE sandwich variance is
+  anti-conservative. The SAP pre-specifies the Mancl-DeRouen bias-reduced
+  covariance with a t reference distribution on (K-1) df, and a
+  cluster bootstrap resampling CENTRES as the sensitivity analysis.
+
+==============================================================================
+7b. THE BINDING CONSTRAINT IS THE NUMBER OF CENTRES, NOT THE NUMBER OF DONORS
+==============================================================================
+Once between-centre heterogeneity is real, Var(pooled p) tends to
+tau^2/K as donors per centre grows, where tau^2 is the between-centre
+variance of the centre-specific proportions and K the number of centres.
+No number of donors can beat that limit. tau relates to the ICC by
+tau^2 = ICC * p(1-p).
+
+Illustrated for RHCE*ce(733G), p = 67/708 = 9.46% (GULF Madkhali2025):
+
+    ICC  tau (between-centre SD)        K=6        K=8       K=12       K=20
+                                 half-width half-width half-width half-width
+  0.002                  1.309pp  +/-1.05pp  +/-0.91pp  +/-0.74pp  +/-0.57pp
+  0.005                  2.070pp  +/-1.66pp  +/-1.43pp  +/-1.17pp  +/-0.91pp
+  0.010                  2.927pp  +/-2.34pp  +/-2.03pp  +/-1.66pp  +/-1.28pp
+  0.020                  4.140pp  +/-3.31pp  +/-2.87pp  +/-2.34pp  +/-1.81pp
+  0.050                  6.545pp  +/-5.24pp  +/-4.54pp  +/-3.70pp  +/-2.87pp
+
+  This is the floor on the achievable 95% CI half-width, attained only
+  in the limit of infinitely many donors per centre. Adding a 13th centre
+  does more for precision than doubling every centre's intake.
+  It also uses a normal approximation on K centre-level proportions; with
+  K < 15 the SAP substitutes a t(K-1) reference distribution, which widens
+  the interval further (t(5)=2.571 vs z=1.960, i.e. ~31% wider at K=6).
+
+==============================================================================
+8. ACHIEVABLE PRECISION AT FEASIBLE DESIGNS - and the recommendation
+==============================================================================
+The GCC has six states. A realistic design is 1-2 donor centres per
+state, i.e. K in the range 6-12. Rather than ask what n a target needs
+(which returns infeasible answers), this block asks what precision a
+FEASIBLE design actually delivers. ICC is a labelled bracket throughout.
+
+                design  n total     ICC    DEFF   n_eff  half-width on ce(733G) 9.46%
+       6 centres x 250    1,500   0.005    2.36     636                     +/-1.61pp
+       6 centres x 250    1,500   0.010    3.71     404                     +/-2.02pp
+       6 centres x 250    1,500   0.020    6.43     233                     +/-2.67pp
+       6 centres x 500    3,000   0.005    3.72     806                     +/-1.43pp
+       6 centres x 500    3,000   0.010    6.44     466                     +/-1.88pp
+       6 centres x 500    3,000   0.020   11.88     253                     +/-2.56pp
+       8 centres x 250    2,000   0.005    2.36     848                     +/-1.39pp
+       8 centres x 250    2,000   0.010    3.71     538                     +/-1.75pp
+       8 centres x 250    2,000   0.020    6.43     311                     +/-2.31pp
+       8 centres x 375    3,000   0.005    3.04     987                     +/-1.29pp
+       8 centres x 375    3,000   0.010    5.08     591                     +/-1.67pp
+       8 centres x 375    3,000   0.020    9.16     328                     +/-2.25pp
+      12 centres x 250    3,000   0.005    2.36    1273                     +/-1.14pp
+      12 centres x 250    3,000   0.010    3.71     808                     +/-1.43pp
+      12 centres x 250    3,000   0.020    6.43     467                     +/-1.88pp
+      12 centres x 333    3,996   0.005    2.81    1422                     +/-1.08pp
+      12 centres x 333    3,996   0.010    4.62     865                     +/-1.38pp
+      12 centres x 333    3,996   0.020    8.24     485                     +/-1.85pp
+      12 centres x 500    6,000   0.005    3.72    1613                     +/-1.01pp
+      12 centres x 500    6,000   0.010    6.44     932                     +/-1.33pp
+      12 centres x 500    6,000   0.020   11.88     505                     +/-1.81pp
+      20 centres x 250    5,000   0.005    2.36    2121                     +/-0.88pp
+      20 centres x 250    5,000   0.010    3.71    1346                     +/-1.11pp
+      20 centres x 250    5,000   0.020    6.43     778                     +/-1.46pp
+
+  n_eff = effective independent sample size = n_total / DEFF.
+  Allele-level half-width computed on 2*n_eff alleles, i.e. the same
+  design effect is applied at the allele level. This is an approximation:
+  the two alleles of one donor are themselves not independent draws
+  (that is what Hardy-Weinberg is about), so the true allele-level
+  variance is larger again unless HWE holds within stratum. The SAP
+  therefore pre-specifies that allele-frequency CIs are computed with a
+  donor-level cluster bootstrap, NOT by treating 2n alleles as 2n
+  independent observations - which is a common and serious error.
+
+-- PRE-SPECIFIED PRIMARY PRECISION CRITERION --
+  (a) The frequency of RHCE*ce(733G), the commonest clinically relevant
+      RHCE variant and the only one with more than a handful of Gulf
+      observations, estimated with a 95% CI half-width <= 2.0 percentage
+      points AFTER the design effect.
+  (b) Kappa for each of D, C, E, c estimated with a 95% CI half-width
+      <= 0.10. Antigen e is excluded from criterion (b) by the >90%
+      prevalence rule in section 6 and is governed by PPA/NPA instead.
+  Criterion (a) is the binding one.
+
+  Designs meeting criterion (a) at the mid ICC bracket (0.010):
+    6 centres x 500 donors = 3,000 (DEFF 6.44, n_eff 466, +/-1.88pp)
+    8 centres x 250 donors = 2,000 (DEFF 3.71, n_eff 538, +/-1.75pp)
+    8 centres x 375 donors = 3,000 (DEFF 5.08, n_eff 591, +/-1.67pp)
+    12 centres x 250 donors = 3,000 (DEFF 3.71, n_eff 808, +/-1.43pp)
+    12 centres x 333 donors = 3,996 (DEFF 4.62, n_eff 865, +/-1.38pp)
+    12 centres x 500 donors = 6,000 (DEFF 6.44, n_eff 932, +/-1.33pp)
+    20 centres x 250 donors = 5,000 (DEFF 3.71, n_eff 1346, +/-1.11pp)
+
+  Criterion (b) requires an EFFECTIVE n of 492 donors (worst of D/C/E/c at kappa=0.80).
+  The recommended design below delivers n_eff of 808 at ICC=0.010 and 467 at ICC=0.020,
+  i.e. criterion (b) is met up to ICC ~0.020 and is MARGINAL beyond it.
+  Kappa is not the binding constraint; the allele frequency is.
+
+-- RECOMMENDED DESIGN --
+  n = 3,000 donors, allocated as 12 centres x 250 donors, with a hard
+  floor of 8 centres and at least one centre in each of the six GCC
+  states that can participate. Rationale: 12 x 250 and 6 x 500 have the
+  same total n, but at ICC=0.010 they give n_eff of 808 and 466
+  respectively. Spreading the same 3,000 donors over twice as many
+  centres nearly doubles the information content at identical cost.
+  Achieved precision on RHCE*ce(733G) across the ICC bracket:
+    ICC=0.002  DEFF= 1.54  n_eff=  1944  +/-0.92pp
+    ICC=0.005  DEFF= 2.36  n_eff=  1273  +/-1.14pp
+    ICC=0.010  DEFF= 3.71  n_eff=   808  +/-1.43pp
+    ICC=0.020  DEFF= 6.43  n_eff=   467  +/-1.88pp
+    ICC=0.050  DEFF=14.58  n_eff=   206  +/-2.84pp
+
+  HONEST STATEMENT REQUIRED IN THE PROTOCOL: if the ICC turns out to be
+  at the top of this bracket (0.05), n = 3,000 delivers a half-width of
+  +/-2.84pp on a 9.5% allele (n_eff falls to 206) - wide, and the
+  kappa criterion then fails as well. This is not rescuable by recruiting
+  more donors. It is rescuable only by recruiting more centres. The
+  protocol must therefore treat centre recruitment, not donor
+  recruitment, as the primary feasibility risk.
+
+==============================================================================
+8b. NOT SUPPORTED AT ANY FEASIBLE n - stated as a design finding
+==============================================================================
+  1. RHD*r's-RHCE*ce(733G,1006T) (0.28% allele frequency, based on TWO
+     observed alleles) to useful relative precision. At n=3,000 donors
+     with DEFF 3.7 the effective n is ~810 donors = ~1,620 alleles;
+     expected count 4.6 alleles. Below the pre-declared E>=5 floor.
+  2. RHCE*ce(712G) (0.42%, three observed alleles): expected count
+     6.9 alleles at the same effective n. Also below the floor.
+  3. RHD*DVI at the US bracket of 1 in 731 (0.137%): even 10,000
+     INDEPENDENT donors give a CI whose upper limit is >3x its lower.
+  4. DEL frequency among serologic D-negative donors, if the D-negative
+     stratum is sampled at its natural prevalence. At the Thai bracket
+     (7.60%) and +/-2pp this needs ~681 D-negative donors; at an
+     unsourced pi_Dneg of 5-10% that is 7,000-14,000 total donors before
+     any design effect. WITH a DEFF of ~3.7 it is 25,000-50,000.
+
+  CONSEQUENCE, PRE-SPECIFIED: these four are NOT frequency-estimation
+  outcomes. They are reported as CASE ASCERTAINMENT - 'k carriers
+  identified among n donors tested (exact 95% CI a% to b%)' - with the
+  explicit label 'not estimable to useful precision at this sample size'.
+  No frequency claim, no between-group comparison, no extrapolation to
+  the GCC donor pool is permitted for them.
+
+  DESIGN REMEDY the protocol should consider for DEL specifically:
+  ENRICHED SAMPLING of the serologic D-negative stratum (test all D-
+  negative donors presenting over a longer window, rather than a fixed
+  fraction), optionally further enriched to C-positive D-negative donors.
+  This changes the DEL estimand from a donor-pool frequency to a
+  conditional frequency P(DEL | serologic D-negative), which is the
+  clinically actionable quantity anyway, and it is achievable. The
+  enrichment MUST be declared in the protocol, because a conditional
+  frequency presented as a pool frequency would be a misrepresentation.
+
+==============================================================================
+9. INPUTS THAT DO NOT EXIST - recorded, not invented
+==============================================================================
+
+  * pi_Dneg = prevalence of serologic D-negativity in the GCC donor pool
+    The scoping file contains NO GCC donor-pool D-negative prevalence. Madkhali's RHD arm (n=60) and Alalshaikh's 70 D+/66 D- are SELECTED, not prevalence, samples. Every DEL/D-negative-stratum n below is therefore reported as a REQUIRED D-NEGATIVE STRATUM SIZE, and total donor n is given as a FUNCTION of pi_Dneg. pi_Dneg must be supplied by the participating-centre site survey before the protocol is finalised.
+
+  * Intraclass correlation (ICC) of any RH allele across GCC donor centres
+    No multi-centre GCC RH dataset exists; no ICC is estimable from the literature retrieved. ICC is therefore handled as a labelled bracketing grid and must be ESTIMATED AND REPORTED BY PILOT-03 ITSELF for the benefit of future studies.
+
+  * Donor-pool ancestry composition per centre
+    Only Madkhali's non-Saudi nationality list (Yemeni 73, Egyptian 16, Sudanese 6, Indian 5, Pakistani 4, Syrian 3, Jordanian 1, Nepali 1, Filipino 1) is available, from ONE centre. It cannot be projected onto other GCC states.
+
+  * Serologic D-negative prevalence-by-centre, and anti-D clone inventory per centre
+    Site-survey items; scoping file sec.8 open items 11-12.
+
+==============================================================================
+END OF OUTPUT
+==============================================================================

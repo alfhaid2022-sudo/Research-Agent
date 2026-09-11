@@ -45,3 +45,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · Stage 3; added PI-must-resolve list for G1`
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D032 interim process audit dispatched; scoped to frozen material, directed at the Director`
 - `2026-09-11 · integrity-auditor · CREATE · 10_Audit/_working/10_interim-process-audit_v1.0_2026-09-11.md · Interim audit of D001-D032`
+- `2026-09-11 · methodology-protocol-expert · CREATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · PILOT-03 protocol draft v0.1 (20 sections, 40 [UNVERIFIED] flags carried)`
+- `2026-09-11 · biostatistics-expert · CREATE · 05_Analysis/_working/05_pilot03-sample-size_v1.0_2026-09-11.py · Sample-size calculation script (parses clean)`
+- `2026-09-11 · biostatistics-expert · CREATE · 05_Analysis/_working/05_pilot03-sample-size-output_v1.0_2026-09-11.txt · Sample-size output`
