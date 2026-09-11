@@ -259,3 +259,55 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 5. **hr^S^/hr^B^/V/VS excluded from the primary outcome** unless reference serology is obtainable. Madkhali's figures for these are platform-*predicted*, not serologically confirmed; presenting predicted phenotypes as observed would breach `CLAUDE.md` §2.
 **Carried to G1 as unresolved:** current ISBT RH allele table version `[UNVERIFIED]` — a November 2025 database migration is suggested but ISBT pages were not reachable; must be human-confirmed. Registry check still not performed (registries inaccessible; a negative WebSearch is not evidence of absence).
 **Decided by:** Principal Research Director
+
+---
+
+### D026 — Prospective registration on OSF Registries before first sample collection
+**Date:** 2026-09-11
+**Context:** `journal-submission-expert` could not build a per-journal registration policy table — every journal author-instruction page was blocked by egress policy — and correctly refused to construct one from search snippets. The one signal obtained, `[PARTIALLY VERIFIED — SEARCH SNIPPET]`, is that ICMJE *encourages* but does not *require* registration of purely observational studies.
+**Decision:** Register PILOT-03 prospectively on **OSF Registries before the first donor sample is collected**, irrespective of whether any target journal requires it. ISRCTN is the fallback, subject to checking a possible UK-participant scope condition that could disqualify a GCC study.
+**Basis:** The cost asymmetry is total — a few hours and no fee now, versus an unrecoverable loss later, since registration cannot be backdated and a retrospectively registered study must declare itself as such. This study's headline outputs are *allele frequencies* and a *concordance rate*, which are precisely the outputs most exposed to a charge of post-hoc panel selection or post-hoc discordance re-adjudication. The match-probability modelling extension sharpens that exposure further. Registration converts an unfalsifiable good-faith assurance into a timestamped public record.
+**Decided by:** Principal Research Director. **Action sits with Dr. Alanazi** — the Director cannot register a study.
+
+---
+
+### D027 — STROBE primary, with STARD-informed methods reporting for the concordance component
+**Date:** 2026-09-11
+**Context:** The serology–genotype concordance component can legitimately be read as a diagnostic-accuracy study, which would pull STARD rather than STROBE.
+**Decision:** Adopt **STROBE (cross-sectional) as the primary reporting standard**, and additionally satisfy STARD's methods requirements for the concordance component rather than choosing between them. The protocol must fix, before any data are seen:
+1. which assay is **reference** and which is **index** (genotype vs serology) — and the justification, since neither is a perfect gold standard here;
+2. the agreement metric — **kappa with 95% CI plus percent agreement**, never bare percent agreement;
+3. the **discordance-adjudication procedure, including blinding** and who adjudicates;
+4. pre-specified handling of indeterminate and unresolved calls (e.g. Madkhali's unresolved 18.3% "other than weak D 1/2/3" bucket).
+**Basis:** Item 3 is the decisive one. Adjudicating discordances *after* seeing which results are inconvenient is the single likeliest integrity criticism of this design, and it is invisible in a manuscript unless pre-specified. Satisfying both standards costs only documentation; discovering at review that STARD was expected costs a rejection cycle.
+**Decided by:** Principal Research Director, on `journal-submission-expert` recommendation B
+
+---
+
+### D028 — ISBT allele nomenclature fixed in the protocol and data dictionary before data capture
+**Date:** 2026-09-11
+**Context:** The ISBT Red Cell Immunogenetics and Blood Group Terminology Working Party ratifies alleles and maintains the nomenclature tables (PMID 36121188, DOI 10.1111/vox.13361). No journal *mandate* could be verified, but the field convention is unambiguous.
+**Decision:** Commit to ISBT allele nomenclature in the protocol and encode it in the data dictionary from day one, rather than mapping to it at write-up.
+**Basis:** Retrofitting nomenclature after data capture silently loses information — a locally-recorded call that does not map cleanly to an ISBT allele cannot be reconstructed once the raw platform output is filed away. Recording both the raw platform call and the ISBT allele from the start preserves traceability per `CLAUDE.md` §3.
+**Carried unresolved to G1:** current ISBT RH allele table version remains `[UNVERIFIED]` — ISBT pages are blocked; a November 2025 database migration is suggested by search but unconfirmed. **Human confirmation required before G1 closes.**
+**Decided by:** Principal Research Director
+
+---
+
+### D029 — Realistic journal tier is mid-tier; the "first in Saudi Arabia" framing is unavailable
+**Date:** 2026-09-11
+**Context:** Director verified PMID 41147787 — Madkhali MM, et al. *Characterisation of RHD and RHCE variations in blood donors from Jazan Province, Southwestern Saudi Arabia.* Transfus Med 2025;36(2):158-164, DOI 10.1111/tme.70040.
+**Findings:** (a) a well-executed Saudi donor RH genotyping study published in *Transfusion Medicine*, which calibrates the realistic ceiling; (b) its abstract states "the first molecular characterisation of RHD and RHCE alleles in Saudi Arabia" — a claim already contested by Alalshaikh 2024 (PMID 39055072) per D023; (c) it genotyped *RHD* only in 60 D-negative/weak-D donors, leaving D-positive donors entirely uncharacterised for partial D; (d) its V (21.8%), hr^S^ (97.8%), VS (24.8%) and hr^B^ (93.2%) frequencies are platform-**predicted**, not serologically confirmed.
+**Decision:** Target tier is realistically **mid-tier** — *Transfusion Medicine*, *Transfusion and Apheresis Science*, *Blood Transfusion*, *Transfusion Clinique et Biologique* as the core; *Transfusion* and *Vox Sanguinis* as stretch targets contingent on the modelling component being executed well. **No "first in Saudi Arabia/region" claim may be made.** The protocol is nonetheless written to the stretch standard, which costs nothing now and keeps the ceiling open.
+**Differentiators that must therefore carry the paper:** genuine multi-country GCC scale; *RHD* genotyping of D-**positive** donors (partial D), which no GCC study has done; DEL screening, which no GCC study has done; pre-specified concordance analysis, which no GCC study has done; and match-probability modelling.
+**Decided by:** Principal Research Director
+
+---
+
+### D030 — Capability report corrected: outbound egress is far broader than previously documented
+**Date:** 2026-09-11
+**Context:** `journal-submission-expert` attempted 14+ external domains with zero successes.
+**Blocked (confirmed this session):** all Wiley pages, ScienceDirect/Elsevier, Springer, Karger, ICMJE, EQUATOR, ClinicalTrials.gov, ISRCTN, OSF, WHO ICTRP, DOAJ, COPE, JCR/Clarivate, Scimago, ISBT, AABB, PMC, Wikipedia — in addition to the previously recorded Crossref, NCBI E-utilities, Europe PMC and pubmed.ncbi.nlm.nih.gov.
+**Consequence:** **no journal author-instruction page, bibliometric source, registry or standards body is readable in this environment.** WebSearch returns AI-summarised snippets, not page text, and one returned snippet was internally implausible — so that channel is indicative only and can never support a verified claim. Therefore this team **cannot** verify impact factors, quartiles, CiteScore, APCs, acceptance rates, DOAJ listing, COPE membership, per-journal registration policy, word or figure limits, AI-disclosure policy, or data-sharing policy. All such items are `[UNVERIFIED — registry blocked]` and are escalated to Dr. Alanazi, who has institutional access.
+**Basis:** `CLAUDE.md` §10 requires the capability report to reflect tested reality. The previous report understated the blocking substantially, which risked an agent planning work it could not perform.
+**Decided by:** Principal Research Director

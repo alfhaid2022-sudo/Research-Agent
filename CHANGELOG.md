@@ -37,3 +37,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D022 corrects D019 premise; D023 Madkhali priority contested; D024 recall hazard; D025 methods recommendations adopted`
 - `2026-09-11 · Director · UPDATE · .claude/agents/literature-search-expert.md · Added recall-hazard guidance (D024)`
 - `2026-09-11 · Director · RENAME · 01_Protocol/_working/*.md · Applied CLAUDE.md §3 naming convention`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D026 OSF prospective registration; D027 STROBE+STARD; D028 ISBT nomenclature; D029 mid-tier target, no "first" claim; D030 egress far broader than documented`
+- `2026-09-11 · Director · UPDATE · 00_Admin/CAPABILITY_REPORT.md · Corrected egress scope; added PI-must-verify table`
+- `2026-09-11 · journal-submission-expert · CREATE · 09_Journal/_working/PILOT03_EARLY_JOURNAL_SCAN_2026-09-11.md · Early scan; all journal pages blocked`

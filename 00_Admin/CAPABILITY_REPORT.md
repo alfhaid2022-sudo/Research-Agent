@@ -39,10 +39,25 @@
 | **EndNote (application)** | ❌ Not installed | Not on PATH; no GUI | Validated RIS/BibTeX/ENW/XML delivered; PI imports and confirms |
 | **Microsoft Word / Excel / PowerPoint (applications)** | ❌ Not installed | No Microsoft Office | Files generated via Python libraries; fully compatible, but not rendered/validated in Office |
 | **Computer control / GUI automation** | ❌ Not available | Headless Linux container; no desktop session | Cannot drive EndNote, SPSS, or Office interactively |
+| **ALL journal/registry/standards web pages** | ❌ Blocked (D030) | 14+ domains attempted, **zero successes**: all Wiley, ScienceDirect/Elsevier, Springer, Karger, ICMJE, EQUATOR, ClinicalTrials.gov, ISRCTN, OSF, WHO ICTRP, DOAJ, COPE, JCR/Clarivate, Scimago, ISBT, AABB, PMC, Wikipedia | **No journal author instructions, bibliometrics, registry or standards document is readable here.** Impact factors, quartiles, APCs, registration policies, word limits, AI-disclosure and data-sharing policies are all `[UNVERIFIED — registry blocked]` and must be checked by the PI |
+| **WebSearch as a verification source** | ⚠️ Indicative only | Returns AI-summarised snippets, not page text; one returned snippet was internally implausible | May **never** support a verified claim. Usable to locate and to orient, never to confirm |
 | **Consensus MCP server** | ⚠️ Needs authorization | Listed as requiring OAuth; session is non-interactive | PI must authorize in claude.ai connector settings to enable |
 | **Named subagent types** (`hematology-expert` etc.) | ⚠️ Next session | Spawn by name returned "Agent type not found" — Claude Code registers `.claude/agents/` at session start | **Workaround validated:** general-purpose agent reading the role file works now; names activate on restart |
 
 ---
+
+## What the PI must verify personally (this team cannot)
+
+Because every journal, registry, bibliometric and standards page is blocked, the following are **structurally impossible** here and are escalated rather than guessed:
+
+| Item | Why it matters |
+|---|---|
+| Per-journal registration policy for observational studies | Must be known **before** sample collection — registration cannot be backdated (D026) |
+| Per-journal reporting-checklist requirement | Determines STROBE vs STARD emphasis (D027) |
+| Current ISBT RH allele table version | Must be fixed in the data dictionary before data capture (D028) |
+| Word/figure limits, AI-disclosure, data-sharing policy | Shape the manuscript and the submission package |
+| Impact factor, quartile, indexing, APC, DOAJ/COPE status | Journal selection and predatory screening |
+| Whether a registered GCC RH-genotyping study is already ongoing | Duplication risk; registries are unreachable and a negative WebSearch is **not** evidence of absence |
 
 ## Practical consequences for research conduct
 
