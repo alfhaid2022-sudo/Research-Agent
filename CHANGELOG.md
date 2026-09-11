@@ -43,3 +43,5 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D031 protocol and sample-size dispatched in parallel`
 - `2026-09-11 · Director · UPDATE · 00_Admin/FILE_LOCKS.md · Claimed protocol and analysis working files`
 - `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · Stage 3; added PI-must-resolve list for G1`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D032 interim process audit dispatched; scoped to frozen material, directed at the Director`
+- `2026-09-11 · integrity-auditor · CREATE · 10_Audit/_working/10_interim-process-audit_v1.0_2026-09-11.md · Interim audit of D001-D032`
