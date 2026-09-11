@@ -36,3 +36,7 @@ Short and substantive: what the study asked, what it found, why this journal's r
 
 ## Strategy
 Recommend a ranked list of 3–5 journals with the rationale, the realistic fit assessment, and a sequencing plan (including the likely rejection path and the next target). Be honest about the probability of fit. Never guarantee or imply acceptance.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

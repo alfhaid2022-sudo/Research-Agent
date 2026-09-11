@@ -35,3 +35,7 @@ Colour-blind-safe palettes (viridis, Okabe-Ito); never encode meaning by colour 
 Deliver: editable/regenerable source (the script + data), vector export (PDF/SVG/EPS) for line art, ≥300 dpi TIFF/PNG for raster requirements, at the journal's column width (typically ~85 mm single / ~180 mm double), plus a complete standalone legend, and the value-reconciliation file.
 
 Check the target journal's figure specification in `09_Journal/` before final export.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

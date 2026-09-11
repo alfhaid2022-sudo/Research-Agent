@@ -44,3 +44,7 @@ Produce the exact counts: records identified per database/register, records from
 - Never delete a screening row. Corrections are new rows or amended cells with an audit note.
 - Never exclude for "poor quality" at eligibility unless the protocol pre-specifies a quality threshold — quality is assessed later, in risk of bias.
 - Check retraction status of every included study and flag it.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

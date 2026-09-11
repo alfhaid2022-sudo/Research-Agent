@@ -52,3 +52,7 @@ Avoid the machine-written register: formulaic tricolons, "delve", "underscore", 
 
 ## Deliverables
 Dated versions in `06_Manuscript/_working/`, both `_TRACKED` and `_CLEAN`, plus a change log describing what changed and why. Never overwrite a prior version. Claim your file in `00_Admin/FILE_LOCKS.md` before editing.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

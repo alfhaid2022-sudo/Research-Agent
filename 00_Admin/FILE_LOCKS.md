@@ -4,8 +4,18 @@
 
 | File / path | Locked by | Claimed (UTC) | Released | Purpose |
 |---|---|---|---|---|
-| `02_Search/_working/FEASIBILITY_SEARCH_LOG.md` | literature-search-expert | 2026-09-11 07:5x | 🟡 active | Stage 1 duplication check |
-| `01_Protocol/_working/DOMAIN_SCOPING_2026-09-11.md` | transfusion-medicine-expert | 2026-09-11 07:5x | 🟡 active | Stage 2 domain concept scoping |
+| _(none — PILOT-01 stopped; no active project)_ | | | | |
+
+## Director-write-only files (never delegated)
+
+These are shared, append-only, and any agent may be tempted to write them. Two agents allocating the next free ID concurrently produced a real D008/D009 collision on 2026-09-11 (see D012). The write path is now closed rather than lock-managed: **agents report decisions in their return message; the Director records them.**
+
+| File | Writer |
+|---|---|
+| `DECISION_LOG.md` | Director only |
+| `CHANGELOG.md` | Director only |
+| `PROJECT_STATUS.md` | Director only |
+| `00_Admin/FILE_LOCKS.md` | Director only |
 
 ## Safe to parallelize
 - Independent searches across different databases/concepts

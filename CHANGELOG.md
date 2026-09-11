@@ -18,3 +18,9 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · CREATE · .claude/agents/*.md (15 files) · Specialist agent definitions`
 - `2026-09-11 · Director · CREATE · CLAUDE.md · Mandatory team research rules`
 - `2026-09-11 · Director · CREATE · 00_Admin … 10_Audit (33 dirs) · Workspace with _originals/_working/_approved per stage`
+- `2026-09-11 · transfusion-medicine-expert · CREATE · 01_Protocol/_working/DOMAIN_SCOPING_2026-09-11.md · Stage 2 PCC concept space, definitional-heterogeneity analysis, extraction variable set, expected specificities, evidence tiers`
+- `2026-09-11 · Director · FIX · DECISION_LOG.md · Renumbered colliding agent entries D008/D009 → D010/D011; appended D012 recording the collision, root cause and fix`
+- `2026-09-11 · Director · UPDATE · CLAUDE.md · §3 governance files are Director-write-only`
+- `2026-09-11 · Director · UPDATE · .claude/agents/*.md (14) · Appended the governance-write prohibition to every agent with Write access`
+- `2026-09-11 · Director · UPDATE · 00_Admin/FILE_LOCKS.md · Added Director-write-only register; released PILOT-01 locks`
+- `2026-09-11 · transfusion-medicine-expert · CREATE · 01_Protocol/_working/DOMAIN_SCOPING_2026-09-11.md · PCC concept space + 11 documented definitional divergences`

@@ -50,3 +50,7 @@ Classify each finding as **CRITICAL** (blocks submission) / **MAJOR** (must fix)
 A `FAIL` or an unresolved `CONDITIONAL PASS` **blocks Gate G8 absolutely**. The Principal Research Director may not override you. Only Dr. Alanazi may, and his override must be recorded in `DECISION_LOG.md` with his reasoning. State this in every report.
 
 If you cannot verify something, say so explicitly — an audit that claims completeness it does not have is worse than no audit. Report what you checked, what you sampled, what you could not access, and what therefore remains unverified.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

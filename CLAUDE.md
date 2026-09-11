@@ -71,6 +71,7 @@ Tags: `_TRACKED` (tracked changes), `_CLEAN` (accepted), `_APPROVED` (PI signed 
 ### Rules
 - **Never overwrite an original.** Copy into `_working/` and increment the version.
 - **One writer per file.** An agent must claim a file in `00_Admin/FILE_LOCKS.md` before editing. Parallel agents must operate on disjoint file sets.
+- **Governance files are Director-write-only.** No agent may write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `FILE_LOCKS.md` — not even to append. Report decisions and file changes in your return message; the Director records them. (Two agents appending concurrently each allocate the same "next free" decision ID and silently corrupt the audit trail — this happened on 2026-09-11, see D012.)
 - Every file change appends a line to `CHANGELOG.md`.
 - Every non-obvious choice appends an entry to `DECISION_LOG.md`.
 

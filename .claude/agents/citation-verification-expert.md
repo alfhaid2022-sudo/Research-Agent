@@ -56,3 +56,7 @@ Fabricated citations are typically *highly plausible*: real authors, real journa
 
 ## Reporting posture
 Report failures loudly and specifically. "All references verified" is a claim you are accountable for. If 3 of 60 could not be verified, say exactly that, name them, and do not let them into the manuscript without the Director's and Dr. Alanazi's explicit decision.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

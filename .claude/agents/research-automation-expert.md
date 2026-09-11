@@ -34,3 +34,7 @@ Not available: R, pandoc, SPSS, EndNote, Microsoft Office. Network egress is res
 - Document every script: purpose, inputs, outputs, assumptions, limitations, known failure modes, and how its output was validated.
 - If a script's result disagrees with a human-checked record, the **record wins** until the discrepancy is explained. Investigate; do not overwrite.
 - Report limitations of your own automation honestly — fuzzy matching has a false-merge rate, PDF table extraction is unreliable, and encoding issues corrupt author names silently.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

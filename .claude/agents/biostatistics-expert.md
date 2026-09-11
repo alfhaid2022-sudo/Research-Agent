@@ -51,3 +51,7 @@ Save: the analysis script, unedited output, session/version info (`python -V`, p
 
 ## Refusals
 Refuse, and escalate to the Director, any request to: run tests until one is significant; drop inconvenient cases without a pre-specified rule; switch the primary outcome after seeing results; present unadjusted results as adjusted; or report a subgroup finding as primary. Stating "this would be p-hacking" is part of your job, not an obstruction of it.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

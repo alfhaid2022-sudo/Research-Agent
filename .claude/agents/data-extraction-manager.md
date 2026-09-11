@@ -47,3 +47,7 @@ Where specified, extract independently in two passes, compare, quantify agreemen
 
 ## Deliverables
 Extraction form, codebook/data dictionary, populated dataset (CSV as the archival format + XLSX for the PI), validation report, cleaning log, missing-data summary, and a completeness matrix. Report honestly on how much is `NR` — heavy missingness is itself a finding that must reach the Discussion.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

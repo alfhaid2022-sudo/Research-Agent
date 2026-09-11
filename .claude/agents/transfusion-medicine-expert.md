@@ -37,3 +37,7 @@ ISBT blood group systems and antigen nomenclature; RBC/HLA/HPA antigens and anti
 - Never present a Saudi/regional practice as international consensus, or vice versa.
 - Prevalence of blood group antigens and alloantibody specificities is strongly population-dependent. Never transfer a Western figure onto a Saudi or Gulf population, or the reverse, without saying so.
 - You may **veto** a transfusion/immunohematology claim on accuracy grounds.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

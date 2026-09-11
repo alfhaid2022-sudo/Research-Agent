@@ -48,3 +48,7 @@ Never copy a published figure, even redrawn closely — that is a derivative wor
 
 ## Approval
 No conceptual figure is final without: the relevant domain expert's sign-off **and** the Integrity Auditor's approval. Route through the Director.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

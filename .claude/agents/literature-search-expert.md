@@ -51,3 +51,7 @@ Also record: the exact `query_translation` PubMed returns (it reveals how PubMed
 - Report **zero-result** searches. A null result is information, and often means the string is broken — inspect before concluding the literature is empty.
 - If a search fails or is blocked, report exactly which one and why. Never substitute a guess.
 - Deliver strings that a librarian could re-run and reproduce your counts exactly.
+
+## Governance files — do not write
+
+Never write `DECISION_LOG.md`, `CHANGELOG.md`, `PROJECT_STATUS.md` or `00_Admin/FILE_LOCKS.md`, not even to append. Report your decisions and the files you changed in your return message; the Director records them. Concurrent appends by two agents corrupt decision numbering (see D012).

@@ -95,3 +95,32 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Relevance to PI:** Directly continuous with the PI's own donor-side work — Alanazi FM, *Prevalence of ABO, Rh, and Kell Antigens Among Blood Donors in Al-Qurayyat Region*, Clin Lab 2024;70(12). PMID 39662013, DOI 10.7754/Clin.Lab.2024.240710 (779 Saudi donors).
 **Status:** Candidate only. Not approved, not started. Requires PI decision, and a fresh Stage 1 feasibility check before any commitment — the same gate that just closed PILOT-01.
 **Decided by:** Principal Research Director (proposal)
+
+---
+
+### D010 — Obstetric/HDFN and non-chronically-transfused surgical patients excluded from the PCC Population
+**Date:** 2026-09-11
+**Context:** Stage 2 domain scoping for the RBC alloimmunization scoping review.
+**Decision:** Restrict the Population to chronically/repeatedly transfused patients (SCD, TDT, NTDT/TI, other chronic-transfusion groups). Exclude antenatal/HDFN alloimmunization and single-episode surgical/acute transfusion recipients from the primary synthesis; retain pregnancy/parity as a covariate and HDFN as a qualitative consequence.
+**Basis:** (i) In obstetric alloimmunization the immunizing exposure is fetomaternal, not transfusional, so the exposure of interest is absent; (ii) anti-D cannot be reliably separated from RhIG prophylaxis — Reverberi excluded anti-D in women of childbearing age for this reason (10.2450/2008.0021-08); (iii) antenatal denominators are population-screening denominators, transfusion denominators are patient-exposure denominators, and pooling them is uninterpretable; (iv) single-episode recipients have short ascertainment windows, so their measured prevalence reflects detection opportunity rather than immunization risk.
+**Decided by:** transfusion-medicine-expert (domain recommendation; subject to Director and PI approval at G1)
+
+---
+
+### D011 — Scoping review will chart, not pool; definition of alloimmunization to be a mandatory stratifier
+**Date:** 2026-09-11
+**Context:** Two prior meta-analyses already exist (Saudi-only, pooled 18.2%, 10.7754/Clin.Lab.2024.240827; global adult SCD, pooled 28.9%, I2 88.5%, 10.3390/jcm15103828).
+**Decision:** No pooled prevalence estimate. Synthesis is JBI-style descriptive charting stratified by (a) ever-positive vs currently-detectable definition, (b) denominator used, (c) detection platform and positivity threshold, (d) matching policy level.
+**Basis:** Documented divergence in every one of those four dimensions across the retrieved corpus (see DOMAIN_SCOPING_2026-09-11.md sect. 2), with evanescence alone capable of moving a prevalence estimate by a factor of 2-3 (10.14423/SMJ.0000000000000528; 10.2450/2008.0021-08; 10.1111/trf.18009) and denominator choice by a further factor of ~3 (10.1111/bjh.15182; 10.1111/BJH.15220). Adding a third pooled estimate would compound rather than resolve the problem; a duplication check against the two existing syntheses is required before G1.
+**Decided by:** transfusion-medicine-expert (domain recommendation; subject to Director and PI approval at G1)
+
+---
+
+### D012 — Decision-ID collision corrected; governance files added to the lock register
+**Date:** 2026-09-11
+**Context:** The Director and the `transfusion-medicine-expert` agent appended to `DECISION_LOG.md` concurrently, each allocating the next free IDs. Two entries were issued as D008 and two as D009, with different content.
+**Decision:** The agent's two entries are renumbered **D010** and **D011**; content is preserved verbatim. The Director's D008 (stop PILOT-01) and D009 (residual donor-side gap) keep their IDs, as they were written first and are already referenced in `PROJECT_STATUS.md` and in commit `e4a33f2`.
+**Basis:** Renumbering a colliding identifier is a correction of a clerical collision, not an alteration of a recorded decision — no decision content, date, rationale or authorship was changed. Leaving duplicate IDs would break every cross-reference into this log and make the audit trail unusable.
+**Root cause:** `CLAUDE.md` §3 requires an agent to claim a file in `FILE_LOCKS.md` before editing, but the Director dispatched two agents having locked only their *working* files (`FEASIBILITY_SEARCH_LOG.md`, `DOMAIN_SCOPING_2026-09-11.md`), not the shared append-only governance files that any agent may write. The lock register was incomplete, so the rule could not prevent the collision.
+**Corrective action:** `DECISION_LOG.md`, `CHANGELOG.md` and `PROJECT_STATUS.md` are added to `FILE_LOCKS.md` as **Director-write-only**. Agents report decisions in their return message; the Director records them. This removes the shared-write path entirely rather than relying on lock discipline.
+**Decided by:** Principal Research Director
