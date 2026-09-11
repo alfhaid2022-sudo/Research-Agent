@@ -176,3 +176,30 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Basis:** `RHD` is a standard abbreviation for both the Rh D gene and rheumatic heart disease. A precision failure of this magnitude silently inflates apparent literature volume — exactly the quantity a feasibility gate depends on.
 **Applies to:** `literature-search-expert`, and any agent estimating literature volume.
 **Decided by:** Principal Research Director, on the `literature-search-expert`'s flag
+
+---
+
+### D018 — PILOT-03 opened: primary multi-centre GCC donor RHD/RHCE genotyping study
+**Date:** 2026-09-11
+**Context:** PI ratified the PILOT-02 stop and approved the D016 recommendation to move to primary research.
+**Decision:** Open PILOT-03 as an original observational laboratory study — multi-centre GCC blood donor RHD/RHCE genotyping, with serology–genotype concordance as the clinically meaningful outcome, and optional extension to match-probability modelling against local TDT/SCD recipient phenotypes. Reporting guideline: **STROBE** (to be confirmed by `methodology-protocol-expert` at G1, with STARD considered if a diagnostic-accuracy framing is adopted for the serology–genotype comparison).
+**Bearing on the mission:** this moves the programme from review work to original research earlier than the PI's brief sequenced. Done on the PI's explicit instruction, after two evidence-based gate closures.
+**Decided by:** Dr. Fehaid M. Alanazi (PI), on the Director's D016 recommendation
+
+---
+
+### D019 — Stage 1 feasibility NOT re-run for PILOT-03; novelty already established and verified
+**Date:** 2026-09-11
+**Context:** D014 requires Stage 1 feasibility before downstream work. The Director judged the requirement already satisfied for this topic rather than skipping it.
+**Basis:** PILOT-02's feasibility check (18 logged searches) established the novelty evidence directly, and the Director independently re-verified the decisive records: across all six GCC states only two donor-cohort molecular RH studies exist — Madkhali 2025 (Jazan; DOI 10.1111/tme.70040; self-described as the first RHD/RHCE molecular characterisation in Saudi Arabia) and Al-Riyami 2021 (Oman, n=180; DOI 10.1111/vox.13204) — with Kuwait, Qatar, Bahrain and UAE returning nothing. Sparse literature is a *disqualifier* for a review and an *enabler* for a primary study: the same verified finding answers both gates in opposite directions. Re-running the identical searches would consume an agent to reproduce a conclusion already in hand.
+**Residual gap in the check, stated rather than glossed:** trial/protocol registries could not be queried (PROSPERO, ClinicalTrials.gov, ICTRP were not accessible). An unpublished or ongoing registered GCC RH-genotyping study would not have been detected. This is assigned to the methods-scoping task to attempt, and if it remains unresolved it is carried into Gate G1 as a declared residual risk, not silently dropped.
+**Decided by:** Principal Research Director
+
+---
+
+### D020 — Scope boundary: the Director cannot execute the wet-lab or regulatory components
+**Date:** 2026-09-11
+**Context:** PILOT-03 is original laboratory research on human donor samples. The PI has not yet confirmed sample access, IRB status, or genotyping capability (the Director's Q3, still unanswered).
+**Decision:** The team's deliverable for PILOT-03 is the **protocol and its supporting apparatus** — design, eligibility, variables, laboratory methods specification, statistical analysis plan, sample-size justification, STROBE checklist, data-management plan and IRB-ready documentation. Sample collection, laboratory execution, ethics submission and consent are the PI's, and cannot be performed or simulated here.
+**Basis:** `CLAUDE.md` §1.9 — never simulate a step not actually performed. A protocol is also precisely the artefact an IRB application requires, so this deliverable is useful whether or not sample access already exists, and does not depend on the unanswered question.
+**Decided by:** Principal Research Director

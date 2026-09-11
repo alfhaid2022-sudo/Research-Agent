@@ -30,3 +30,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D015 PILOT-02 NO-GO (self-duplication); D016 reframe recommendation; D017 RHD search hazard`
 - `2026-09-11 · Director · UPDATE · .claude/agents/literature-search-expert.md · Added precision-hazard table (D017)`
 - `2026-09-11 · literature-search-expert · CREATE · 02_Search/_working/PILOT02_FEASIBILITY_LOG.md · 18 searches P1-P18`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D018 PILOT-03 opened; D019 feasibility not re-run (novelty already verified); D020 wet-lab/regulatory scope boundary`
+- `2026-09-11 · Director · UPDATE · PROJECT_STATUS.md · PILOT-03 Stage 2-3`
+- `2026-09-11 · transfusion-medicine-expert · CREATE · 01_Protocol/_working/PILOT03_METHODS_SCOPING_2026-09-11.md · RH genotyping methods scoping`

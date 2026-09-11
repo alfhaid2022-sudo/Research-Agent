@@ -10,10 +10,10 @@
 
 | Item | Value |
 |---|---|
-| **Active project** | PILOT-02 **STOPPED** as a review (D015). Awaiting PI decision on reframing to primary research |
-| **Current stage** | Stage 1 complete — second NO-GO, verified |
-| **Current gate** | Pre-G1 — no protocol drafted; project stopped before protocol work began |
-| **Blocked on** | **PI decision**: ratify the stop; decide whether to move to primary research now (D016), which changes the mission's review-first sequencing |
+| **Active project** | **PILOT-03** — primary multi-centre GCC donor RHD/RHCE genotyping study (D018) |
+| **Current stage** | Stage 2–3: methods scoping → protocol drafting |
+| **Current gate** | Working toward **G1** (protocol approval) |
+| **Blocked on** | Nothing. PI's sample/IRB/genotyping access (Q3) still unanswered but **non-blocking** — the deliverable is the protocol, which is what an IRB application needs (D020) |
 
 ---
 
@@ -45,8 +45,8 @@
 |---|---|---|---|
 | 0 | Team setup & capability verification | — | ✅ Complete |
 | 1 | Project intake & feasibility | — | ✅ Run twice — **NO-GO** both times |
-| 2 | Research question & design selection | — | ⬜ Held pending Stage 1 |
-| 3 | Protocol & reporting guideline | **G1** | ⬜ Not started |
+| 2 | Research question & design selection | — | ✅ Primary observational lab study (D018) |
+| 3 | Protocol & reporting guideline | **G1** | 🟡 Methods scoping running |
 | 4 | Search-strategy development & peer review | — | ⬜ |
 | 5 | Literature search & deduplication | **G2** | ⬜ |
 | 6 | Screening & full-text eligibility | **G3** | ⬜ |
@@ -77,9 +77,26 @@ Legend: ⬜ not started · 🟡 in progress · 🔴 blocked · ✅ complete
 
 ## Next actions
 
-1. ✅ PILOT-02 Stage 1 → **NO-GO**, decisive citations verified by the Director
-2. ⬜ **PI ratifies the stop and chooses the direction** (D016)
-3. ⬜ Feasibility check on whichever direction is chosen — unchanged, and it has now paid for itself twice
+1. 🟡 `transfusion-medicine-expert` — RH genotyping methods scoping (alleles, platforms, ISBT nomenclature, sample-size inputs)
+2. ⬜ `methodology-protocol-expert` — draft protocol + STROBE checklist from that scoping
+3. ⬜ `biostatistics-expert` — sample-size justification and SAP skeleton
+4. ⬜ **Gate G1 — PI approval of the protocol**
+
+## What this team can and cannot deliver for PILOT-03 (D020)
+
+| Team delivers | PI owns |
+|---|---|
+| Protocol, design, eligibility, variables | Donor sample access |
+| Laboratory methods specification | IRB submission and approval |
+| Statistical analysis plan + sample size | Informed consent |
+| STROBE checklist, data-management plan | Wet-lab execution |
+| IRB-ready documentation | Genotyping platform procurement |
+
+The protocol is exactly what an IRB application requires, so this work is useful whether or not sample access already exists.
+
+## Declared residual risk carried to G1 (D019)
+
+Trial and protocol registries (PROSPERO, ClinicalTrials.gov, ICTRP) could not be queried in this environment. An unpublished or ongoing registered GCC RH-genotyping study would not have been detected. The methods-scoping task will attempt a registry check; if it remains unresolved this is declared at G1, not dropped.
 
 ## Two gates, one pattern
 
