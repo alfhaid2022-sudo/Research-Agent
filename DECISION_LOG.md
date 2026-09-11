@@ -331,3 +331,31 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Basis for doing it now rather than at G7:** the audit's inputs are committed and stable, so it is independent of both running agents in outcome as well as in file access (D014). More importantly, the Director's reasoning has propagated into the two protocol tasks now running — if a defect exists in D018–D031, it is being built upon at this moment, and finding it after the protocol is drafted costs a rewrite. An audit that can only run at the end is an audit that can only report damage.
 **Explicit instruction to the auditor:** audit the **Director**, not only the agents. D019 was a Director error caught by a subagent's veto, not by the Director's own checking. The auditor is directed to look specifically for other places where the Director asserted something as verified that was not, and is reminded it may not be overruled by the Director (D002).
 **Decided by:** Principal Research Director
+
+---
+
+### D033 — D031's parallel-work risk did not materialise; both agents converged independently
+**Date:** 2026-09-11
+**Context:** D031 accepted a residual risk that protocol drafting might redefine something and void the parallel sample-size work. `methodology-protocol-expert` duly raised flag F2 (kappa paradox at high antigen prevalence, e ~99%, hr^S^ ~98%) and F3 (D-negative stratum enrichment altering denominators), advising that `biostatistics-expert` be told immediately.
+**Finding:** both were **already independently addressed** in the statistical output, which had been written before the flag was raised. §6a sets out the paradox explicitly with a worked table at fixed 98% observed agreement and mandates PABAK alongside kappa for all antigens, with the caution that "PABAK is context, never evidence of good agreement." Enriched sampling of the D-negative stratum is handled with an explicit requirement that the enrichment be declared, since the resulting estimate is conditional. §7 additionally brackets rather than assumes the ICC for multi-centre clustering, and §4 gives the rare-allele reality check.
+**Why the risk did not bite:** the Director's dispatch briefed *both* agents on the same known hazards — the kappa paradox, clustering, rare-allele infeasibility and denominator integrity were named in the statistician's prompt. Shared hazard briefing, not luck, is what made the parallel dispatch safe. This is the generalisable lesson: when parallelising, brief every agent on the hazards that span their boundary, so convergence is designed rather than hoped for.
+**Secondary value:** two agents reasoning independently from different starting points reached the same methodological conclusions. That convergence is corroboration, not redundancy.
+**Adopted:** PABAK/AC1 as a mandatory companion statistic to kappa, kappa remaining primary.
+**Decided by:** Principal Research Director
+
+---
+
+### D034 — Protocol flags F1–F8: three adopted, five escalated to the PI as G1 decisions
+**Date:** 2026-09-11
+**Context:** `methodology-protocol-expert` raised eight flags and, correctly, made **no silent redefinition** of any fixed constraint — F2 and F3 are additions and consequences, not substitutions.
+**Adopted into the protocol by the Director:**
+- **F1** — neither assay is a gold standard, so sensitivity/specificity are demoted to secondary directional descriptors carrying an imperfect-reference caveat. This constrains how results may be phrased and is correct: reporting accuracy parameters against an imperfect reference would overstate what the design can establish.
+- **F2** — PABAK/AC1 companion statistic (per D033).
+- **F3** — Stratum B enrichment quarantined from all unweighted frequency estimates; any weighted estimate requires SAP specification.
+**Escalated to Dr. Alanazi — these require decisions the Director cannot make:**
+- **F4** — §7.1 mandates a single Tier-1 platform or fully centralised genotyping. If procurement makes that impossible the design must be **revisited at G1, not patched during execution**. Platform heterogeneity across sites would confound centre with method irrecoverably.
+- **F5** — D025 requires a budgeted n for Tier-4 NGS escalation; **there is no referral laboratory and no n**, so "escalate to NGS" is currently not executable. Either a referral path is secured or the tier is removed and its absence declared as a limitation.
+- **F6** — **return of clinically relevant findings** (e.g. a partial-D or D-variant donor) is unaddressed in every decision logged to date, and it determines consent wording. This cannot be deferred past IRB submission. It is also an ethical obligation question, not an administrative one.
+- **F7** — objective S9 (match-probability modelling) is a **simulation**; TRIPOD does not govern it and STROBE does not cover it. D029 lists modelling among the differentiators that must carry the paper, so a headline claim resting on an exploratory simulation is a genuine review vulnerability. Either the modelling is specified to a standard that can carry a claim, or the claim is downgraded.
+- **F8** — the §1.3 rationale depends on the study genuinely being multi-state. If enrolment reduces to a single centre, the rationale requires **re-framing, not re-labelling** — this is the D022 failure mode in advance.
+**Decided by:** Principal Research Director (adoptions); PI decision required (escalations)

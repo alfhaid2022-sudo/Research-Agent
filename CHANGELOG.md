@@ -48,3 +48,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · methodology-protocol-expert · CREATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · PILOT-03 protocol draft v0.1 (20 sections, 40 [UNVERIFIED] flags carried)`
 - `2026-09-11 · biostatistics-expert · CREATE · 05_Analysis/_working/05_pilot03-sample-size_v1.0_2026-09-11.py · Sample-size calculation script (parses clean)`
 - `2026-09-11 · biostatistics-expert · CREATE · 05_Analysis/_working/05_pilot03-sample-size-output_v1.0_2026-09-11.txt · Sample-size output`
+- `2026-09-11 · methodology-protocol-expert · CREATE · 01_Protocol/_working/01_pilot03-strobe-checklist_v0.1_2026-09-11.md · STROBE 1-22 + STARD methods + JBI prevalence domains`
+- `2026-09-11 · methodology-protocol-expert · CREATE · 01_Protocol/_working/PROTOCOL_DEVIATIONS.md · Deviation log stub, inactive until G1 freeze`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D033 parallel risk did not materialise; D034 flags F1-F8 triaged`
