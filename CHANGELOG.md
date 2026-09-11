@@ -73,3 +73,6 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · 05_Analysis/_working/NUMBER_REGISTRY.csv · Provenance note: input SHA changed, all numeric values unchanged`
 - `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · §1.1 Halawani numerators corrected to NR; source inconsistencies recorded`
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D044 back-calculation corrected; external source found internally inconsistent`
+- `2026-09-11 · citation-verification-expert · CREATE · 07_References/_working/*.csv,.md,.ris,.bib,.py · 16 records, 39 claims verified; 0 fabrications`
+- `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · §1.1 third correction; Haffener contradiction removed; superlative removed; Al Lawati label corrected`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D045 retracts D044; zero fabricated citations`

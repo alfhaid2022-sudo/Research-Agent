@@ -511,3 +511,31 @@ The common mechanism is not carelessness about evidence. It is **announcing a co
 **Decision:** only the two published **rates** may be cited from this source, explicitly as rates. **No count derived from it may enter any PILOT-03 output.** The correction is written into §1.1 in place, naming the earlier error, so the record is auditable rather than silently amended.
 **Wider significance:** this is the first defect found in an **external source** rather than in the team's own reasoning. It vindicates the rule against back-calculation on grounds beyond principle — the arithmetic looked clean and produced plausible integers, and only the full text revealed that one of them meant something else entirely. It also demonstrates why `U17` (the reference list has never been citation-verified) is a genuine blocker: if one of the few externally-checked citations contained this, the unchecked remainder cannot be assumed sound.
 **Decided by:** Principal Research Director
+
+---
+
+### D045 — Citation verification: zero fabrications, but D044's correction was itself wrong. Third correction applied.
+**Date:** 2026-09-11
+**Context:** `citation-verification-expert` verified all 16 cited records and 39 in-text claims across four levels.
+
+**The headline result, stated first: ZERO FABRICATED CITATIONS.** All 16 records resolve to authoritative sources (14 PubMed, 2 SciSpace), including both high-risk non-PubMed items — the Vege & Westhoff book chapter and the Al Lawati doctoral thesis. Metadata is accurate in 16/16: no false author, title, journal, year, volume, issue, page, DOI or PMID anywhere. No retraction or expression of concern among the 14 PubMed records. **The fabrication risk this project most feared does not exist here**, and the blanket `[UNVERIFIED]` at protocol line 50 is discharged.
+
+**But 13 of 39 claims (33%) were not cleanly supported as written** — and the most serious was the Director's own correction.
+
+**D044 IS RETRACTED.** It asserted, following the auditor, that Halawani's "50 immunized patients" is a combined total across both disease groups. **That is unsupported and almost certainly false.** The Director verified the citation agent's arithmetic independently, on two mutually independent lines:
+- 12.98% × 385 = 49.97 and 13.21% × 53 = 7.00, summing to **57**, matching the paper's stated "57 patients had positive antibody screening";
+- anti-E *n* = 11 at 19.64% implies 56 antibodies in SCD; at 17.19% implies 64 overall; the thalassaemia group's 2-antibody 25% implies 8; and 56 + 8 = 64.
+So "56 antibodies in 50 immunized patients" describes the **SCD group**, and **50 is the SCD numerator** — which is what the original draft said before two successive "corrections" moved it away from the truth.
+
+**The pattern this exposes is new and worse than the one in D043.** D043's failure was under-correcting: fixing the quoted sentence and not its dependents. This failure is **over-correcting**: the Director took the auditor's interpretive claim, repeated it as established fact inside a box invoking the anti-back-calculation rule, and replaced a *correct* derived number with an *incorrect* assertion in the opposite direction. Deference to an authoritative-sounding correction is the same defect as deference to an authoritative-sounding source — the Director had the full text in context and did not check the interpretation against it. **A correction is a claim, and carries the same burden of proof as the claim it replaces.**
+
+**Corrections now applied (third version of §1.1):** numerators recorded as **`[DERIVED]`** with the derivation shown, never `[EVIDENCE]`, since the paper does not state them; the combined-total assertion retracted in place; the residual allo/auto overlap ambiguity recorded as `[UNCERTAIN]`; and the Director's own overstatement that the source gives "three different anti-E frequencies" **withdrawn** — 17.19% (11/64) and 19.64% (11/56) are different denominators, not a discrepancy. Only 17.19% vs 17.9% is genuine, and it is minor.
+
+**Other corrections applied:**
+- **CONTRADICTED claim removed:** §1.3.3 stated Haffener's *RHD* results were "behind egress blocks." False — PMC12531907 has now been retrieved in full **twice, by two different agents**. The row is rewritten; the P3 proposition now rests on Ameen 2020 alone.
+- **Unsearched superlative removed:** "Deepest *RHCE* dataset in the region" was a novelty claim in the protocol's own voice inside an `[EVIDENCE]` table — exactly what `CLAUDE.md` §7 forbids.
+- **Al Lawati "donor-cohort" label corrected:** the thesis says "dry blood samples … from Omani cohort"; the word *donor* never appears. The count of six datasets depends on this row and is now flagged `[UNCERTAIN]`.
+
+**U17 re-scoped, not closed.** The fabrication risk is closed with a zero finding. Six specific correctable blockers remain, all inside the protocol and none requiring new literature.
+**Recorded limitation:** PubMed's `CommentsCorrections` field is not exposed by this MCP server, so **a published erratum cannot be positively excluded** for any cited record. Crossref DOI registration remains unverifiable for all 16.
+**Decided by:** Principal Research Director, retracting its own D044
