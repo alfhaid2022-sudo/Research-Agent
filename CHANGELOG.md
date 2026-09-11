@@ -66,3 +66,5 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · literature-search-expert · CREATE · 02_Search/_working/PILOT03_GATE_LOG.md · Stage 1 gate: 11 PubMed + 5 SciSpace strings, P1-P5 verdicts`
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D041 gate result GO WITH NARROWED CLAIM; 3 of 5 propositions refuted`
 - `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · Rationale replaced with gate-supported wording`
+- `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · §1.3 fully rewritten; retraction table added`
+- `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D042 D041 correction was incomplete; standing grep-before-announcing corrective`

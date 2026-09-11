@@ -78,18 +78,48 @@ Four donor-cohort molecular red cell genotyping datasets from GCC states were re
 
 `[EVIDENCE]` for all four rows, at the access level recorded in the methods scoping (Al-Riyami 2021 is abstract-only; full text was not obtainable — `[UNVERIFIED]` for all methods detail beyond its abstract).
 
-### 1.3 The gap — stated precisely
+### 1.3 The gap — restated after the Stage 1 gate (D041)
 
-**The gap is not an absence of molecular RH data in the GCC.** That framing is factually wrong and would not survive peer review: Ameen 2020 alone genotyped 917 Kuwaiti donors. Director decision D022 corrected this premise, and no PILOT-03 output may restate it.
+> This section was rewritten on 2026-09-11. Its previous version asserted four claims that the Stage 1
+> gate refuted or could not support. They are listed in §1.3.3 as **retracted**, so the correction is
+> auditable rather than invisible.
 
-**The defensible gap is that no multi-centre, prospectively-sampled, single-platform, serology-anchored *RHD*/*RHCE* concordance study exists in the GCC.** `[INFERENCE, from the table in §1.2]` Specifically, across all four retrieved studies:
+#### 1.3.1 What the gap is NOT
 
-1. Every study is **single-centre or single-country**; none permits comparison across GCC states on a common protocol.
-2. Every study used a **different molecular platform** (SNP array / melting-curve PCR-SSP kit / multiplex PCR / Luminex bead assay). Platform-versus-platform discordance is a real and quantified phenomenon — 7 *RHD* and 6 *RHCE* alleles were discordant between manual and automated methods across 149 *RHD* and 168 *RHCE* referrals `[EVIDENCE — Vege & Westhoff, DOI 10.1007/978-1-4419-7512-6_11]` — so allele frequencies from these four studies cannot be pooled or compared without confounding by assay.
-3. **None reports serology–genotype concordance as a pre-specified outcome with a discordance classification.** Al-Riyami 2021 reports bare per-system percentages; its own headline discordance (Fy(b+), 87%) is attributable to GATA heterozygosity — an expected assay-design phenomenon, not an error — which is precisely why a bare concordance percentage is not an analysable outcome `[EVIDENCE, abstract-level]` `[INFERENCE]`.
-4. **No GCC study has genotyped serologically D-positive donors for partial D.** Madkhali 2025 genotyped *RHD* only in the 60 serologically D-negative/weak D donors. Partial D in a normally-reacting D+ donor — the configuration that matters most on the recipient side — is uncharacterised in the region. `[EVIDENCE]` Two Saudi obstetric patients typing D+ on routine serology were found to carry *RHD\*DAU2*/*DAU6* and weak D type 4.1, and neither received RhIG `[EVIDENCE — Owaidah 2023, DOI 10.23750/abm.v94iS1.14120]`.
-5. **No GCC study has screened for DEL.** A DEL donor types D-negative by routine serology, so the unit is labelled D-negative and issued to a D-negative recipient, yet can immunise: primary anti-D in a D-negative Korean recipient was traced to a DEL donor carrying *RHD*(c.1227G>A) `[EVIDENCE — Kim 2009, DOI 10.3343/kjlm.2009.29.4.361]`. In 1,270 serologically D-negative Thai donors *RHD\*01EL.01* had an allele frequency of 7.60% `[EVIDENCE — Nuchnoi 2022, DOI 10.2450/2022.0160-22; Thai population, NOT Gulf]`. The GCC donor base contains a large South/Southeast Asian expatriate component `[INFERENCE]`, making this the highest-value unexamined donor-side target.
-6. **Madkhali 2025 left 11/60 (18.3%) of its *RHD* cohort in an unresolved "other than weak D types 1, 2, 3" platform bucket**, which the paper itself states may require additional molecular analysis. `[EVIDENCE]` No study has escalated such calls to sequencing at cohort scale.
+**Not an absence of molecular RH data in the GCC.** Ameen 2020 alone genotyped 917 Kuwaiti donors. `[EVIDENCE — PMID 32527616]`
+
+**Not an absence of serology–genotype concordance analysis.** Concordance is the stated objective of Al-Riyami 2021, which reports >95% across systems including RH `[EVIDENCE — PMID 34647328]`, and Haffener 2025 compared serology with whole-genome sequencing across 24 antigens in 100 Omanis, reporting 98.7% accuracy and **investigating 12 discordances with candidate variants proposed** `[EVIDENCE — PMID 40916454]`. A dedicated concordance-and-adjudication study therefore already exists in the GCC.
+
+**Not an absence of allele-level *RHD* resolution or DEL detection in the Gulf.** An Omani doctoral thesis resolved weak D types 45, 41, 4.2, DAR2.00, DIIIb and DVI.2, including a DEL allele, in 203 D-negative Omani samples `[EVIDENCE, abstract-level only — Al Lawati 2021, DOI 10.24377/LJMU.T.00014274; grey literature, repository inaccessible, Director could not verify]`.
+
+#### 1.3.2 What the gap IS — authorised wording, do not paraphrase
+
+In a PubMed and SciSpace search executed on 2026-09-11 — without access to Scopus, Embase, Web of Science, Cochrane/CENTRAL, trial registries, Arabic-language journals or the Saudi Digital Library — **no study was retrieved that resolves, at ISBT allele level, the *RHD* variants underlying serologically weak or discrepant D in Saudi blood donors.** The only Saudi donor cohort with *RHD* genotyping (Madkhali 2025, PMID 41147787) applied ID RHD XT to 60 D-negative/weak-D donors and left **11/60 (18.3%)** in an unresolved "other than weak D types 1, 2, 3" bucket that the paper itself states may require additional molecular analysis `[EVIDENCE]`; the only other (Alalshaikh 2024, PMID 39055072) tested exon 3/4/7 presence and the hybrid Rhesus box only and states that variant-allele analysis remains to be done `[EVIDENCE]`.
+
+**This is a retrieval statement, not an existence claim.** No priority or "first" claim is made on any of these grounds.
+
+#### 1.3.3 Retracted claims — recorded, not deleted
+
+| Retracted claim | Status after gate | Refuting record |
+|---|---|---|
+| "No multi-centre, prospectively-sampled, single-platform, serology-anchored concordance study exists in the GCC" | **Refuted in part** — concordance limb false | PMID 34647328; PMID 40916454 |
+| "None reports serology–genotype concordance as a pre-specified outcome with a discordance classification" | **REFUTED** | PMID 40916454 (12 discordances adjudicated) |
+| "No GCC study has genotyped serologically D-positive donors for partial D" | **UNVERIFIABLE — not assertable.** Alalshaikh genotyped 70 D-positive donors but for exon presence/zygosity only; Ameen's panel coverage and Haffener's *RHD* results are behind egress blocks | PMID 39055072; PMID 32527616; PMID 40916454 |
+| "No GCC study has screened for DEL" | **REFUTED** | Al Lawati 2021 (DOI 10.24377/LJMU.T.00014274) |
+| "No study has escalated such calls to sequencing at cohort scale" | **UNVERIFIED** — never searched; may not be asserted | — |
+
+#### 1.3.4 Design properties offered as the contribution
+
+These are **design properties, not novelty claims**, and none asserts that no one else has done it:
+
+1. **Allele-level resolution of the weak/discrepant D fraction in Saudi donors**, per §1.3.2 — the surviving retrieval statement.
+2. **A common protocol across multiple centres.** `[INFERENCE]` No multi-centre prospectively-sampled GCC donor RH genotyping study was retrieved, but design adjectives are under-reported in abstracts and two retrieved records could not be excluded (PMID 40916454; Al Lawati 2021). **This is the weakest claim in the protocol and is not load-bearing.**
+3. **Platform harmonisation as a methodological rationale, not a novelty claim.** Retrieved GCC studies each used a different platform (SNP array / melting-curve PCR-SSP / multiplex PCR / Luminex bead assay / WGS); platform-versus-platform discordance is documented — 7 *RHD* and 6 *RHCE* alleles discordant between manual and automated methods `[EVIDENCE — Vege & Westhoff, DOI 10.1007/978-1-4419-7512-6_11]` — so frequencies across those studies cannot be pooled without confounding by assay.
+4. **Pre-specified escalation of unresolved platform calls to sequencing**, addressing the documented 18.3% bucket. Whether others have done so at cohort scale is `[UNVERIFIED]`.
+
+#### 1.3.5 Clinical motivation (independent of novelty)
+
+A DEL donor types D-negative on routine serology, so the unit is labelled D-negative and issued to a D-negative recipient, yet can immunise: primary anti-D in a D-negative Korean recipient was traced to a DEL donor carrying *RHD*(c.1227G>A) `[EVIDENCE — Kim 2009, DOI 10.3343/kjlm.2009.29.4.361]`. Partial D in a normally-reacting D+ donor or patient is the configuration that matters most on the recipient side: two Saudi obstetric patients typing D+ on routine serology carried *RHD\*DAU2*/*DAU6* and weak D type 4.1, and neither received RhIG `[EVIDENCE — Owaidah 2023, DOI 10.23750/abm.v94iS1.14120]`. **This motivation stands regardless of how much of §1.3.2 survives future searching**, and is the reason the study is worth doing even if its novelty narrows further.
 
 ### 1.4 Novelty claims — explicit prohibition
 

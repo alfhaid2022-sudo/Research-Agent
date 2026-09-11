@@ -455,3 +455,19 @@ Every non-obvious methodological, statistical, editorial or governance decision 
 **Decision: GO WITH NARROWED CLAIM.** PILOT-03 proceeds with a Saudi-specific, allele-resolution-shaped rationale, phrased as a retrieval statement rather than an existence claim, and making no priority claim of any kind.
 **Prohibited wording, recorded so it cannot return:** "no concordance analysis exists", "no GCC study has screened for DEL", "first in the Gulf". All three are false against records this gate retrieved.
 **Decided by:** Principal Research Director
+
+---
+
+### D042 — The D041 correction was itself incomplete. Protocol §1.3 rewritten; the Director's correction pattern is the defect.
+**Date:** 2026-09-11
+**Context:** After the gate (D041) the Director applied the authorised rationale as a **banner at the top of the protocol** and reported the correction as done. On checking before dispatching the re-audit, the protocol **body** still asserted the refuted claims verbatim at §1.3 — including "None reports serology–genotype concordance as a pre-specified outcome with a discordance classification" (refuted by PMID 40916454) and "No GCC study has screened for DEL" (refuted by Al Lawati 2021).
+**The pattern, stated plainly:** this is the third instance of the same defect, and the second time it has been the *correction* rather than the original claim.
+- D019 — asserted, uncorrected until a subagent vetoed it (D022)
+- D022 — the correction diagnosed the failure mode, then committed it twice more (audit C1)
+- M1 — D015 Finding 2 carried the same false count and was never superseded until the audit found it
+- **D041/D042 — the correction was applied to the header while the body kept asserting the refuted claim**
+The common mechanism is not carelessness about evidence. It is **announcing a correction as complete after applying it at the most visible location**, without tracing every place the false claim propagated. A banner satisfies the appearance of correction; the document still says the false thing.
+**Action taken:** §1.3 fully rewritten with: (a) an explicit "what the gap is NOT" section naming the refuting records; (b) the authorised retrieval-statement wording; (c) **a retraction table listing every withdrawn claim against the record that refuted it**, so the correction is auditable rather than invisible; (d) design properties reframed as design properties rather than novelty claims, with the weakest explicitly marked not load-bearing; (e) a clinical-motivation section that stands independent of novelty.
+**Standing corrective adopted:** a correction is not complete until the Director has **grepped the repository for the retracted claim and every paraphrase of it**, and either removed or explicitly marked each instance. Announcing a correction before running that check is prohibited.
+**Note on the re-audit:** the Director found this defect while preparing to dispatch the auditor, not by being told. That is the correct direction of travel, but it does not offset the fact that the same error has now recurred three times, and the Director reported the D041 correction to the PI as done when it was not.
+**Decided by:** Principal Research Director
