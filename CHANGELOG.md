@@ -6,6 +6,11 @@ Append-only record of every file created or modified. Newest first.
 
 ---
 
+## 2026-09-20
+
+- `2026-09-20 · Director · CREATE · scientific-committee-app/** · Scientific Committee Rapporteur app (Arabic RTL, TypeScript: Express+SQLite server, React/Vite web, 60 tests). Separate deliverable from the research workspace; user data and uploads excluded from git`
+- `2026-09-20 · Director · CREATE · scientific-committee-app/docs/ASSET_INTAKE.md · Records that the three regulations and the official minutes form have NOT reached the app; app customization rests on summarized coordinator notes, which are not verified quotes and not approved rules`
+
 ## 2026-09-11
 
 - `2026-09-11 · Director · CREATE · 00_Admin/AGENT_REGISTRY.md · Agent registry with tools, I/O and dependencies`

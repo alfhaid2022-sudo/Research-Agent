@@ -1,0 +1,25 @@
+# بيانات المستخدم لا تُحفظ في المستودع إطلاقًا (المستودع قد يكون عامًا)
+data/
+uploads/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+
+# أسرار البيئة
+.env
+.env.*
+!.env.example
+
+# مخرجات التصدير والبناء
+dist/
+build/
+exports/
+*.docx
+*.pdf
+!docs/**/*.pdf
+
+node_modules/
+npm-debug.log*
+.DS_Store
+coverage/
