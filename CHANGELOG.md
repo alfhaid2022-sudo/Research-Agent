@@ -78,3 +78,7 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D045 retracts D044; zero fabricated citations`
 - `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · All 12 citation blockers closed; 7 PMIDs added; Vege & Westhoff completed`
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D046 U17 discharged`
+- `2026-09-20 · Director · CREATE · .claude/agents/literature-searcher.md, reference-auditor.md, hematology-reviewer.md, methodology-reviewer.md · Four read-only manuscript review agents; model: inherit, permissionMode: default`
+- `2026-09-20 · Director · UPDATE · .claude/agents/scientific-writer.md · model: inherit, permissionMode: default; Edit tool removed; revision-mode, missing-fact placeholder and injection-handling rules added`
+- `2026-09-20 · Director · CREATE · MANUSCRIPT_REVIEW_USAGE.md · Parallel five-agent review pass usage guide`
+- `2026-09-20 · Director · UPDATE · USAGE.md · Agent count 15 to 19; pointer to MANUSCRIPT_REVIEW_USAGE.md`

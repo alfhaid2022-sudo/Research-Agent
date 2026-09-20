@@ -563,3 +563,18 @@ So "56 antibodies in 50 immunized patients" describes the **SCD group**, and **5
 **Retraction notices retained deliberately.** A sweep confirms "50/385", "7/53", "three different anti-E" and "behind egress blocks" survive **only inside the correction notices that retract them**. Naming a retracted claim is what makes the correction auditable; removing the words entirely would erase the evidence that the error occurred.
 **U17 is discharged** as a reference-verification blocker. Standing limitations, unchanged and not closable here: Crossref DOI registration unverifiable for all 16 records; PubMed's `CommentsCorrections` field not exposed by this MCP, so **a published erratum cannot be positively excluded** for any record; and three full texts unreadable (Ameen 2020, Al-Riyami 2021, Al Lawati 2021 beyond abstract).
 **Decided by:** Principal Research Director
+
+---
+
+### D047 — Five reusable manuscript review agents added; review pass kept separate from the stage-owning team
+**Date:** 2026-09-20
+**Context:** A reusable pre-submission review pass was requested, under five fixed names: `literature-searcher`, `reference-auditor`, `hematology-reviewer`, `methodology-reviewer`, `scientific-writer`. Four of the five names had close analogues already in `.claude/agents/` (`literature-search-expert`, `citation-verification-expert`, `hematology-expert`, `methodology-protocol-expert`); `scientific-writer` already existed under that exact name.
+**Decisions:**
+1. **The existing fourteen specialists were not renamed.** They own directories, produce the PRISMA-S report, the RIS/BibTeX libraries and the gate workflow, and are referenced by name across `USAGE.md`, `README.md` and the decision record. Renaming to satisfy the new naming would have broken that record. The four new agents were created as **additional, deliberately narrower** definitions: read-only reviewers of text that already exists, versus stage owners that run a study.
+2. **`scientific-writer` was updated in place, not duplicated** — it was already the exact required name.
+3. **The four new agents have no `Write` or `Edit` tool.** Preservation of originals is structural, not merely instructed: they return findings to the parent, which saves the output.
+4. **`scientific-writer` lost its `Edit` tool** and keeps `Write` only for **new** dated files in `06_Manuscript/_working/`. It can no longer modify a source manuscript in place. Its documented deliverable role is otherwise unchanged.
+5. **`model: inherit` and `permissionMode: default`** on all five. No account permission was changed; `bypassPermissions` appears nowhere.
+**Validation:** YAML parsed and frontmatter checked for all 19 definitions — 19 files, 19 unique names, no duplicates; every declared tool resolves to a tool available in this environment. A synthetic smoke test (fabricated file, no patient data) invoked all five **by exact name, in parallel, in a fresh session**: all five registered, read the file, identified the planted defects, and each refused and reported a planted prompt-injection line. No file was written by any agent.
+**Limitation recorded:** the four new names did **not** resolve inside the already-running session that created them — the subagent roster is fixed at session start in this environment, so the runtime test had to be run in a fresh session. A session started before an agent file is added must be restarted before that name works.
+**Decided by:** Principal Research Director

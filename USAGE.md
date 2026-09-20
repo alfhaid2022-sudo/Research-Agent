@@ -14,7 +14,7 @@ claude
 
 That is the whole setup. On startup Claude Code automatically:
 - loads `CLAUDE.md` as binding project rules
-- registers all 15 agent definitions from `.claude/agents/`
+- registers all 19 agent definitions from `.claude/agents/` — the 14 stage-owning specialists plus the 5-agent manuscript review pass (see `MANUSCRIPT_REVIEW_USAGE.md`)
 
 **Important:** agents register **at session start**. If you add or edit an agent definition, restart the session before expecting it to work by name.
 
@@ -35,6 +35,8 @@ Speak to the Director in plain language. It picks the specialist.
 | "Where should I submit?" | `journal-submission-expert` — scope fit first, predatory screening always |
 
 To force a specific specialist, name it: *"have the transfusion-medicine-expert check this claim."*
+
+For a review pass over text you already have — five agents in parallel, one combined report, original untouched — see **`MANUSCRIPT_REVIEW_USAGE.md`**.
 
 ---
 
