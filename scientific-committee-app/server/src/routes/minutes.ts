@@ -1,9 +1,12 @@
+import fs from 'node:fs';
 import { Router } from 'express';
 import { z } from 'zod';
 import { getDb } from '../db.js';
 import { asyncHandler, parseBody, scopeOf, param } from '../lib/http.js';
 import { HttpError, audit, newId, nowIso } from '../lib/util.js';
 import { buildMinutesExportModel, renderMinutesHtml } from '../services/export.js';
+import { fillMinutesTemplate } from '../services/minutesTemplate.js';
+import { resolveStoredPath } from '../services/storage.js';
 import { committeeMembers } from './committee.js';
 import { renderMinutesDocx } from '../services/docx.js';
 
@@ -425,6 +428,77 @@ minutesRouter.get(
     const model = buildMinutesExportModel(getDb(), param(req, 'id'));
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.send(renderMinutesHtml(model));
+  }),
+);
+
+/** Locates the official template registered for a scope. */
+function officialTemplate(scope: string): { id: string; title: string; storedName: string; fileName: string } {
+  const row = getDb()
+    .prepare<[string], { id: string; title: string; stored_name: string; file_name: string }>(
+      `SELECT id, title, stored_name, file_name FROM sources
+        WHERE scope = ? AND is_official_template = 1 AND stored_name <> ''
+        ORDER BY created_at DESC LIMIT 1`,
+    )
+    .get(scope);
+  if (!row) {
+    throw new HttpError(
+      409,
+      'النموذج الرسمي لم يضف بعد في هذا النطاق، فلا يمكن التصدير عليه. ارفعه في شاشة النماذج، أو استخدم تصدير المسودة العامة.',
+    );
+  }
+  return { id: row.id, title: row.title, storedName: row.stored_name, fileName: row.file_name };
+}
+
+/** Reports what a template export would fill, without producing the file. */
+minutesRouter.get(
+  '/minutes/:id/template-check',
+  asyncHandler(async (req, res) => {
+    const db = getDb();
+    const model = buildMinutesExportModel(db, param(req, 'id'));
+    let template: ReturnType<typeof officialTemplate>;
+    try {
+      template = officialTemplate(model.scope);
+    } catch (error) {
+      res.json({ available: false, reason: (error as HttpError).message });
+      return;
+    }
+    try {
+      const { report } = await fillMinutesTemplate(
+        fs.readFileSync(resolveStoredPath(template.storedName)),
+        model,
+      );
+      res.json({ available: true, templateTitle: template.title, fileName: template.fileName, report });
+    } catch (error) {
+      res.json({ available: false, reason: (error as Error).message, templateTitle: template.title });
+    }
+  }),
+);
+
+/**
+ * Exports onto the institution's own template file: every part except
+ * word/document.xml is carried over untouched.
+ */
+minutesRouter.get(
+  '/minutes/:id/export-template.docx',
+  asyncHandler(async (req, res) => {
+    const db = getDb();
+    const model = buildMinutesExportModel(db, param(req, 'id'));
+    const template = officialTemplate(model.scope);
+    const { buffer, report } = await fillMinutesTemplate(
+      fs.readFileSync(resolveStoredPath(template.storedName)),
+      model,
+    );
+    audit('minutes.export_template', 'minutes', param(req, 'id'), {
+      sourceId: template.id,
+      deviations: report.deviations.length,
+      warnings: report.warnings.length,
+    });
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+    res.setHeader(
+      'Content-Disposition',
+      `attachment; filename*=UTF-8''${encodeURIComponent(`محضر-${model.sessionNo || 'بدون-رقم'}-على-النموذج.docx`)}`,
+    );
+    res.send(buffer);
   }),
 );
 

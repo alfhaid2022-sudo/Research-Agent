@@ -6,6 +6,11 @@ Append-only record of every file created or modified. Newest first.
 
 ---
 
+## 2026-09-21
+
+- `2026-09-21 · Director · CREATE · scientific-committee-app/server/src/services/minutesTemplate.ts · Fills the institution's own minutes DOCX: only word/document.xml is rewritten (22 of 23 package parts verified byte-identical); anchors found by Arabic label, a non-matching file is refused`
+- `2026-09-21 · Director · UPDATE · scientific-committee-app/docs/ASSET_INTAKE.md · Four assets received and SHA-256 verified; all three regulation PDFs carry no usable text layer, so NO requirement was extracted and no rule approved; template binding verified visually; member-name discrepancy resolved by the user (names stay out of git)`
+
 ## 2026-09-20
 
 - `2026-09-20 · Director · CREATE · scientific-committee-app/** · Scientific Committee Rapporteur app (Arabic RTL, TypeScript: Express+SQLite server, React/Vite web, 60 tests). Separate deliverable from the research workspace; user data and uploads excluded from git`

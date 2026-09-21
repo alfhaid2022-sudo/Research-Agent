@@ -19,6 +19,14 @@ interface Payload {
   structureNotice: string;
 }
 
+interface TemplateCheck {
+  available: boolean;
+  reason?: string;
+  templateTitle?: string;
+  fileName?: string;
+  report?: { filled: string[]; deviations: string[]; warnings: string[]; preservedParts: string[] };
+}
+
 export default function MinutesDetailPage() {
   const { id = '' } = useParams();
   const { scope } = useScope();
@@ -27,6 +35,7 @@ export default function MinutesDetailPage() {
   const [agenda, setAgenda] = useState({ subject: '', body: '', relatedEntity: '' });
   const [busy, setBusy] = useState(false);
   const state = useAsync<Payload>(() => api.get(`/minutes/${id}`), [id]);
+  const templateCheck = useAsync<TemplateCheck>(() => api.get(`/minutes/${id}/template-check`), [id]);
   const requests = useAsync<{ requests: RequestRecord[] }>(() => api.get('/requests', scope), [scope]);
 
   const studied = (requests.data?.requests ?? []).filter((request) => request.studyCount > 0);
@@ -143,9 +152,40 @@ export default function MinutesDetailPage() {
           مسودة للطباعة
         </a>
         <a className="btn" href={`/api/minutes/${id}/export.docx`}>
-          تصدير DOCX
+          مسودة DOCX عامة
         </a>
+        {templateCheck.data?.available && (
+          <a className="btn primary" href={`/api/minutes/${id}/export-template.docx`}>
+            تصدير على النموذج الرسمي
+          </a>
+        )}
       </div>
+
+      {templateCheck.data?.available ? (
+        <Notice kind="ok">
+          <strong>التصدير على النموذج الرسمي متاح.</strong> يُفتح ملف النموذج نفسه ويُعاد كتابة نص المستند فقط؛ وتبقى
+          الترويسة وصورها والتذييل والأنماط والترقيم وإعداد الصفحة واتجاه RTL كما هي في الأصل
+          {typeof templateCheck.data.report?.preservedParts.length === 'number' &&
+            ` (${templateCheck.data.report.preservedParts.length} جزءًا محفوظًا بلا تغيير)`}
+          .
+          {(templateCheck.data.report?.deviations.length ?? 0) > 0 && (
+            <ul>
+              {templateCheck.data.report!.deviations.map((line, index) => (
+                <li key={index}>{line}</li>
+              ))}
+            </ul>
+          )}
+          {(templateCheck.data.report?.warnings.length ?? 0) > 0 && (
+            <ul>
+              {templateCheck.data.report!.warnings.map((line, index) => (
+                <li key={index}>{line}</li>
+              ))}
+            </ul>
+          )}
+        </Notice>
+      ) : (
+        <Notice kind="warn">{templateCheck.data?.reason ?? structureNotice}</Notice>
+      )}
 
       <Notice kind="warn">{structureNotice}</Notice>
 
