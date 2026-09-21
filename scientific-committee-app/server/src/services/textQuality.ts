@@ -5,6 +5,11 @@
  * only a repeated watermark, and a bad OCR layer can yield Arabic text peppered
  * with Latin characters. Both are reported honestly instead of being treated as
  * readable text.
+ *
+ * Being written in a script other than Arabic is NOT a defect. An attachment may
+ * legitimately be an English paper or an indexing record, and a page of readable
+ * English is readable. Only a page that mixes the two scripts the way a broken
+ * text layer does, or that carries Arabic in presentation forms, is held back.
  */
 
 export type TextQuality = 'good' | 'suspect' | 'none';
@@ -17,24 +22,42 @@ export interface QualityVerdict {
     arabicRatio: number;
     latinRatio: number;
     distinctChars: number;
+    /** Share of the Arabic letters that came out as presentation forms. */
+    presentationRatio: number;
     repeatedShare: number;
   };
 }
 
 const MIN_USEFUL_CHARS = 25;
-/** Below this share of Arabic letters an Arabic document is not really readable. */
-const MIN_ARABIC_RATIO = 0.55;
-/** Latin letters interleaved into Arabic text are the signature of a broken OCR layer. */
-const MAX_LATIN_RATIO = 0.2;
+/**
+ * Share of the minority script above which a bilingual page stops looking like a
+ * document with a few foreign terms and starts looking like a broken text layer.
+ */
+const MAX_MINORITY_RATIO = 0.2;
+/**
+ * Arabic extracted as Unicode presentation forms (U+FB50-FDFF, U+FE70-FEFF) comes
+ * from a PDF that stored glyph shapes rather than letters. It renders, but it is
+ * not searchable or quotable text.
+ */
+const MAX_PRESENTATION_RATIO = 0.2;
 
-function countLetters(text: string): { arabic: number; latin: number; total: number } {
+function countLetters(text: string): { arabic: number; presentation: number; latin: number; total: number } {
   let arabic = 0;
+  let presentation = 0;
   let latin = 0;
   for (const char of text) {
-    if (/[؀-ۿ]/.test(char)) arabic += 1;
-    else if (/[A-Za-z]/.test(char)) latin += 1;
+    // Presentation forms are Arabic letters too. Counting them as "not Arabic"
+    // made a whole Arabic page look like a Latin one.
+    if (/[\ufb50-\ufdff\ufe70-\ufeff]/u.test(char)) {
+      arabic += 1;
+      presentation += 1;
+    } else if (/[؀-ۿ]/.test(char)) {
+      arabic += 1;
+    } else if (/[A-Za-z]/.test(char)) {
+      latin += 1;
+    }
   }
-  return { arabic, latin, total: arabic + latin };
+  return { arabic, presentation, latin, total: arabic + latin };
 }
 
 export function normalizeLine(line: string): string {
@@ -85,7 +108,9 @@ export function assessText(
   const originalChars = text.replace(/\s/g, '').length;
   const repeatedShare = originalChars === 0 ? 0 : 1 - chars / originalChars;
 
-  const metrics = { chars, arabicRatio, latinRatio, distinctChars, repeatedShare };
+  const presentationRatio = letters.arabic === 0 ? 0 : letters.presentation / letters.arabic;
+
+  const metrics = { chars, arabicRatio, latinRatio, distinctChars, presentationRatio, repeatedShare };
 
   if (chars < minChars) {
     return {
@@ -97,17 +122,22 @@ export function assessText(
       metrics,
     };
   }
-  if (letters.total > 0 && latinRatio > MAX_LATIN_RATIO && letters.arabic > 0) {
+  if (letters.arabic > 0 && presentationRatio > MAX_PRESENTATION_RATIO) {
     return {
       quality: 'suspect',
-      note: `طبقة النص تبدو مشوّهة: ${Math.round(latinRatio * 100)}% من الحروف لاتينية داخل نص عربي. تحتاج مراجعة بشرية أو إدخالًا يدويًا قبل الاستشهاد.`,
+      note: `${Math.round(presentationRatio * 100)}% من الحروف العربية خرجت بأشكال العرض (Presentation Forms)، وهي طبقة نص مشوّهة تُعرض ولا تُقرأ آليًا ولا يصح الاقتباس منها. تحتاج مراجعة بشرية أو إدخالًا يدويًا.`,
       metrics,
     };
   }
-  if (letters.total > 0 && arabicRatio < MIN_ARABIC_RATIO) {
+  // Both scripts present in force is the signature of a broken layer, not of a
+  // bilingual document: a form with an English journal name stays well below this.
+  if (letters.arabic > 0 && letters.latin > 0 && Math.min(arabicRatio, latinRatio) > MAX_MINORITY_RATIO) {
+    const minorityIsLatin = latinRatio <= arabicRatio;
     return {
       quality: 'suspect',
-      note: `نسبة الحروف العربية منخفضة (${Math.round(arabicRatio * 100)}%) في مستند عربي. تحتاج مراجعة بشرية قبل الاستشهاد.`,
+      note: minorityIsLatin
+        ? `طبقة النص تبدو مشوّهة: ${Math.round(latinRatio * 100)}% من الحروف لاتينية داخل نص عربي. تحتاج مراجعة بشرية أو إدخالًا يدويًا قبل الاستشهاد.`
+        : `طبقة النص تبدو مشوّهة: ${Math.round(arabicRatio * 100)}% من الحروف عربية داخل نص لاتيني. تحتاج مراجعة بشرية أو إدخالًا يدويًا قبل الاستشهاد.`,
       metrics,
     };
   }

@@ -38,6 +38,7 @@ export default function RequestDetailPage() {
   const { push } = useToast();
   const [file, setFile] = useState<File | null>(null);
   const [label, setLabel] = useState('');
+  const [checklistItem, setChecklistItem] = useState('');
   const [busy, setBusy] = useState(false);
   const state = useAsync<Payload>(() => api.get(`/requests/${id}`), [id]);
 
@@ -49,12 +50,14 @@ export default function RequestDetailPage() {
     const form = new FormData();
     form.append('file', file);
     form.append('label', label);
+    form.append('checklistItem', checklistItem);
     setBusy(true);
     try {
       const result = await api.upload<{ extraction: { note: string } }>(`/requests/${id}/attachments`, form);
       push(`تم رفع المرفق. ${result.extraction.note}`, 'success');
       setFile(null);
       setLabel('');
+      setChecklistItem('');
       state.reload();
     } catch (error) {
       push((error as Error).message, 'error');
@@ -100,7 +103,11 @@ export default function RequestDetailPage() {
   if (!state.data) return null;
 
   const { request, attachments, studies, readiness, checklist, missingAttachments } = state.data;
-  const labels = new Set(attachments.map((a) => a.label.trim()).filter(Boolean));
+  // An item is covered when an uploader attached a file to it; the older free-text
+  // label still counts so requests created before the link keep their state.
+  const covered = new Set(
+    attachments.flatMap((a) => [a.checklistItem.trim(), a.label.trim()]).filter(Boolean),
+  );
 
   return (
     <>
@@ -200,7 +207,7 @@ export default function RequestDetailPage() {
           <ul className="small">
             {checklist.map((item) => (
               <li key={item}>
-                {labels.has(item) ? <Badge kind="ok">مرفوع</Badge> : <Badge kind="warn">ناقص</Badge>} {item}
+                {covered.has(item) ? <Badge kind="ok">مرفوع</Badge> : <Badge kind="warn">ناقص</Badge>} {item}
               </li>
             ))}
           </ul>
@@ -219,15 +226,23 @@ export default function RequestDetailPage() {
           <Field label="الملف" hint="الصيغ المدعومة للاستخراج: PDF ذو نص، DOCX، ملفات نصية.">
             <input type="file" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
           </Field>
-          <Field label="وسم المرفق" hint="طابِق التسمية مع عنصر قائمة التحقق ليُحتسب مكتملًا.">
-            <input list="checklist-options" value={label} onChange={(e) => setLabel(e.target.value)} />
+          <Field
+            label="بند قائمة التحقق الذي يغطيه المرفق"
+            hint="اختيارك تصريح بأن الملف مقدَّم لهذا البند، وليس تحققًا من محتواه؛ المراجع هو من يقرر كفايته."
+          >
+            <select value={checklistItem} onChange={(e) => setChecklistItem(e.target.value)}>
+              <option value="">— لا ينطبق / مرفق إضافي —</option>
+              {checklist.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </Field>
+          <Field label="وسم المرفق" hint="وصف حر يميّز الملف في الجدول.">
+            <input value={label} onChange={(e) => setLabel(e.target.value)} />
           </Field>
         </div>
-        <datalist id="checklist-options">
-          {checklist.map((item) => (
-            <option key={item} value={item} />
-          ))}
-        </datalist>
         <button type="button" className="btn primary" onClick={upload} disabled={busy}>
           {busy ? 'جارٍ الرفع…' : 'رفع مرفق'}
         </button>
@@ -242,6 +257,7 @@ export default function RequestDetailPage() {
               <thead>
                 <tr>
                   <th>الوسم</th>
+                  <th>بند القائمة</th>
                   <th>الملف</th>
                   <th>الاستخراج</th>
                   <th>الحجم</th>
@@ -253,6 +269,7 @@ export default function RequestDetailPage() {
                 {attachments.map((attachment) => (
                   <tr key={attachment.id}>
                     <td>{attachment.label || '—'}</td>
+                    <td className="small">{attachment.checklistItem || '—'}</td>
                     <td className="small">{attachment.fileName}</td>
                     <td>
                       <Badge kind={extractionBadge(attachment.extractionStatus)}>

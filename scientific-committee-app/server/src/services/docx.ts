@@ -16,16 +16,32 @@ import { ATTENDANCE_LABELS, calendarLabel, type MinutesExportModel, type StudyEx
 
 const FONT = 'Arial';
 
+/**
+ * A line of English (a paper title, an author list, a DOI) must not be marked
+ * right-to-left: Word then moves its trailing punctuation to the wrong side.
+ * Direction follows the script the line is actually written in.
+ */
+function isLatinLine(text: string): boolean {
+  let arabic = 0;
+  let latin = 0;
+  for (const char of text) {
+    if (/[؀-ۿ\ufb50-\ufdff\ufe70-\ufeff]/u.test(char)) arabic += 1;
+    else if (/[A-Za-z]/.test(char)) latin += 1;
+  }
+  return latin > 0 && arabic === 0;
+}
+
 function p(text: string, opts: { bold?: boolean; size?: number; heading?: boolean; color?: string } = {}): Paragraph {
+  const latin = isLatinLine(text);
   return new Paragraph({
-    bidirectional: true,
-    alignment: AlignmentType.RIGHT,
+    bidirectional: !latin,
+    alignment: latin ? AlignmentType.LEFT : AlignmentType.RIGHT,
     ...(opts.heading ? { heading: HeadingLevel.HEADING_2 } : {}),
     spacing: { after: 100 },
     children: [
       new TextRun({
         text,
-        rightToLeft: true,
+        rightToLeft: !latin,
         font: FONT,
         bold: opts.bold ?? false,
         size: opts.size ?? 22,
@@ -33,6 +49,16 @@ function p(text: string, opts: { bold?: boolean; size?: number; heading?: boolea
       }),
     ],
   });
+}
+
+/**
+ * One Word paragraph per line. Handing a multi-line string to a single paragraph
+ * runs the whole memo together, and bidirectional text makes that unreadable.
+ */
+function paragraphs(text: string, fallback: string): Paragraph[] {
+  const lines = String(text ?? '').split('\n').map((line) => line.trim());
+  if (lines.every((line) => line.length === 0)) return [p(fallback)];
+  return lines.map((line) => p(line));
 }
 
 function cell(text: string, opts: { bold?: boolean; width?: number } = {}): TableCell {
@@ -88,7 +114,7 @@ export async function renderStudyDocx(model: StudyExportModel): Promise<Buffer> 
   );
 
   children.push(p('ملخص الطلب', { heading: true, bold: true }));
-  children.push(p(model.summary || 'لم يُدخل ملخص.'));
+  children.push(...paragraphs(model.summary, 'لم يُدخل ملخص.'));
 
   children.push(p('مصفوفة المطابقة والأدلة', { heading: true, bold: true }));
   children.push(
@@ -145,7 +171,7 @@ export async function renderStudyDocx(model: StudyExportModel): Promise<Buffer> 
   }
 
   children.push(p('مذكرة الدراسة', { heading: true, bold: true }));
-  children.push(p(model.memo || 'لا توجد مذكرة.'));
+  children.push(...paragraphs(model.memo, 'لا توجد مذكرة.'));
 
   children.push(p('قائمة الاستكمال', { heading: true, bold: true }));
   if (model.completionItems.length) {
@@ -153,7 +179,7 @@ export async function renderStudyDocx(model: StudyExportModel): Promise<Buffer> 
   } else children.push(p('لا توجد نواقص مسجَّلة.'));
 
   children.push(p('توصية مبدئية', { heading: true, bold: true }));
-  children.push(p(model.recommendation || 'لم تُسجَّل توصية.'));
+  children.push(...paragraphs(model.recommendation, 'لم تُسجَّل توصية.'));
   children.push(p('توصية مبدئية للعرض على اللجنة. القرار النهائي واعتماد المحضر من صلاحية اللجنة.', { size: 18 }));
 
   if (model.revisions.length) {

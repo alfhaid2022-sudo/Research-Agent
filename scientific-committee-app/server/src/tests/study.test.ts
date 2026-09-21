@@ -26,10 +26,16 @@ async function seedRequest(checklist: string[] = []): Promise<string> {
   return created.body.id as string;
 }
 
-async function attach(requestId: string, label: string, body = SAMPLE_ATTACHMENT): Promise<string> {
+async function attach(
+  requestId: string,
+  label: string,
+  body = SAMPLE_ATTACHMENT,
+  checklistItem = '',
+): Promise<string> {
   const response = await request(app)
     .post(`/api/requests/${requestId}/attachments`)
     .field('label', label)
+    .field('checklistItem', checklistItem)
     .attach('file', Buffer.from(body, 'utf8'), 'مرفق.txt')
     .expect(201);
   return response.body.id as string;
@@ -225,6 +231,31 @@ describe('المرفق الناقص', () => {
     const study = await request(app).get(`/api/studies/${created.body.id}`).expect(200);
     expect(study.body.study.completionItems.join(' ')).toContain('محضر القسم');
     expect(study.body.findings.every((f: { verdict: string }) => f.verdict !== 'not_met')).toBe(true);
+  });
+
+  it('يحتسب البند مغطى بربط المرفق به لا بتطابق نص الوسم', async () => {
+    const requestId = await seedRequest(['توصيف المقرر', 'محضر القسم']);
+    // A free description plus an explicit link to the item it is submitted for.
+    await attach(requestId, 'توصيف المقرر بصيغته المحدثة', SAMPLE_ATTACHMENT, 'توصيف المقرر');
+
+    const fetched = await request(app).get(`/api/requests/${requestId}`).expect(200);
+    expect(fetched.body.missingAttachments).toEqual(['محضر القسم']);
+    expect(fetched.body.attachments[0].checklistItem).toBe('توصيف المقرر');
+  });
+
+  it('يرفض ربط المرفق ببند ليس من قائمة نوع الطلب', async () => {
+    const requestId = await seedRequest(['توصيف المقرر']);
+    const refused = await request(app)
+      .post(`/api/requests/${requestId}/attachments`)
+      .field('label', 'مرفق')
+      .field('checklistItem', 'بند لا وجود له')
+      .attach('file', Buffer.from(SAMPLE_ATTACHMENT, 'utf8'), 'مرفق.txt')
+      .expect(400);
+    expect(refused.body.error).toContain('لا ينتمي إلى قائمة نوع هذا الطلب');
+
+    const fetched = await request(app).get(`/api/requests/${requestId}`).expect(200);
+    expect(fetched.body.attachments).toHaveLength(0);
+    expect(fetched.body.missingAttachments).toEqual(['توصيف المقرر']);
   });
 
   it('يعتبر الطلب بلا مرفقات مقروءة غير جاهز لإصدار نتيجة', async () => {

@@ -167,6 +167,9 @@ CREATE TABLE IF NOT EXISTS attachments (
   id                TEXT PRIMARY KEY,
   request_id        TEXT NOT NULL REFERENCES requests(id) ON DELETE CASCADE,
   label             TEXT NOT NULL DEFAULT '',
+  -- Which checklist item of the request type the uploader says this file covers.
+  -- It is the uploader's claim, not a verification of the file's contents.
+  checklist_item    TEXT NOT NULL DEFAULT '',
   file_name         TEXT NOT NULL,
   stored_name       TEXT NOT NULL,
   mime              TEXT NOT NULL DEFAULT '',
@@ -388,6 +391,7 @@ CREATE INDEX IF NOT EXISTS idx_audit_at ON audit_log(at);
 
 /** Columns added after the first release, applied to databases created earlier. */
 const ADDED_COLUMNS: Array<[table: string, column: string, definition: string]> = [
+  ['attachments', 'checklist_item', "TEXT NOT NULL DEFAULT ''"],
   ['sources', 'needs_review_segments', "INTEGER NOT NULL DEFAULT 0"],
   ['sources', 'track', "TEXT NOT NULL DEFAULT ''"],
   ['sources', 'page_count', 'INTEGER NOT NULL DEFAULT 0'],

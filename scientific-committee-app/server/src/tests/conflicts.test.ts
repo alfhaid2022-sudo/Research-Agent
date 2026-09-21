@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import request from 'supertest';
+import JSZip from 'jszip';
 import {
   SAMPLE_ATTACHMENT,
   approveRequirement,
@@ -158,5 +159,35 @@ describe('سجل تعديلات المراجع وإصدار الدراسة', () 
     const docx = await request(app).get(`/api/studies/${studyId}/export.docx`).expect(200);
     expect(docx.headers['content-type']).toContain('wordprocessingml');
     expect(Number(docx.headers['content-length'])).toBeGreaterThan(1000);
+  });
+
+  it('يحافظ على أسطر المذكرة في التصديرين بدل دمجها في فقرة واحدة', async () => {
+    const { studyId } = await seedConflictingSources();
+    await request(app)
+      .put(`/api/studies/${studyId}`)
+      .send({ memo: 'السطر الأول من المذكرة.\n\nالسطر الثاني من المذكرة.' })
+      .expect(200);
+
+    const html = (await request(app).get(`/api/studies/${studyId}/export.html`).expect(200)).text;
+    expect(html).toContain('<p>السطر الأول من المذكرة.</p>');
+    expect(html).toContain('<p>السطر الثاني من المذكرة.</p>');
+
+    const docx = await request(app)
+      .get(`/api/studies/${studyId}/export.docx`)
+      .buffer(true)
+      .parse((res, callback) => {
+        const chunks: Buffer[] = [];
+        res.on('data', (chunk: Buffer) => chunks.push(chunk));
+        res.on('end', () => callback(null, Buffer.concat(chunks)));
+      })
+      .expect(200);
+    const zip = await JSZip.loadAsync(docx.body as Buffer);
+    const documentXml = await zip.file('word/document.xml')!.async('string');
+    // Each line is its own <w:p>, so the two never share one paragraph.
+    const firstLine = documentXml.indexOf('السطر الأول من المذكرة.');
+    const secondLine = documentXml.indexOf('السطر الثاني من المذكرة.');
+    expect(firstLine).toBeGreaterThan(-1);
+    expect(secondLine).toBeGreaterThan(firstLine);
+    expect(documentXml.slice(firstLine, secondLine)).toContain('</w:p>');
   });
 });

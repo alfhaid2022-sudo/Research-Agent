@@ -27,6 +27,48 @@ describe('جودة النص المستخرج', () => {
     expect(verdict.metrics.chars).toBeGreaterThan(0);
   });
 
+  it('لا يعدّ المستند الإنجليزي نصًا مشوّهًا: المرفقات قد تكون ورقة منشورة أو سجل فهرسة', () => {
+    const englishPage = [
+      'An example indexing record for a paper submitted with an excellence award request.',
+      'Published: AUG 2026. Volume 12, Issue 3, Pages 100-118. Early Access: FEB 2026.',
+      'This record is from an example citation index used only to exercise the extractor.',
+    ].join('\n');
+
+    const verdict = assessText(englishPage);
+    expect(verdict.quality).toBe('good');
+    expect(verdict.metrics.arabicRatio).toBe(0);
+    expect(verdict.metrics.latinRatio).toBe(1);
+  });
+
+  it('يكشف النص العربي الخارج بأشكال العرض ولا يقبله سندًا', () => {
+    // The same sentence, once as real Arabic letters and once as the presentation
+    // forms a glyph-only PDF layer produces.
+    const readable = 'تُقدَّم الطلبات إلى اللجنة قبل خمسة عشر يومًا من موعد انعقاد الجلسة المقبلة.';
+    const presentationForms = 'ﺗُﻘﺪَّم اﻟﻄﻠﺒﺎت إﻟﻰ اﻟﻠﺠﻨﺔ ﻗﺒﻞ ﺧﻤﺴﺔ ﻋﺸﺮ ﯾﻮﻣًﺎ ﻣﻦ ﻣﻮﻋﺪ اﻧﻌﻘﺎد اﻟﺠﻠﺴﺔ.';
+
+    expect(assessText(readable).quality).toBe('good');
+
+    const broken = assessText(presentationForms);
+    expect(broken.quality).toBe('suspect');
+    expect(broken.note).toContain('أشكال العرض');
+    expect(broken.metrics.presentationRatio).toBeGreaterThan(0.2);
+    // The Arabic is still counted as Arabic: the page is not "a Latin document".
+    expect(broken.metrics.arabicRatio).toBe(1);
+  });
+
+  it('لا يعتبر اسم مجلة إنجليزيًا داخل نموذج عربي طبقةً مشوّهة', () => {
+    const bilingualForm = [
+      'اسم الباحث: ............ الكلية: كلية العلوم الطبية التطبيقية بالقريات',
+      'اسم المجلة: Journal of Example Studies — قاعدة البيانات: Example Index',
+      'تاريخ تقديم الطلب: عشرة من سبتمبر لعام ألفين وستة وعشرين ميلادية.',
+      'يرفق الباحث ما يثبت النشر وترتيبه في البحث وانتماءه للجامعة عند التقديم.',
+    ].join('\n');
+
+    const verdict = assessText(bilingualForm);
+    expect(verdict.metrics.latinRatio).toBeLessThan(0.2);
+    expect(verdict.quality).toBe('good');
+  });
+
   it('يعتبر الصفحة التي لا تحمل إلا سطورًا متكررة بلا نص خاص بها', () => {
     const pages = [WATERMARK_PAGE, WATERMARK_PAGE, `${WATERMARK_PAGE}\nنص مادة حقيقية يكفي طولها للفحص والاعتماد.`];
     const repeated = repeatedLines(pages);

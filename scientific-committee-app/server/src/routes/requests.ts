@@ -58,7 +58,7 @@ requestsRouter.get(
 
     const attachments = db
       .prepare<[string], Record<string, unknown>>(
-        `SELECT id, label, file_name, mime, size, sha256, extraction_status, extraction_note,
+        `SELECT id, label, checklist_item, file_name, mime, size, sha256, extraction_status, extraction_note,
                 segment_count, created_at FROM attachments WHERE request_id = ? ORDER BY created_at`,
       )
       .all(param(req, 'id'))
@@ -197,6 +197,26 @@ requestsRouter.post(
     if (!request) throw new HttpError(404, 'الطلب غير موجود.');
 
     const label = String((req.body as { label?: string }).label ?? '').slice(0, 200);
+
+    // The uploader may state which checklist item the file is meant to cover. It must be
+    // one of the type's own items — the app never invents a checklist entry from free text.
+    const checklistItem = String((req.body as { checklistItem?: string }).checklistItem ?? '').trim();
+    if (checklistItem) {
+      const typeId = db
+        .prepare<[string], { type_id: string | null }>(`SELECT type_id FROM requests WHERE id = ?`)
+        .get(param(req, 'id'))?.type_id ?? null;
+      const checklist = typeId
+        ? parseJson<string[]>(
+            db.prepare<[string], { checklist: string }>(`SELECT checklist FROM request_types WHERE id = ?`).get(typeId)
+              ?.checklist,
+            [],
+          )
+        : [];
+      if (!checklist.includes(checklistItem)) {
+        throw new HttpError(400, 'بند القائمة المحدد لا ينتمي إلى قائمة نوع هذا الطلب.');
+      }
+    }
+
     const stored = storeUpload(req.file);
     const extraction = await extractDocument(stored.fileName, stored.buffer);
 
@@ -204,13 +224,14 @@ requestsRouter.post(
     const at = nowIso();
     db.transaction(() => {
       db.prepare(
-        `INSERT INTO attachments (id, request_id, label, file_name, stored_name, mime, size, sha256,
+        `INSERT INTO attachments (id, request_id, label, checklist_item, file_name, stored_name, mime, size, sha256,
                                   extraction_status, extraction_note, segment_count, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       ).run(
         id,
         param(req, 'id'),
         label,
+        checklistItem,
         stored.fileName,
         stored.storedName,
         stored.mime,
@@ -319,6 +340,8 @@ function mapAttachment(row: Record<string, unknown>) {
   return {
     id: row.id as string,
     label: row.label as string,
+    /** The checklist item the uploader says this file covers — a claim, not a verification. */
+    checklistItem: (row.checklist_item as string | null) ?? '',
     fileName: row.file_name as string,
     mime: row.mime as string,
     size: row.size as number,

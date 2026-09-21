@@ -311,6 +311,8 @@ export interface RequestRecord {
 export interface AttachmentRecord {
   id: string;
   label: string;
+  /** The checklist item the uploader said this file covers — a claim, not a verification. */
+  checklistItem: string;
   fileName: string;
   size: number;
   extractionStatus: string;

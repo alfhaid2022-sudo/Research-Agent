@@ -154,6 +154,17 @@ export function buildStudyExportModel(db: Database, studyId: string): StudyExpor
   };
 }
 
+/**
+ * Free-text fields are written with line breaks; a single <p> would collapse them
+ * into one unreadable block, which mixed Arabic and Latin text makes worse.
+ */
+function multiline(text: string, fallback: string): string {
+  const lines = String(text ?? '').split('\n');
+  const blocks = lines.map((line) => line.trim()).filter((line) => line.length > 0);
+  if (blocks.length === 0) return `<p class="muted">${fallback}</p>`;
+  return blocks.map((line) => `<p>${esc(line)}</p>`).join('');
+}
+
 function esc(text: string): string {
   return String(text ?? '')
     .replace(/&/g, '&amp;')
@@ -241,7 +252,7 @@ export function renderStudyHtml(model: StudyExportModel): string {
   </table>
 
   <h2>ملخص الطلب</h2>
-  <p>${esc(model.summary) || '<span class="muted">لم يُدخل ملخص.</span>'}</p>
+  ${multiline(model.summary, 'لم يُدخل ملخص.')}
 
   <h2>مصفوفة المطابقة والأدلة</h2>
   <table>
@@ -253,13 +264,13 @@ export function renderStudyHtml(model: StudyExportModel): string {
   ${conflicts}
 
   <h2>مذكرة الدراسة</h2>
-  <p>${esc(model.memo) || '<span class="muted">لا توجد مذكرة.</span>'}</p>
+  ${multiline(model.memo, 'لا توجد مذكرة.')}
 
   <h2>قائمة الاستكمال</h2>
   ${model.completionItems.length ? `<ul>${model.completionItems.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>` : '<p class="muted">لا توجد نواقص مسجَّلة.</p>'}
 
   <h2>توصية مبدئية</h2>
-  <p>${esc(model.recommendation) || '<span class="muted">لم تُسجَّل توصية.</span>'}</p>
+  ${multiline(model.recommendation, 'لم تُسجَّل توصية.')}
   <p class="muted">هذه توصية مبدئية معدّة للعرض على اللجنة. القرار النهائي واعتماد المحضر من صلاحية اللجنة.</p>
 
   ${model.revisions.length ? `<h2>سجل تعديلات المراجع</h2><table><thead><tr><th>الوقت</th><th>الحقل</th><th>قبل</th><th>بعد</th><th>السبب</th></tr></thead><tbody>${model.revisions

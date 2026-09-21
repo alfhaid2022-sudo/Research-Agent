@@ -315,12 +315,19 @@ export function assessReadiness(
         [],
       )
     : [];
-  const labels = db
-    .prepare<[string], { label: string }>(`SELECT label FROM attachments WHERE request_id = ?`)
-    .all(args.requestId)
-    .map((r) => r.label.trim())
-    .filter((l) => l.length > 0);
-  const missingAttachments = checklist.filter((item) => !labels.includes(item));
+  // An item counts as supplied when an uploader explicitly attached a file to it.
+  // The free-text label is only a fallback for files uploaded before that link existed,
+  // and neither is a check that the file really satisfies the item — a reviewer decides that.
+  const claimed = new Set(
+    db
+      .prepare<[string], { checklist_item: string; label: string }>(
+        `SELECT checklist_item, label FROM attachments WHERE request_id = ?`,
+      )
+      .all(args.requestId)
+      .flatMap((r) => [r.checklist_item.trim(), r.label.trim()])
+      .filter((value) => value.length > 0),
+  );
+  const missingAttachments = checklist.filter((item) => !claimed.has(item));
 
   return {
     items,
