@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plasma-Free Hemoglobin</title>
+<meta name="description" content="Educational infographic on plasma-free hemoglobin (PFH): what it is, in-vivo vs in-vitro hemolysis, hemolysis appearance, measurement, affected laboratory results and clinical relevance. Designed at 1920x1080.">
+<!--
+  Plasma-Free Hemoglobin (PFH) — educational infographic
+  Canvas: 1920 x 1080 (16:9). Fully self-contained: no external fonts, scripts or images.
+  All graphics are hand-written inline SVG (editable). Colour palette based on Okabe–Ito (colour-blind safe);
+  meaning is always carried by text/symbols as well as colour.
+  No numeric cut-offs and no citations are shown by design: H-index units, flag/reject limits and clinical PFH
+  thresholds vary by analyzer, method, laboratory and centre.
+  Status: DRAFT — pending PI review.
+-->
+<style>
+  :root{
+    --bg:#F4F7FB; --panel:#FFFFFF; --line:#D5DEE8; --ink:#16222E; --muted:#475668;
+    --navy:#12324A; --blue:#0072B2; --sky:#56B4E9; --verm:#D55E00; --green:#007A5A;
+    --orange:#E69F00; --purple:#A6588A; --hb:#B0182A; --straw:#F3D98B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#E6ECF3}
+  body{font-family:"Liberation Sans","Helvetica Neue",Arial,"DejaVu Sans",sans-serif;color:var(--ink);
+       -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  #stage{width:1920px;height:1080px;background:var(--bg);position:relative;transform-origin:0 0;
+         display:grid;grid-template-rows:70px 1fr 1fr 30px;row-gap:10px;padding:14px 20px 10px}
+  /* ---------- header ---------- */
+  header{background:var(--navy);color:#fff;border-radius:12px;display:flex;align-items:center;
+         padding:0 26px;gap:22px}
+  header .drop{flex:none}
+  header h1{font-size:32px;letter-spacing:.2px;font-weight:700;line-height:1.05}
+  header h1 span{font-weight:400;color:#BFD3E6;font-size:26px}
+  header p{font-size:17px;color:#D6E3EF;margin-top:5px}
+  header .aud{margin-left:auto;text-align:right;font-size:14px;color:#BFD3E6;line-height:1.35}
+  header .aud b{color:#fff;font-weight:700}
+  /* ---------- rows / panels ---------- */
+  .row{display:grid;column-gap:12px;min-height:0}
+  .r1{grid-template-columns:455px 730px 1fr}
+  .r2{grid-template-columns:590px 625px 1fr}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px 12px;
+         display:flex;flex-direction:column;min-height:0;overflow:hidden;position:relative}
+  .panel>svg,.panel>div,.panel>table,.panel>ul{flex:none}
+  .ph{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .num{flex:none;width:30px;height:30px;border-radius:50%;color:#fff;font-weight:700;font-size:17px;
+       display:flex;align-items:center;justify-content:center}
+  .ph h2{font-size:21px;font-weight:700;line-height:1.1}
+  .ph h2 small{font-weight:400;color:var(--muted);font-size:15px;margin-left:6px}
+  p,li{font-size:15px;line-height:1.32}
+  ul{list-style:none}
+  ul.dots li{position:relative;padding-left:15px;margin-bottom:4px}
+  ul.dots li::before{content:"";position:absolute;left:2px;top:7px;width:6px;height:6px;border-radius:50%;background:var(--muted)}
+  .muted{color:var(--muted)}
+  .note{font-size:13px;line-height:1.3;color:var(--muted);background:#F3F6FA;border-left:4px solid var(--orange);
+        padding:6px 9px;border-radius:4px}
+  .note b{color:var(--ink)}
+  sub,sup{font-size:70%}
+  .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+       padding:2px 7px;border-radius:4px;color:#fff;vertical-align:middle}
+  /* ---------- panel 1 ---------- */
+  #p1 svg{display:block;margin:0 auto 4px}
+  /* ---------- panel 2 ---------- */
+  .vv{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+  .vbox{border-radius:8px;padding:7px 10px 7px;border:2px solid}
+  .vbox h3{font-size:16px;margin-bottom:3px;display:flex;align-items:center;gap:7px}
+  .vbox p{font-size:13.5px;line-height:1.24}
+  .vbox .clue{margin-top:4px;font-size:13px}
+  .vivo{border-color:var(--green);background:#EEF7F3}
+  .vitro{border-color:var(--verm);background:#FDF2EA}
+  .causes{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+  .cause{display:grid;grid-template-columns:40px 1fr;column-gap:6px;align-items:center;background:#FFF8F2;
+         border:1px solid #F1D3BC;border-radius:8px;padding:5px 6px}
+  .cause svg{grid-row:1 / span 2}
+  .cause svg{flex:none}
+  .cause b{font-size:13px;line-height:1.12}
+  .cause span{font-size:11.5px;line-height:1.18;color:var(--muted);margin-top:1px}
+  .causes-h{font-size:14px;font-weight:700;color:var(--verm);margin:0 0 5px;display:flex;align-items:center;gap:6px}
+  /* ---------- panel 3 ---------- */
+  #p3 .tubes{display:flex;justify-content:space-between;align-items:flex-end}
+  /* ---------- panel 4 ---------- */
+  .mgrid{display:grid;grid-template-columns:1fr;gap:8px}
+  .mbox{border:1px solid var(--line);border-radius:8px;padding:7px 10px;background:#F7FAFD}
+  .mbox h3{font-size:15.5px;margin-bottom:2px;color:var(--blue)}
+  .mbox p,.mbox li{font-size:13.5px;line-height:1.25}
+  .mbox ul.dots li{margin-bottom:2px}
+  /* ---------- panel 5 ---------- */
+  table{border-collapse:collapse;width:100%}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);text-align:left;
+     border-bottom:2px solid var(--line);padding:3px 6px}
+  td{font-size:13.5px;line-height:1.18;padding:2.4px 6px;border-bottom:1px solid #E8EEF4;vertical-align:middle}
+  td.an{font-weight:700;white-space:nowrap}
+  td.dir{text-align:center;font-weight:700;font-size:16px;white-space:nowrap}
+  .up{color:#B34700}.dn{color:#005A8C}.ud{color:var(--purple)}
+  .mech{display:inline-block;font-size:11px;font-weight:700;border-radius:3px;padding:1px 5px;margin-right:5px;
+        color:#fff;vertical-align:1px}
+  .m-rel{background:var(--hb)} .m-opt{background:var(--blue)} .m-chem{background:var(--purple)}
+  .legend5{display:flex;gap:12px;font-size:12.5px;color:var(--muted);margin:2px 0 6px;flex-wrap:wrap}
+  /* ---------- panel 6 ---------- */
+  .ccards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+  .cc{border-radius:8px;padding:6px 8px;border-top:4px solid;background:#F8F9FC}
+  .cc h3{font-size:14.5px;line-height:1.15;margin-bottom:3px;display:flex;gap:6px;align-items:center}
+  .cc p{font-size:12.5px;line-height:1.24}
+  /* ---------- footer ---------- */
+  footer{display:flex;align-items:center;gap:18px;font-size:12.5px;color:var(--muted);padding:0 4px}
+  footer b{color:var(--ink)}
+  footer .key{display:flex;align-items:center;gap:6px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div id="stage" role="img" aria-labelledby="t-title" aria-describedby="t-desc">
+<span id="t-desc" hidden>Six-panel infographic. 1: free hemoglobin is hemoglobin released from lysed red cells into plasma or serum. 2: hemolysis can occur in the patient (in vivo) or in the tube (in vitro), with seven common pre-analytical causes of in-vitro hemolysis. 3: five sample tubes show plasma colour changing from straw-coloured to dark red as hemolysis increases, plus icteric and lipemic look-alikes; numeric H-index values are lab-specific and left blank. 4: measurement by spectrophotometry (Harboe method, 415 nm with 380 and 450 nm correction) and by the automated hemolysis index on chemistry analyzers. 5: table of affected results — potassium, LDH, AST, phosphate, magnesium raised by release; colorimetric assays, bilirubin, CK, insulin and some immunoassays affected by optical, chemical or proteolytic interference. 6: clinical relevance — haptoglobin binding and clearance, consequences when haptoglobin is saturated, transfusion reactions, mechanical circulatory support and ECMO, and stored red cell units.</span>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- arrowheads -->
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475668"/></marker>
+    <marker id="ahR" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#B0182A"/></marker>
+    <marker id="ahB" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0072B2"/></marker>
+    <!-- red cell -->
+    <radialGradient id="rbc" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E9707B"/><stop offset="45%" stop-color="#D23A4A"/><stop offset="100%" stop-color="#A3162A"/>
+    </radialGradient>
+    <linearGradient id="hgrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#F3D98B"/><stop offset=".3" stop-color="#F1AE9C"/><stop offset=".55" stop-color="#E07A84"/>
+      <stop offset=".8" stop-color="#C33343"/><stop offset="1" stop-color="#7E1020"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".0"/><stop offset=".18" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset=".32" stop-color="#fff" stop-opacity=".0"/>
+    </linearGradient>
+    <pattern id="milk" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#EFEBE0"/><circle cx="2" cy="2" r="1.1" fill="#fff"/><circle cx="5" cy="4.5" r=".9" fill="#fff"/>
+    </pattern>
+    <!-- Hb tetramer glyph -->
+    <g id="hb">
+      <circle cx="-2.6" cy="-2.6" r="2.9" fill="#B0182A"/><circle cx="2.6" cy="-2.6" r="2.9" fill="#D2424F"/>
+      <circle cx="-2.6" cy="2.6" r="2.9" fill="#D2424F"/><circle cx="2.6" cy="2.6" r="2.9" fill="#B0182A"/>
+    </g>
+    <!-- cause icons (48x48) -->
+    <g id="i-needle" fill="none" stroke="#16222E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="27" y="10" width="13" height="8" rx="2" fill="#F6C89F" transform="rotate(45 33.5 14)"/>
+      <path d="M28 20 L9 39"/><path d="M9 39 l2.5 -6 l3.5 3.5 z" fill="#16222E"/>
+      <path d="M34 29 c3 0 5 2 5 5" stroke="#D55E00"/><path d="M38 25 c5 0 8 4 8 9" stroke="#D55E00"/>
+    </g>
+    <g id="i-syringe" fill="none" stroke="#16222E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="17" width="22" height="12" rx="2" fill="#FBE3D3"/>
+      <rect x="12" y="19" width="12" height="8" fill="#C33343" stroke="none"/>
+      <path d="M32 23 H43"/><path d="M10 23 H4"/><path d="M4 18 V28"/>
+      <path d="M38 33 l5 5 M43 33 l-5 5" stroke="#D55E00"/><path d="M14 36 H30" stroke="#D55E00" marker-end="url(#ah)"/>
+    </g>
+    <g id="i-mix" fill="none" stroke="#16222E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <g transform="rotate(-25 24 24)"><rect x="19" y="8" width="11" height="32" rx="5" fill="#FBE3D3"/>
+      <rect x="19" y="5" width="11" height="6" rx="1.5" fill="#6B7785"/><path d="M20.5 28 h8 v6 a4 4 0 0 1 -8 0z" fill="#C33343" stroke="none"/></g>
+      <path d="M7 16 a17 17 0 0 1 8 -9" stroke="#D55E00" marker-end="url(#ah)"/>
+      <path d="M41 32 a17 17 0 0 1 -8 9" stroke="#D55E00" marker-end="url(#ah)"/>
+    </g>
+    <g id="i-tq" fill="none" stroke="#16222E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 18 H41 a5 6 0 0 1 0 12 H3" fill="#F6D7C3"/>
+      <rect x="18" y="13" width="7" height="22" rx="1.5" fill="#56B4E9"/>
+      <circle cx="38" cy="10" r="7" fill="#fff"/><path d="M38 6 V10 L41 12"/>
+    </g>
+    <g id="i-clock" fill="none" stroke="#16222E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="12" width="9" height="28" rx="4.5" fill="#FBE3D3"/><rect x="6" y="9" width="9" height="5" rx="1.5" fill="#6B7785"/>
+      <circle cx="31" cy="25" r="13" fill="#fff"/><path d="M31 17 V25 L37 29"/><path d="M31 12 v2 M44 25 h-2 M31 38 v-2 M18 25 h2"/>
+    </g>
+    <g id="i-temp" fill="none" stroke="#16222E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 30 V9 a4 4 0 0 1 8 0 V30 a7.5 7.5 0 1 1 -8 0z" fill="#fff"/>
+      <circle cx="23" cy="36" r="4.5" fill="#D55E00" stroke="none"/><path d="M23 33 V14" stroke="#D55E00" stroke-width="3"/>
+      <path d="M36 9 v10 M31.7 11.5 l8.6 5 M31.7 16.5 l8.6 -5" stroke="#0072B2"/>
+      <path d="M38 30 c-3 3 -1 7 0 8 c2 -1 4 -4 0 -8z" fill="#E69F00" stroke="#B34700" stroke-width="1.6"/>
+    </g>
+    <g id="i-tube" fill="none" stroke="#16222E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="14" y="16" width="26" height="15" rx="7.5" fill="#E8EEF4"/>
+      <path d="M22 16 V31 M32 16 V31"/>
+      <path d="M2 18 H9 M4 24 H10 M2 30 H9" stroke="#D55E00"/>
+      <path d="M16 38 H44" stroke-dasharray="3 3" stroke="#475668"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- =================== HEADER =================== -->
+<header>
+  <svg class="drop" width="44" height="56" viewBox="0 0 44 56" aria-hidden="true">
+    <path d="M22 2 C22 2 4 24 4 36 a18 18 0 0 0 36 0 C40 24 22 2 22 2z" fill="#D2424F" stroke="#fff" stroke-width="2"/>
+    <path d="M13 37 a9 9 0 0 0 9 9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+  </svg>
+  <div>
+    <h1>Plasma-Free Hemoglobin (PFH) <span>· free Hb in a blood sample</span></h1>
+    <p>What it is · where it comes from · what it looks like · how it is measured · which results it changes · why it matters clinically</p>
+  </div>
+  <div class="aud"><b>For</b> clinical laboratory science students &amp; lab staff<br>Educational schematic · <b>no numeric cut-offs shown by design</b></div>
+</header>
+
+<!-- =================== ROW 1 =================== -->
+<div class="row r1">
+
+  <!-- ---------- PANEL 1 ---------- -->
+  <section class="panel" id="p1">
+    <div class="ph"><div class="num" style="background:var(--hb)">1</div><h2>What is free hemoglobin?</h2></div>
+    <svg width="400" height="162" viewBox="0 0 420 170" role="img" aria-label="An intact red cell holds hemoglobin inside; after lysis the membrane ruptures and hemoglobin molecules disperse into the plasma.">
+      <rect x="0" y="0" width="420" height="170" rx="10" fill="#FBF3DA"/>
+      <text x="10" y="18" font-size="12" fill="#8A6D1F" font-weight="700">PLASMA / SERUM</text>
+      <!-- intact RBC -->
+      <g transform="translate(72,86)">
+        <ellipse rx="52" ry="44" fill="url(#rbc)" stroke="#8E1424" stroke-width="2"/>
+        <ellipse rx="22" ry="17" fill="#E9707B" opacity=".75"/>
+        <use href="#hb" x="-30" y="-12"/><use href="#hb" x="26" y="-18"/><use href="#hb" x="-14" y="24"/><use href="#hb" x="22" y="20"/><use href="#hb" x="0" y="-30"/>
+      </g>
+      <text x="72" y="150" font-size="13" text-anchor="middle" font-weight="700" fill="#16222E">Intact RBC</text>
+      <text x="72" y="164" font-size="12" text-anchor="middle" fill="#475668">Hb kept inside the cell</text>
+      <!-- arrow -->
+      <line x1="134" y1="86" x2="196" y2="86" stroke="#475668" stroke-width="3" marker-end="url(#ah)"/>
+      <text x="165" y="76" font-size="13" text-anchor="middle" font-weight="700" fill="#B0182A">Lysis</text>
+      <text x="165" y="104" font-size="11" text-anchor="middle" fill="#475668">membrane</text>
+      <text x="165" y="117" font-size="11" text-anchor="middle" fill="#475668">ruptures</text>
+      <!-- ghost + released Hb -->
+      <g transform="translate(300,86)">
+        <path d="M-40,-30 C-60,-5 -55,30 -20,40 M-5,42 C30,45 52,20 48,-8 M44,-22 C30,-44 -10,-48 -30,-38" fill="none" stroke="#C9707A" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round"/>
+        <use href="#hb" x="-8" y="-4"/><use href="#hb" x="14" y="10"/><use href="#hb" x="-22" y="16"/>
+        <use href="#hb" x="-62" y="-30"/><use href="#hb" x="62" y="-40"/><use href="#hb" x="76" y="6"/><use href="#hb" x="-70" y="30"/>
+        <use href="#hb" x="50" y="44"/><use href="#hb" x="-44" y="-56"/><use href="#hb" x="20" y="-58"/><use href="#hb" x="94" y="-24"/>
+        <path d="M30 -30 l18 -12" stroke="#B0182A" stroke-width="1.8" marker-end="url(#ahR)"/>
+        <path d="M38 22 l22 8" stroke="#B0182A" stroke-width="1.8" marker-end="url(#ahR)"/>
+        <path d="M-36 6 l-20 10" stroke="#B0182A" stroke-width="1.8" marker-end="url(#ahR)"/>
+      </g>
+      <text x="300" y="150" font-size="13" text-anchor="middle" font-weight="700" fill="#16222E">RBC "ghost" + free Hb</text>
+      <text x="300" y="164" font-size="12" text-anchor="middle" fill="#475668">Hb now dissolved in plasma</text>
+      <g transform="translate(372,22)"><use href="#hb"/><text x="10" y="4" font-size="11" fill="#475668">= Hb</text></g>
+    </svg>
+    <ul class="dots">
+      <li><b>Free Hb</b> = hemoglobin released from <b>lysed red cells</b> into plasma or serum (hemolysis). Normal plasma holds only traces.</li>
+      <li>Free Hb <b>absorbs light strongly</b> at ≈ 415 nm (Soret peak) and at 540–580 nm — the latter gives plasma its pink → red colour; both can disturb photometric tests.</li>
+      <li>Lysis also releases <b>other cell contents</b> (K<sup>+</sup>, LDH, AST, phosphate…).</li>
+    </ul>
+    <p class="note" style="margin-top:auto;padding:5px 9px">Free Hb may come from <b>the patient</b> (intravascular hemolysis) or <b>the tube</b> — the analyzer cannot tell which. Deciding is a key lab skill (panel 2).</p>
+  </section>
+
+  <!-- ---------- PANEL 2 ---------- -->
+  <section class="panel" id="p2">
+    <div class="ph"><div class="num" style="background:var(--verm)">2</div><h2>In-vivo vs in-vitro hemolysis</h2></div>
+    <div class="vv">
+      <div class="vbox vivo">
+        <h3><span class="tag" style="background:var(--green)">In vivo</span> in the patient's circulation</h3>
+        <p>A <b>true clinical finding</b> — report it. E.g., hemolytic transfusion reaction, immune/drug hemolysis, PNH, G6PD deficiency, microangiopathy (TTP/HUS/DIC), devices (valves, ECMO, VAD, bypass), malaria.</p>
+        <p class="clue"><b>Clues:</b> ↓ haptoglobin, ↑ LDH, ↑ unconjugated bilirubin, ↑ reticulocytes, hemoglobinuria; hemolysis <b>persists</b> on careful re-collection. Extravascular hemolysis may leave plasma clear.</p>
+      </div>
+      <div class="vbox vitro">
+        <h3><span class="tag" style="background:var(--verm)">In vitro</span> during collection / handling</h3>
+        <p>A <b>pre-analytical artefact</b> — the patient's blood is not hemolyzed. A frequent reason for sample rejection and recollection; results may be misleading if released unflagged.</p>
+        <p class="clue"><b>Clues:</b> haptoglobin normal; no hemoglobinuria; a <b>properly re-collected</b> sample is clear with normal markers.</p>
+      </div>
+    </div>
+    <div class="causes-h">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 1 L17 16 H1z" fill="#D55E00"/><rect x="8" y="6" width="2" height="5" fill="#fff"/><rect x="8" y="12.5" width="2" height="2" fill="#fff"/></svg>
+      Common pre-analytical causes of in-vitro hemolysis
+    </div>
+    <div class="causes">
+      <div class="cause"><svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-needle"/></svg><b>Small-gauge needle</b><span>High shear; IV-catheter draws too</span></div>
+      <div class="cause"><svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-syringe"/></svg><b>Forceful aspiration / transfer</b><span>Hard syringe pull; forcing blood into tube</span></div>
+      <div class="cause"><svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-mix"/></svg><b>Vigorous mixing</b><span>Shaking instead of gentle inversion</span></div>
+      <div class="cause"><svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-tq"/></svg><b>Prolonged tourniquet</b><span>Stasis &amp; difficult draw (fist clenching raises K<sup>+</sup> without hemolysis)</span></div>
+      <div class="cause"><svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-clock"/></svg><b>Delayed processing</b><span>Late centrifugation / separation</span></div>
+      <div class="cause"><svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-temp"/></svg><b>Temperature extremes</b><span>Heat or freezing of whole blood</span></div>
+      <div class="cause"><svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-tube"/></svg><b>Pneumatic tube</b><span>Acceleration / impact; system-dependent</span></div>
+      <div class="cause" style="background:#EEF7F3;border-color:#B9DCCD;grid-template-columns:1fr">
+        <b style="color:var(--green)">Prevent it</b><span>Suitable needle, gentle draw &amp; inversion, prompt processing, validated transport</span></div>
+    </div>
+  </section>
+
+  <!-- ---------- PANEL 3 ---------- -->
+  <section class="panel" id="p3">
+    <div class="ph"><div class="num" style="background:var(--purple)">3</div><h2>What hemolysis looks like <small>centrifuged samples</small></h2></div>
+    <svg width="100%" height="282" viewBox="0 0 660 335" role="img" aria-label="Five centrifuged tubes from left to right: clear straw-coloured plasma (no visible hemolysis), slight pink-orange, moderate pink, marked red and gross dark red. An arrow below shows the hemolysis index increasing. Each tube has a blank for the lab's own H-index value. Two smaller tubes show icteric (dark amber) and lipemic (milky) plasma, which are not hemolysis.">
+      <!-- tube template drawn 5x -->
+      <g font-family="inherit">
+        <!-- generic tube: x offset via translate, plasma fill varies -->
+        <g transform="translate(18,6)">
+          <rect x="6" y="0" width="52" height="22" rx="4" fill="#6B7785"/><rect x="10" y="22" width="44" height="6" fill="#56616E"/>
+          <path d="M12 28 V188 a20 20 0 0 0 40 0 V28z" fill="#FDFEFF" stroke="#8796A6" stroke-width="2"/>
+          <path d="M12.9 70 V122 h38.2 V70z" fill="#F3D98B"/>
+          <path d="M12.9 122 V188 a19 19 0 0 0 38.2 0 V122z" fill="#7A1020"/>
+          <rect x="12.9" y="118" width="38.2" height="6" fill="#E6E2D6"/>
+          <path d="M12 28 V188 a20 20 0 0 0 40 0 V28z" fill="url(#gloss)"/>
+        </g>
+        <g transform="translate(148,6)">
+          <rect x="6" y="0" width="52" height="22" rx="4" fill="#6B7785"/><rect x="10" y="22" width="44" height="6" fill="#56616E"/>
+          <path d="M12 28 V188 a20 20 0 0 0 40 0 V28z" fill="#FDFEFF" stroke="#8796A6" stroke-width="2"/>
+          <path d="M12.9 70 V122 h38.2 V70z" fill="#F1B49B"/>
+          <path d="M12.9 122 V188 a19 19 0 0 0 38.2 0 V122z" fill="#7A1020"/>
+          <rect x="12.9" y="118" width="38.2" height="6" fill="#E6E2D6"/>
+          <path d="M12 28 V188 a20 20 0 0 0 40 0 V28z" fill="url(#gloss)"/>
+        </g>
+        <g transform="translate(278,6)">
+          <rect x="6" y="0" width="52" height="22" rx="4" fill="#6B7785"/><rect x="10" y="22" width="44" height="6" fill="#56616E"/>
+          <path d="M12 28 V188 a20 20 0 0 0 40 0 V28z" fill="#FDFEFF" stroke="#8796A6" stroke-width="2"/>
+          <path d="M12.9 70 V122 h38.2 V70z" fill="#E27C86"/>
+          <path d="M12.9 122 V188 a19 19 0 0 0 38.2 0 V122z" fill="#7A1020"/>
+          <rect x="12.9" y="118" width="38.2" height="6" fill="#E6E2D6"/>
+          <path d="M12 28 V188 a20 20 0 0 0 40 0 V28z" fill="url(#gloss)"/>
+        </g>
+        <g transform="translate(408,6)">
+          <rect x="6" y="0" width="52" height="22" rx="4" fill="#6B7785"/><rect x="10" y="22" width="44" height="6" fill="#56616E"/>
+          <path d="M12 28 V188 a20 20 0 0 0 40 0 V28z" fill="#FDFEFF" stroke="#8796A6" stroke-width="2"/>
+          <path d="M12.9 70 V122 h38.2 V70z" fill="#C63444"/>
+          <path d="M12.9 122 V188 a19 19 0 0 0 38.2 0 V122z" fill="#7A1020"/>
+          <rect x="12.9" y="118" width="38.2" height="6" fill="#E6E2D6"/>
+          <path d="M12 28 V188 a20 20 0 0 0 40 0 V28z" fill="url(#gloss)"/>
+        </g>
+        <g transform="translate(538,6)">
+          <rect x="6" y="0" width="52" height="22" rx="4" fill="#6B7785"/><rect x="10" y="22" width="44" height="6" fill="#56616E"/>
+          <path d="M12 28 V188 a20 20 0 0 0 40 0 V28z" fill="#FDFEFF" stroke="#8796A6" stroke-width="2"/>
+          <path d="M12.9 70 V122 h38.2 V70z" fill="#851223"/>
+          <path d="M12.9 122 V188 a19 19 0 0 0 38.2 0 V122z" fill="#5E0C18"/>
+          <rect x="12.9" y="118" width="38.2" height="6" fill="#E6E2D6"/>
+          <path d="M12 28 V188 a20 20 0 0 0 40 0 V28z" fill="url(#gloss)"/>
+        </g>
+        <!-- layer call-outs on first tube -->
+        <g font-size="10.5" fill="#475668">
+          <path d="M72 96 H84" stroke="#475668"/><text x="86" y="93">plasma /</text><text x="86" y="105">serum</text>
+          <path d="M72 168 H84" stroke="#475668"/><text x="86" y="165">red</text><text x="86" y="177">cells</text>
+        </g>
+        <!-- labels -->
+        <g font-size="14" text-anchor="middle" font-weight="700" fill="#16222E">
+          <text x="50" y="230">None</text><text x="180" y="230">Slight</text><text x="310" y="230">Moderate</text>
+          <text x="440" y="230">Marked</text><text x="570" y="230">Gross</text>
+        </g>
+        <g font-size="11.5" text-anchor="middle" fill="#475668">
+          <text x="50" y="246">clear straw</text><text x="180" y="246">faint pink /</text><text x="180" y="259">orange tinge</text>
+          <text x="310" y="246">pink</text><text x="440" y="246">red</text><text x="570" y="246">dark red,</text><text x="570" y="259">near-opaque</text>
+          <text x="50" y="259">(normal)</text>
+        </g>
+        <!-- lab-fill blanks -->
+        <g font-size="11" text-anchor="middle" fill="#475668">
+          <text x="50" y="280">H-index: ______</text><text x="180" y="280">H-index: ______</text><text x="310" y="280">H-index: ______</text>
+          <text x="440" y="280">H-index: ______</text><text x="570" y="280">H-index: ______</text>
+        </g>
+        <!-- gradient arrow -->
+        <rect x="18" y="292" width="600" height="16" rx="8" fill="url(#hgrad)" stroke="#8796A6"/>
+        <path d="M618 300 l14 0" stroke="#475668" stroke-width="3" marker-end="url(#ah)"/>
+        <text x="318" y="327" font-size="13" text-anchor="middle" font-weight="700" fill="#16222E">Increasing free Hb → increasing hemolysis index (H-index)</text>
+      </g>
+    </svg>
+    <div style="display:flex;gap:10px;align-items:stretch;margin-top:2px">
+      <svg width="160" height="78" viewBox="0 0 160 78" role="img" aria-label="Look-alikes: icteric plasma is dark amber; lipemic plasma is milky and turbid.">
+        <g transform="translate(6,2)">
+          <rect x="3" y="0" width="22" height="8" rx="2" fill="#6B7785"/>
+          <path d="M5 8 V56 a9 9 0 0 0 18 0 V8z" fill="#FDFEFF" stroke="#8796A6" stroke-width="1.5"/>
+          <path d="M5.8 18 V40 h16.4 V18z" fill="#B5810E"/><path d="M5.8 40 V56 a8.2 8.2 0 0 0 16.4 0 V40z" fill="#7A1020"/>
+          <text x="14" y="75" font-size="10.5" text-anchor="middle" fill="#16222E">Icteric</text>
+        </g>
+        <g transform="translate(52,2)">
+          <rect x="3" y="0" width="22" height="8" rx="2" fill="#6B7785"/>
+          <path d="M5 8 V56 a9 9 0 0 0 18 0 V8z" fill="#FDFEFF" stroke="#8796A6" stroke-width="1.5"/>
+          <path d="M5.8 18 V40 h16.4 V18z" fill="url(#milk)"/><path d="M5.8 40 V56 a8.2 8.2 0 0 0 16.4 0 V40z" fill="#7A1020"/>
+          <text x="14" y="75" font-size="10.5" text-anchor="middle" fill="#16222E">Lipemic</text>
+        </g>
+        <text x="122" y="30" font-size="11" text-anchor="middle" fill="#475668" font-weight="700">NOT</text>
+        <text x="122" y="44" font-size="11" text-anchor="middle" fill="#475668" font-weight="700">hemolysis</text>
+        <text x="122" y="58" font-size="10" text-anchor="middle" fill="#475668">(I- &amp; L-index)</text>
+      </svg>
+      <p class="note" style="flex:1"><b>Colours are approximate and illustrative.</b> The free-Hb level at which plasma looks pink, the H-index units (index number vs Hb concentration) and flag / reject limits <b>differ by analyzer, assay and laboratory</b> — fill in your lab's verified values. Visual grading is subjective; the analyzer H-index is more objective. Whole blood (e.g., EDTA for CBC) cannot be inspected this way.</p>
+    </div>
+  </section>
+</div>
+
+<!-- =================== ROW 2 =================== -->
+<div class="row r2">
+
+  <!-- ---------- PANEL 4 ---------- -->
+  <section class="panel" id="p4">
+    <div class="ph"><div class="num" style="background:var(--blue)">4</div><h2>How free Hb is measured</h2></div>
+    <div style="display:flex;gap:12px">
+      <svg width="240" height="161" viewBox="0 0 250 168" style="flex:none" role="img" aria-label="Schematic oxyhemoglobin absorbance spectrum: a tall Soret peak at about 415 nanometres and smaller bands near 541 and 577 nanometres. The Harboe method reads 415 nm and uses 380 and 450 nm readings for a baseline correction.">
+        <rect x="0" y="0" width="250" height="168" rx="8" fill="#F7FAFD" stroke="#D5DEE8"/>
+        <line x1="30" y1="132" x2="238" y2="132" stroke="#475668" stroke-width="1.5"/>
+        <line x1="30" y1="132" x2="30" y2="14" stroke="#475668" stroke-width="1.5"/>
+        <text x="14" y="78" font-size="10.5" fill="#475668" transform="rotate(-90 14 78)" text-anchor="middle">Absorbance</text>
+        <text x="134" y="160" font-size="10.5" fill="#475668" text-anchor="middle">Wavelength (nm) — schematic, not to scale</text>
+        <!-- spectrum -->
+        <path d="M34 118 C50 112 58 100 66 86 C72 70 76 24 82 22 C88 22 92 70 100 98 C110 118 130 122 150 118 C160 114 164 104 170 104 C176 104 178 114 184 112 C190 104 194 100 198 108 C206 124 220 127 236 128" fill="none" stroke="#B0182A" stroke-width="2.6"/>
+        <!-- baseline correction -->
+        <line x1="60" y1="94" x2="104" y2="104" stroke="#0072B2" stroke-width="1.8" stroke-dasharray="5 4"/>
+        <g fill="#0072B2"><circle cx="60" cy="94" r="3.5"/><circle cx="104" cy="104" r="3.5"/><circle cx="82" cy="22" r="3.5"/></g>
+        <g font-size="10.5" text-anchor="middle" font-weight="700">
+          <text x="58" y="146" fill="#0072B2">380</text><text x="82" y="146" fill="#B0182A">415</text><text x="106" y="146" fill="#0072B2">450</text>
+          <text x="170" y="146" fill="#475668">541</text><text x="194" y="146" fill="#475668">577</text>
+        </g>
+        <g stroke="#9AA8B6" stroke-width="1" stroke-dasharray="2 3"><line x1="58" y1="132" x2="58" y2="136"/><line x1="82" y1="132" x2="82" y2="136"/><line x1="106" y1="132" x2="106" y2="136"/></g>
+        <text x="92" y="20" font-size="10.5" fill="#B0182A" font-weight="700">Soret peak</text>
+        <text x="198" y="94" font-size="10" fill="#475668" text-anchor="middle">β / α bands</text>
+        <text x="120" y="80" font-size="9.5" fill="#0072B2">baseline</text><text x="120" y="91" font-size="9.5" fill="#0072B2">correction</text>
+      </svg>
+      <div class="mbox" style="flex:1">
+        <h3>A · Spectrophotometry — e.g., Harboe method</h3>
+        <ul class="dots">
+          <li>Diluted plasma read at <b>415 nm</b> (oxy-Hb Soret peak).</li>
+          <li><b>380 &amp; 450 nm</b> → Allen-type <b>baseline correction</b> for linear background (mainly turbidity); marked icterus or lipemia can still interfere.</li>
+          <li>Quantitative: device monitoring, blood-unit QC.</li>
+          <li>Other methods exist — <b>availability varies</b>.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mbox" style="margin-top:6px">
+      <h3>B · Automated hemolysis index (H-index) on chemistry analyzers</h3>
+      <svg width="100%" height="48" viewBox="0 0 530 54" role="img" aria-label="Workflow: serum or plasma sample, diluted and read at several wavelengths, converted to H, I and L indices, compared with each assay's interference limit, then result reported, commented, suppressed or recollection requested.">
+        <g font-size="11.5" text-anchor="middle" fill="#16222E">
+          <rect x="0" y="8" width="88" height="38" rx="6" fill="#fff" stroke="#0072B2" stroke-width="1.5"/><text x="44" y="24">Serum /</text><text x="44" y="38">plasma</text>
+          <rect x="108" y="8" width="104" height="38" rx="6" fill="#fff" stroke="#0072B2" stroke-width="1.5"/><text x="160" y="24">Dilute + read</text><text x="160" y="38">multiple λ</text>
+          <rect x="232" y="8" width="88" height="38" rx="6" fill="#fff" stroke="#0072B2" stroke-width="1.5"/><text x="276" y="24">H · I · L</text><text x="276" y="38">indices</text>
+          <rect x="340" y="8" width="88" height="38" rx="6" fill="#fff" stroke="#0072B2" stroke-width="1.5"/><text x="384" y="24">vs assay-</text><text x="384" y="38">specific limit</text>
+          <rect x="448" y="8" width="82" height="38" rx="6" fill="#E8F2FA" stroke="#0072B2" stroke-width="1.5"/><text x="489" y="20" font-size="10.5">Report /</text><text x="489" y="32" font-size="10.5">comment /</text><text x="489" y="44" font-size="10.5">suppress</text>
+        </g>
+        <g stroke="#0072B2" stroke-width="2" marker-end="url(#ahB)"><line x1="89" y1="27" x2="105" y2="27"/><line x1="213" y1="27" x2="229" y2="27"/><line x1="321" y1="27" x2="337" y2="27"/><line x1="429" y1="27" x2="445" y2="27"/></g>
+      </svg>
+      <ul class="dots" style="margin-top:3px">
+        <li>Objective &amp; rapid on samples run with serum indices; flags affected assays per manufacturer interference claims.</li>
+        <li><b>Limits:</b> semi-quantitative; cannot separate in-vivo from in-vitro; units &amp; calibration <b>differ between analyzers</b>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ---------- PANEL 5 ---------- -->
+  <section class="panel" id="p5">
+    <div class="ph"><div class="num" style="background:#5B6B7C">5</div><h2>Which results are affected — and why</h2></div>
+    <div class="legend5">
+      <span><span class="mech m-rel">RELEASE</span>cell contents leak out</span>
+      <span><span class="mech m-opt">OPTICAL</span>Hb absorbs at reading λ</span>
+      <span><span class="mech m-chem">CHEMICAL</span>Hb / RBC components react in assay</span>
+    </div>
+    <table>
+      <thead><tr><th style="width:150px">Test</th><th style="width:66px;text-align:center">Spurious effect</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="an">Potassium (K<sup>+</sup>)</td><td class="dir up">↑</td><td><span class="mech m-rel">RELEASE</span>main intracellular cation; mimics hyperkalemia</td></tr>
+        <tr><td class="an">LDH</td><td class="dir up">↑</td><td><span class="mech m-rel">RELEASE</span>abundant in red cells</td></tr>
+        <tr><td class="an">AST</td><td class="dir up">↑</td><td><span class="mech m-rel">RELEASE</span>red-cell enzyme released with Hb</td></tr>
+        <tr><td class="an">Phosphate</td><td class="dir up">↑</td><td><span class="mech m-rel">RELEASE</span>intracellular phosphate leaks out</td></tr>
+        <tr><td class="an">Magnesium</td><td class="dir up">↑</td><td><span class="mech m-rel">RELEASE</span>higher concentration inside red cells</td></tr>
+        <tr><td class="an">Colorimetric assays</td><td class="dir ud">↑ or ↓</td><td><span class="mech m-opt">OPTICAL</span>Hb absorbs ≈ 415 &amp; 540–580 nm; direction depends on method &amp; blanking</td></tr>
+        <tr><td class="an">Bilirubin (some)</td><td class="dir ud">↑ or ↓</td><td><span class="mech m-opt">OPTICAL</span><span class="mech m-chem">CHEMICAL</span>method-specific</td></tr>
+        <tr><td class="an">CK (some methods)</td><td class="dir up">↑</td><td><span class="mech m-chem">CHEMICAL</span>red-cell adenylate kinase adds signal</td></tr>
+        <tr><td class="an">Insulin</td><td class="dir dn">↓</td><td><span class="mech m-chem">CHEMICAL</span>degraded by red-cell proteases</td></tr>
+        <tr><td class="an">Some immunoassays</td><td class="dir ud">↑ or ↓</td><td><span class="mech m-chem">CHEMICAL</span>assay-specific (e.g., some troponin methods)</td></tr>
+      </tbody>
+    </table>
+    <p class="note" style="margin-top:auto"><b>Magnitude &amp; direction depend on degree of hemolysis, analyte and method</b> — use manufacturer interference data and lab policy. In <b>in-vivo</b> hemolysis, raised LDH or K<sup>+</sup> may be real.</p>
+  </section>
+
+  <!-- ---------- PANEL 6 ---------- -->
+  <section class="panel" id="p6">
+    <div class="ph"><div class="num" style="background:var(--green)">6</div><h2>Clinical relevance <small>intravascular hemolysis</small></h2></div>
+    <svg width="100%" height="212" viewBox="0 0 640 226" role="img" aria-label="Pathway: intravascular hemolysis releases free hemoglobin, which binds haptoglobin; the hemoglobin-haptoglobin complex is cleared by macrophages via CD163, consuming haptoglobin. When haptoglobin is saturated, free hemoglobin is filtered by the kidney causing hemoglobinuria, scavenges nitric oxide, and is oxidised releasing heme, which is bound by hemopexin.">
+      <g font-size="12.5" text-anchor="middle" fill="#16222E">
+        <!-- source -->
+        <rect x="4" y="74" width="118" height="58" rx="8" fill="#FBEDEE" stroke="#B0182A" stroke-width="1.8"/>
+        <text x="63" y="97" font-weight="700">Intravascular</text><text x="63" y="113" font-weight="700">hemolysis</text><text x="63" y="127" font-size="11" fill="#475668">RBC lysis in vessels</text>
+        <!-- free Hb -->
+        <rect x="158" y="80" width="96" height="46" rx="23" fill="#fff" stroke="#B0182A" stroke-width="1.8"/>
+        <use href="#hb" x="180" y="103"/><text x="220" y="100" font-weight="700">Free</text><text x="220" y="115" font-weight="700">Hb</text>
+        <!-- top path: haptoglobin -->
+        <rect x="292" y="8" width="132" height="52" rx="8" fill="#EEF7F3" stroke="#007A5A" stroke-width="1.8"/>
+        <text x="358" y="28" font-weight="700">binds haptoglobin</text><text x="358" y="44" font-size="11.5">Hb–Hp complex</text><text x="358" y="56" font-size="10.5" fill="#475668">(high-affinity)</text>
+        <rect x="462" y="8" width="172" height="52" rx="8" fill="#EEF7F3" stroke="#007A5A" stroke-width="1.8"/>
+        <text x="548" y="27" font-weight="700">Cleared by macrophages</text><text x="548" y="42" font-size="11.5">via CD163 receptor</text><text x="548" y="55" font-size="11" fill="#475668">→ serum haptoglobin falls</text>
+        <!-- bottom path: saturation -->
+        <rect x="292" y="104" width="132" height="44" rx="8" fill="#FFF6E5" stroke="#B37400" stroke-width="1.8"/>
+        <text x="358" y="122" font-weight="700">Haptoglobin</text><text x="358" y="138" font-weight="700">saturated</text>
+        <g font-size="11" text-anchor="start">
+          <rect x="458" y="78" width="180" height="40" rx="7" fill="#fff" stroke="#B37400" stroke-width="1.4"/>
+          <text x="466" y="94" font-weight="700">Kidney filtration</text><text x="466" y="109" fill="#475668">hemoglobinuria; renal injury risk</text>
+          <rect x="458" y="124" width="180" height="40" rx="7" fill="#fff" stroke="#B37400" stroke-width="1.4"/>
+          <text x="466" y="140" font-weight="700">Nitric-oxide scavenging</text><text x="466" y="155" fill="#475668">vasoconstriction; endothelial stress</text>
+          <rect x="458" y="170" width="180" height="40" rx="7" fill="#fff" stroke="#B37400" stroke-width="1.4"/>
+          <text x="466" y="186" font-weight="700">Oxidation → free heme</text><text x="466" y="201" fill="#475668">bound by hemopexin</text>
+        </g>
+        <!-- lab markers -->
+        <rect x="4" y="164" width="420" height="58" rx="8" fill="#F3F6FA" stroke="#D5DEE8"/>
+        <text x="16" y="183" text-anchor="start" font-weight="700" font-size="12">Lab picture:</text>
+        <text x="16" y="200" text-anchor="start" font-size="11.5">↑ plasma free Hb · ↓ haptoglobin · ↑ LDH · ↑ unconjugated bilirubin</text>
+        <text x="16" y="215" text-anchor="start" font-size="11.5">± hemoglobinuria / hemosiderinuria · ↑ reticulocytes (if marrow responds)</text>
+        <!-- arrows (solid = established) -->
+        <g stroke="#475668" stroke-width="2.2" fill="none" marker-end="url(#ah)">
+          <line x1="123" y1="103" x2="154" y2="103"/>
+          <path d="M254 92 C272 70 272 40 288 36"/>
+          <line x1="425" y1="34" x2="456" y2="34"/>
+          <path d="M254 114 C268 120 274 126 288 126"/>
+          <path d="M425 120 C440 110 446 100 458 98"/>
+          <line x1="425" y1="128" x2="458" y2="142"/>
+          <path d="M425 136 C440 150 446 176 458 188"/>
+        </g>
+      </g>
+    </svg>
+    <div class="ccards">
+      <div class="cc" style="border-color:var(--hb)">
+        <h3><svg width="16" height="20" viewBox="0 0 16 20" aria-hidden="true"><rect x="2" y="1" width="12" height="16" rx="3" fill="#D2424F"/><rect x="6" y="17" width="4" height="3" fill="#475668"/></svg>Transfusion reactions</h3>
+        <p>Acute hemolytic reaction (e.g., ABO-incompatible) → hemoglobinemia, hemoglobinuria; work-up compares post- vs pre-transfusion plasma. <b>Non-immune</b> lysis: improper warming/freezing, incompatible IV fluids, mechanical stress.</p>
+      </div>
+      <div class="cc" style="border-color:var(--blue)">
+        <h3><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="#0072B2" stroke-width="2.2"/><path d="M10 4 V10 L14 13" stroke="#0072B2" stroke-width="2.2" fill="none"/></svg>ECMO &amp; devices</h3>
+        <p>Shear in pumps, oxygenators and circuits (ECMO, VAD, bypass) lyses red cells. Serial PFH tracks hemolysis and can flag pump / circuit problems (e.g., thrombosis). <b>Action thresholds are centre-specific.</b></p>
+      </div>
+      <div class="cc" style="border-color:var(--purple)">
+        <h3><svg width="18" height="20" viewBox="0 0 18 20" aria-hidden="true"><rect x="2" y="2" width="14" height="16" rx="3" fill="#E8D3E0" stroke="#A6588A" stroke-width="2"/><rect x="4" y="9" width="10" height="7" fill="#C63444"/></svg>Stored RBC units</h3>
+        <p>Storage lesion: free Hb accumulates in the supernatant over shelf life. End-of-storage hemolysis is a <b>QC parameter</b>; limits are set by regulators / standards and <b>differ by jurisdiction</b>.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- =================== FOOTER =================== -->
+<footer>
+  <span class="key"><svg width="34" height="10" aria-hidden="true"><line x1="1" y1="5" x2="26" y2="5" stroke="#475668" stroke-width="2.2" marker-end="url(#ah)"/></svg>Solid arrows = established pathway / process (no hypothesised links shown)</span>
+  <span>·</span>
+  <span><b>No numeric cut-offs by design:</b> H-index units, flag/reject limits and clinical PFH thresholds vary by analyzer, method, laboratory and centre — follow local SOPs and manufacturer IFUs.</span>
+  <span>·</span>
+  <span>Educational schematic, not clinical guidance · Prepared with AI assistance · <b>Draft v0.1 — pending PI review</b></span>
+</footer>
+</div>
+
+<script>
+  // Scale the fixed 1920x1080 canvas to fit the window width when viewed in a browser (no effect at 1920px).
+  (function(){
+    var s=document.getElementById('stage');
+    function fit(){var k=Math.min(1,window.innerWidth/1920);s.style.transform=k<1?'scale('+k+')':'';
+      document.body.style.height=k<1?(1080*k)+'px':'';}
+    window.addEventListener('resize',fit);fit();
+  })();
+</script>
+</body>
+</html>

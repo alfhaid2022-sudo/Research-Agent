@@ -78,3 +78,4 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D045 retracts D044; zero fabricated citations`
 - `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · All 12 citation blockers closed; 7 PMIDs added; Vege & Westhoff completed`
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D046 U17 discharged`
+- `2026-10-07 · Director · CREATE · outputs/plasma_free_hemoglobin_infographic.html, outputs/plasma_free_hemoglobin_infographic_1920x1080.png · Educational PFH infographic v0.1 (draft); hematology-expert accuracy review applied (3 corrections); no numeric cut-offs or citations by design; pending PI review`
