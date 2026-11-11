@@ -1,0 +1,8 @@
+node_modules
+dist
+# The original PDF and its rendered page are third-party material (The Blood Project).
+# Licence for redistribution is unverified, so they are kept local only.
+public/source/*
+!public/source/.gitkeep
+test-output
+*.tsbuildinfo
