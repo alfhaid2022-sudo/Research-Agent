@@ -78,3 +78,4 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D045 retracts D044; zero fabricated citations`
 - `2026-09-11 · Director · UPDATE · 01_Protocol/_working/01_pilot03-protocol_v0.1_2026-09-11.md · All 12 citation blockers closed; 7 PMIDs added; Vege & Westhoff completed`
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D046 U17 discharged`
+- `2026-11-11 · Director · CREATE · dat-living-book/ · Interactive DAT living book (React/TS) built from DAT2.pdf; source PDF kept local (git-ignored, licence unverified)`
