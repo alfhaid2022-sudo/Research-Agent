@@ -12,7 +12,9 @@ export type Route =
   | { name: 'source' };
 
 export function parseHash(h: string): Route {
-  const parts = h.replace(/^#\/?/, '').split('/').filter(Boolean);
+  // Accepts plain names (#section-steps, #lab) and the older #/section/steps form.
+  const raw = h.replace(/^#\/?/, '');
+  const parts = raw.startsWith('section-') ? ['section', raw.slice(8)] : raw.split('/').filter(Boolean);
   switch (parts[0]) {
     case 'section':
       return parts[1] ? { name: 'section', id: parts[1] } : { name: 'home' };
@@ -43,6 +45,9 @@ export function useRoute(): Route {
   return r;
 }
 
+/** Plain-name hash (letters, digits, hyphens) so links also work inside sandboxed hosts. */
+export const hrefFor = (key: string) => (key === 'home' || !key ? '#' : `#${key.replace('/', '-')}`);
+
 export const go = (key: string) => {
-  window.location.hash = `#/${key}`;
+  window.location.hash = hrefFor(key);
 };

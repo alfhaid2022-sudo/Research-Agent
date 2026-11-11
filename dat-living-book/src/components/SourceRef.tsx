@@ -4,6 +4,9 @@ import type { SourceRef } from '../content/types';
 
 const EVT = 'open-source-ref';
 
+/** Build with VITE_NO_SOURCE=1 to omit the original PDF and page image (e.g. for hosted copies). */
+export const hasSourceFiles = import.meta.env.VITE_NO_SOURCE !== '1';
+
 export function refLabel(r: SourceRef) {
   const p = ch.source.panels.find((x) => x.id === r.panel);
   if (!p) return `p. ? · ${r.panel}`;
@@ -20,7 +23,7 @@ export function SourceRefs({ refs }: { refs: SourceRef[] }) {
           type="button"
           className="ref-chip"
           onClick={() => window.dispatchEvent(new CustomEvent(EVT, { detail: r }))}
-          title="Show this panel in the original PDF"
+          title={hasSourceFiles ? 'Show this panel in the original PDF' : 'Show which panel of the source this cites'}
         >
           <span aria-hidden="true">📄</span> {refLabel(r)}
         </button>
@@ -30,6 +33,7 @@ export function SourceRefs({ refs }: { refs: SourceRef[] }) {
 }
 
 export function SourceLink() {
+  if (!hasSourceFiles) return <span className="muted small">The original PDF is not included in this copy.</span>;
   return (
     <a href={`${ch.source.pdfPath}#page=1`} target="_blank" rel="noopener">
       Open original PDF (page 1)
@@ -81,9 +85,9 @@ export function SourceViewer() {
           </header>
           <div
             className="crop"
-            style={full ? { aspectRatio: `${ch.source.pageSizePt.width} / ${ch.source.pageSizePt.height}` } : { aspectRatio: `${ch.source.pageSizePt.width} / ${h}` }}
+            style={!hasSourceFiles ? undefined : full ? { aspectRatio: `${ch.source.pageSizePt.width} / ${ch.source.pageSizePt.height}` } : { aspectRatio: `${ch.source.pageSizePt.width} / ${h}` }}
           >
-            {img !== 'missing' && (
+            {hasSourceFiles && img !== 'missing' && (
               <img
                 src={src}
                 alt={`Original infographic, page ${panel.page}, panel “${panel.label}”`}
@@ -92,7 +96,13 @@ export function SourceViewer() {
                 style={full ? { top: 0 } : { top: `${-(panel.y0 / h) * 100}%` }}
               />
             )}
-            {img === 'missing' && (
+            {!hasSourceFiles && (
+              <div className="crop-missing">
+                <p><strong>Cited: page {panel.page}, panel “{panel.label}”{ref.detail ? ` (${ref.detail})` : ''}.</strong></p>
+                <p className="small">This copy does not include the original infographic. Look up this panel in your copy of DAT2.pdf; the panel spans y = {panel.y0}–{panel.y1} pt on the page.</p>
+              </div>
+            )}
+            {hasSourceFiles && img === 'missing' && (
               <div className="crop-missing">
                 <p><strong>Original page image not found.</strong></p>
                 <p className="small">The PDF is kept out of version control (licence unverified). Run <code>npm run source:prepare -- /path/to/DAT2.pdf</code> to enable panel previews.</p>
@@ -102,7 +112,7 @@ export function SourceViewer() {
           <footer>
             <span className="small muted">Page {panel.page} of {ch.source.pageCount} · panel spans y = {panel.y0}–{panel.y1} pt</span>
             <span className="spacer" />
-            <button type="button" className="link" onClick={() => setFull(!full)}>{full ? 'Show cited panel' : 'Show whole page'}</button>
+            {hasSourceFiles && <button type="button" className="link" onClick={() => setFull(!full)}>{full ? 'Show cited panel' : 'Show whole page'}</button>}
             <SourceLink />
           </footer>
         </div>

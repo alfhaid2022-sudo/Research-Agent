@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { currentChapter as ch } from '../content/registry';
 import type { CaseStudy, QuizItem } from '../content/types';
 import { useStore } from '../lib/store';
-import { go } from '../lib/router';
+import { go, hrefFor } from '../lib/router';
 import { SourceRefs } from './SourceRef';
 
 /* ---------- Quiz question (shared by inline checks and the quiz page) ---------- */
@@ -257,7 +257,7 @@ export function BookmarksPage() {
         <ul className="bm-list">
           {p.bookmarks.map((b) => (
             <li key={b}>
-              <a href={`#/${b}`} onClick={(e) => { e.preventDefault(); go(b); }}>{title(b)}</a>
+              <a href={hrefFor(b)} onClick={(e) => { e.preventDefault(); go(b); }}>{title(b)}</a>
               <button type="button" className="link" onClick={() => update((s) => ({ ...s, bookmarks: s.bookmarks.filter((x) => x !== b) }))} aria-label={`Remove bookmark ${title(b)}`}>Remove</button>
             </li>
           ))}

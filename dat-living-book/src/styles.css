@@ -91,7 +91,7 @@ select { border: 1px solid var(--line); background: var(--surface); border-radiu
 
 /* ---------- Shell ---------- */
 .topbar {
-  position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
   padding: 8px 16px; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
 }
@@ -182,6 +182,8 @@ main { padding: 24px clamp(16px, 4vw, 56px) 80px; outline: none; min-width: 0; }
 .crop { position: relative; width: 100%; overflow: hidden; background: #fff; max-height: 66vh; overflow-y: auto; }
 .crop img { position: absolute; left: 0; width: 100%; height: auto; display: block; }
 .crop-missing { padding: 20px; color: #333; }
+.confirm-box { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+.confirm-box p { margin: 0 0 8px; }
 
 /* ---------- Player / scenes ---------- */
 .player { background: var(--surface-2); border-radius: var(--radius); padding: 12px; outline: none; }

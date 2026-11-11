@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { currentChapter as ch } from './content/registry';
 import { useStore, StoreProvider } from './lib/store';
-import { go, routeKey, useRoute, type Route } from './lib/router';
+import { go, hrefFor, routeKey, useRoute, type Route } from './lib/router';
 import { SectionPage } from './components/SectionPage';
 import { BookmarksPage, CasesPage, FlashcardsPage, GlossaryPage, QuizPage } from './components/Learning';
 import { VirtualLab } from './components/VirtualLab';
 import { Attributions } from './components/Panels';
-import { SourceViewer } from './components/SourceRef';
+import { SourceViewer, hasSourceFiles } from './components/SourceRef';
 
 interface Hit { key: string; title: string; snippet: string }
 
@@ -38,7 +38,7 @@ function Sidebar({ route, onNavigate }: { route: Route; onNavigate: () => void }
   const cur = routeKey(route);
   const done = ch.sections.filter((s) => p.completed[s.id]).length;
   const link = (key: string, label: string, extra?: string) => (
-    <a href={`#/${key}`} className={cur === key ? 'active' : ''} aria-current={cur === key ? 'page' : undefined} onClick={onNavigate}>
+    <a href={hrefFor(key)} className={cur === key ? 'active' : ''} aria-current={cur === key ? 'page' : undefined} onClick={onNavigate}>
       {label}
       {extra && <span className="nav-extra">{extra}</span>}
     </a>
@@ -55,7 +55,7 @@ function Sidebar({ route, onNavigate }: { route: Route; onNavigate: () => void }
           <ul>
             {hits.map((h, i) => (
               <li key={i}>
-                <a href={`#/${h.key}`} onClick={() => { setQ(''); onNavigate(); }}><strong>{h.title}</strong><span className="small muted">{h.snippet}</span></a>
+                <a href={hrefFor(h.key)} onClick={() => { setQ(''); onNavigate(); }}><strong>{h.title}</strong><span className="small muted">{h.snippet}</span></a>
               </li>
             ))}
           </ul>
@@ -106,7 +106,7 @@ function Home() {
         <h2>What this book is built from</h2>
         <p>
           One source: the single-page infographic <em>{ch.source.title}</em> ({ch.source.publisher}; {ch.source.authors.join('; ')}).
-          It has no numbered pages beyond page 1, so every citation reads <strong>p. 1 · panel name</strong> and opens that panel of the original.
+          It has no numbered pages beyond page 1, so every citation reads <strong>p. 1 · panel name</strong>{hasSourceFiles ? ' and opens that panel of the original.' : '. This online copy does not include the original infographic.'}
         </p>
         <p>Each section moves through five stages: <strong>explain → see it → try it → interpret → check</strong>.</p>
         <ul className="legend-list">
@@ -119,7 +119,7 @@ function Home() {
         <h2>Contents</h2>
         <ol className="home-toc">
           {ch.sections.map((s) => (
-            <li key={s.id}><a href={`#/section/${s.id}`}>{s.title}</a> <span className="muted small">— {s.objective}</span></li>
+            <li key={s.id}><a href={hrefFor(`section/${s.id}`)}>{s.title}</a> <span className="muted small">— {s.objective}</span></li>
           ))}
         </ol>
         <p className="muted small">Further chapters can be added through the content registry; none are converted yet.</p>
@@ -132,6 +132,7 @@ function Shell() {
   const route = useRoute();
   const { p, update, reset, storageOk } = useStore();
   const [navOpen, setNavOpen] = useState(false);
+  const [confirmReset, setConfirmReset] = useState(false);
   const key = routeKey(route);
 
   useEffect(() => {
@@ -157,7 +158,7 @@ function Shell() {
   useEffect(() => { document.title = `${titleFor} · DAT Living Book`; }, [titleFor]);
 
   let body;
-  if (route.name === 'section') body = section ? <SectionPage s={section} /> : <article className="page"><h1>Section not found</h1><p><a href="#/">Back to the start</a></p></article>;
+  if (route.name === 'section') body = section ? <SectionPage s={section} /> : <article className="page"><h1>Section not found</h1><p><a href="#">Back to the start</a></p></article>;
   else if (route.name === 'lab') body = (
     <article className="page wide">
       <h1>Virtual lab: performing a DAT</h1>
@@ -178,7 +179,7 @@ function Shell() {
       <a className="skip" href="#main">Skip to content</a>
       <header className="topbar">
         <button type="button" className="icon-btn menu-btn" aria-expanded={navOpen} aria-controls="sidenav" onClick={() => setNavOpen(!navOpen)} aria-label="Toggle contents">☰</button>
-        <a href="#/" className="brand"><span className="brand-mark" aria-hidden="true">◉</span> DAT Living Book</a>
+        <a href="#" className="brand"><span className="brand-mark" aria-hidden="true">◉</span> DAT Living Book</a>
         <span className="spacer" />
         {key !== 'home' && (
           <button type="button" className={`icon-btn ${bookmarked ? 'on' : ''}`} aria-pressed={bookmarked} data-testid="bookmark"
@@ -208,7 +209,15 @@ function Shell() {
           <Sidebar route={route} onNavigate={() => setNavOpen(false)} />
           <div className="side-foot small">
             {!storageOk && <p className="warn">Progress cannot be saved in this browser (storage blocked).</p>}
-            <button type="button" className="link" onClick={() => { if (window.confirm('Clear all saved progress, answers and bookmarks on this device?')) reset(); }}>Reset saved progress</button>
+            {!confirmReset ? (
+              <button type="button" className="link" onClick={() => setConfirmReset(true)}>Reset saved progress</button>
+            ) : (
+              <div className="confirm-box" role="group" aria-label="Confirm reset">
+                <p>Clear all saved progress, answers and bookmarks on this device?</p>
+                <button type="button" onClick={() => { reset(); setConfirmReset(false); }}>Yes, clear everything</button>{' '}
+                <button type="button" className="link" onClick={() => setConfirmReset(false)}>Cancel</button>
+              </div>
+            )}
           </div>
         </aside>
         {navOpen && <div className="scrim" onClick={() => setNavOpen(false)} aria-hidden="true" />}

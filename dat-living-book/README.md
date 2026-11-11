@@ -54,6 +54,9 @@ npm run e2e
 
 `npm run e2e` needs a built app (`npm run build`) and an installed Playwright with Chromium. It starts `vite preview` on port 4317, runs 25 interaction checks and writes screenshots to `test-output/`.
 
+### Hosted copy without the source files
+Build with `VITE_NO_SOURCE=1 npx vite build` to produce a copy that omits the PDF and the page image. In that copy, source links show the cited panel and its position on the page instead of a crop.
+
 ## Source map: book structure
 
 Sections follow the infographic from top to bottom. Each one moves through five stages: **Explain → See it → Try it → Interpret → Check**.

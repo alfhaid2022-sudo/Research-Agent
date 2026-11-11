@@ -71,7 +71,7 @@ await check('progressive disclosure + knowledge check completes a section and su
   await page.getByText('Section complete').waitFor();
   await page.reload();
   await page.getByTestId('section-definition').waitFor();
-  const txt = await page.locator('.toc a[href="#/section/definition"]').innerText();
+  const txt = await page.locator('.toc a[href="#section-definition"]').innerText();
   assert(txt.includes('✓'), 'completion tick missing after reload');
   const fb = await page.getByTestId('quiz-q-what').locator('.feedback').innerText();
   assert(fb.startsWith('Correct'), 'saved quiz answer not restored');
@@ -293,7 +293,7 @@ for (const [route, file] of [['', 'mobile-home.png'], ['#/section/steps', 'mobil
 await check('mobile: contents drawer opens and navigates', async () => {
   await mp.goto(BASE);
   await mp.getByRole('button', { name: 'Toggle contents' }).click();
-  await mp.locator('.toc a[href="#/section/factoids"]').click();
+  await mp.locator('.toc a[href="#section-factoids"]').click();
   await mp.getByTestId('section-factoids').waitFor();
   assert(!(await mp.locator('.app.nav-open').count()), 'drawer should close after navigation');
 });
