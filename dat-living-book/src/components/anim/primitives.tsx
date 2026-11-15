@@ -33,13 +33,17 @@ export function RedCell({ check = false, label }: { check?: boolean; label?: str
   );
 }
 
-/** IgG drawn pointing "up" (−y) from the origin; rotate the parent to orient it. */
+/**
+ * IgG bound to a membrane at the origin: the two Fab arms touch the membrane and the Fc stem
+ * points outward (−y), ending at −IGG_LEN, where anti-IgG (AHG) binds. Rotate the parent to orient it.
+ * Orientation is standard immunology (antigen is bound by Fab); the source does not state it.
+ */
 export function IgGShape() {
   return (
     <g className="igg">
-      <line x1={0} y1={0} x2={0} y2={-8} />
-      <line x1={0} y1={-8} x2={-5} y2={-IGG_LEN} />
-      <line x1={0} y1={-8} x2={5} y2={-IGG_LEN} />
+      <line x1={-5} y1={0} x2={0} y2={-6} />
+      <line x1={5} y1={0} x2={0} y2={-6} />
+      <line x1={0} y1={-6} x2={0} y2={-IGG_LEN} />
     </g>
   );
 }
@@ -74,7 +78,7 @@ export function OnMembrane({ angle, children }: { angle: number; children: React
 export function Legend({ items }: { items: ('rbc' | 'igg' | 'c3d' | 'ahg' | 'check')[] }) {
   const map = {
     rbc: { label: 'Red cell', el: <RedCellIcon /> },
-    igg: { label: 'IgG', el: <g transform="translate(9 17)"><IgGShape /></g> },
+    igg: { label: 'IgG (Fab arms on the cell, Fc outward)', el: <g transform="translate(9 21)"><IgGShape /></g> },
     c3d: { label: 'C3d (complement)', el: <g transform="translate(9 17)"><C3dShape /></g> },
     ahg: { label: 'AHG (Coombs reagent)', el: <g transform="translate(9 6)"><AhgShape /></g> },
     check: { label: 'Check cell (antibody-coated reagent cell)', el: <CheckIcon /> },

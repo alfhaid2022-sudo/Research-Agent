@@ -80,3 +80,5 @@ Append-only record of every file created or modified. Newest first.
 - `2026-09-11 · Director · UPDATE · DECISION_LOG.md · D046 U17 discharged`
 - `2026-11-11 · Director · CREATE · dat-living-book/ · Interactive DAT living book (React/TS) built from DAT2.pdf; source PDF kept local (git-ignored, licence unverified)`
 - `2026-11-11 · Director · UPDATE · dat-living-book/ · Plain-name hash routes, in-page reset confirm, VITE_NO_SOURCE build option for hosted copies`
+- `2026-11-15 · Director · CREATE · 08_Figures/_working/08_dat-mechanism-figures_* (pptx, build script, preview pdf, asset record) · editable DAT mechanism figures`
+- `2026-11-15 · Director · UPDATE · dat-living-book/src (IgG orientation: Fab on membrane, Fc outward; teaching note added)`

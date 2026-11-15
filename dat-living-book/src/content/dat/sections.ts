@@ -185,6 +185,11 @@ export const datSections: Section[] = [
     check: ['q-bridge'],
     teachingNotes: [
       {
+        title: 'Which end of the antibody binds',
+        text:
+          'IgG binds antigen on the red cell through its two Fab arms, so its Fc stem points away from the cell. Anti-IgG (AHG) is drawn binding those outward Fc ends on two neighbouring cells. This orientation is standard immunology; the source figure does not state it.',
+      },
+      {
         title: 'About the drawings',
         text:
           'Cells and antibodies here are schematic, not to scale, and not microscopy. Real red cells carry far more molecules than are drawn.',
