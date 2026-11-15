@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "tier": 1,
+  "book": {
+    "title": "The Direct Antiglobulin Test",
+    "slug": "dat",
+    "language": "en",
+    "readers": "clinical laboratory science students and blood-bank trainees",
+    "pilot": "ch01",
+    "source": "DAT2.pdf, The Blood Project infographic (one page; written by Dr. Bentley Rodrigue, graphic design Janie Vu)",
+    "use": "the user's own teaching only (class/course); not for the open web — source reuse licence unverified"
+  },
+  "words": [
+    "Scope: One lesson, 6–8 min (Recommended)",
+    "Tier: Diagrams that change (Recommended)",
+    "Use: My own teaching (Recommended)",
+    "Voice: use 11 lab",
+    "Look (ch01 frames): Go ahead as it is (Recommended)",
+    "Voice sample: Keep this voice (Recommended)"
+  ],
+  "look": {
+    "palette": { "board": "#f6f8fa", "page": "#e4e9ee", "ink": "#22262c", "dim": "#5f6873", "task": "#0b6b62", "quiz": "#1f5fa8", "bad": "#b3262e" },
+    "meaning": {
+      "red cell": "#c3313a disc with paler centre (face-on, schematic)",
+      "IgG": "#262a31 Y, Fab arms on the membrane, Fc outward",
+      "C3d": "#b35c00 diamond on the membrane",
+      "AHG / anti-human globulin": "#762cc0 Y with round binding tips",
+      "check cell": "red cell with a dark outer ring"
+    },
+    "fonts": { "text": "engine UI sans", "math": "engine default (little maths in this book)" },
+    "notation": "say numbers in words in narration; show 100–500, 400–1,100, 4+ on screen; label every drawing 'Schematic, not to scale'"
+  },
+  "voice": {
+    "engine": "ElevenLabs via the ElevenLabs connector (eleven_v4), word times from ElevenLabs Scribe; tools/dat/scribe_timings.py writes timings.js",
+    "voice": "Udem - Calm & Clear Educational Narrator (g4XAeWx0tMolN1G3c3P5)",
+    "why_not_eleven_py": "OpenRouter and the faster-whisper model download are unreachable from this environment"
+  },
+  "pacing": { "minutes": [6, 8], "checks": "three quick checks inside the lesson, one practice set at the end" },
+  "engine": { "source": "DozenTwelve/Papermorph engine/ via git clone", "ref": "618aeeaad9852c8857db7bcaccc34f8d64c20b68 (2026-11-12)" },
+  "models": { "extract": "haiku", "narration": "sonnet", "picture": "opus", "checks": "haiku", "review": "sonnet", "rework": "opus", "register": "haiku" },
+  "components": [
+    { "name": "datCell / datIgG / datC3d / datAhg / datFcEnd / datKey", "file": "site/dat/lib/dat.js", "what": "schematic red cell and molecules with shared geometry so AHG bridges meet IgG Fc ends" }
+  ],
+  "images": { "sources": ["drawn in code only; no artwork from the source infographic"] },
+  "approved": []
+}

@@ -1,0 +1,27 @@
+{
+  "engine": "eleven-mcp",
+  "voice": "g4XAeWx0tMolN1G3c3P5",
+  "voice_name": "Udem - Calm & Clear Educational Narrator",
+  "model": "eleven_v4",
+  "beats": {
+    "intro": "The direct antiglobulin test. [[sub]]What it detects, how it is done, and how to read the result.",
+    "question": "The DAT asks one question about a patient's red cells. [[coat]]Are they coated with immunoglobulin, [[comp]]with complement, [[both]]or with both? It is usually ordered during a workup for hemolysis, [[lyse]]because bound antibody and complement can lead to the destruction of red cells.",
+    "invivo": "Notice where the coating happens. [[vivo]]It happens in the patient, in vivo. [[vitro]]The test happens later, in a tube. [[detect]]So the DAT detects a coating that is already there. It does not create one.",
+    "principle": "On their own, IgG coated cells do not clump. [[ahg]]The reagent that reveals them is anti human globulin, also called Coombs reagent. [[bind]]It binds the antibody on one red cell, [[bridge]]and the antibody on a neighbouring cell, forming a bridge. [[clump]]As bridges build up, the cells form visible clumps. That is agglutination.",
+    "reagents": "The reagent comes in two kinds. [[poly]]Polyspecific reagent contains both anti IgG and anti C3d. [[mono]]Monospecific reagent targets only one of them. [[only]]So a monospecific reagent can only report its own target.",
+    "q1": "Quick check. Will this pair agglutinate?",
+    "steps": "Now the procedure, in five steps. [[s1]]First, wash the patient's red cells, to remove lingering, unbound antibody. [[s2]]Second, suspend the washed cells and add the anti human globulin. [[s3]]Third, centrifuge. [[s4]]Fourth, look for agglutination, and grade its strength, from negative to four plus. [[s5]]Fifth, if the reaction is negative, validate it.",
+    "checkcells": "Validation uses check cells. [[add]]These are reagent red cells already coated with antibody. They are added to the negative tube. [[ok]]If active reagent is present, they agglutinate, and the negative result stands. [[fail]]If they do not agglutinate, suspect a technical error.",
+    "q2": "Quick check. The check cells did not agglutinate. What now?",
+    "errors": "Technique can mislead in both directions. [[fn]]Under washing, under centrifuging, forgetting the reagent, or using reagent spoiled by poor storage can all give a false negative. [[fp]]Over centrifuging, or nonspecific binding of the reagents, can give a false positive. [[delay]]A delay in adding the reagent after washing is listed under both.",
+    "truth": "And a correct result has its own meanings. [[tp]]A true positive is seen in autoimmune and drug induced hemolytic anemia, in transfusion reactions, in hemolytic disease of the fetus and newborn, and after antibody given in IVIG. [[tn]]A true negative can still come with hemolysis, as in IgA mediated or drug mediated DAT negative hemolytic anemia.",
+    "patterns": "After a positive polyspecific DAT, [[mono]]run the monospecific reagents, and ask what is positive. [[igg]]IgG alone is seen in warm autoimmune hemolytic anemia, alloimmune hemolysis such as a transfusion reaction, hemolytic disease of the fetus and newborn, drug induced hemolysis, and passive antibody. [[both]]IgG and C3 together are seen in warm or mixed autoimmune hemolytic anemia, and drug induced hemolysis. [[c3]]C3 alone is seen in cold agglutinin disease, paroxysmal cold hemoglobinuria, and drug induced hemolysis.",
+    "q3": "Quick check. Only anti C3 reacted.",
+    "limits": "How small a coating can the test see? [[igg]]On the tested red cells, as little as one hundred to five hundred molecules of IgG, [[c3]]and four hundred to eleven hundred molecules of C3. [[strength]]The strength of the reaction generally tracks the severity of hemolysis. Generally, not always.",
+    "meaning": "Keep a positive result in proportion. [[donor]]It turns up in one in a thousand to one in fourteen thousand healthy blood donors, with no hemolysis. [[ward]]It is positive in about seven to eight percent of hospital patients, and not all of them are hemolyzing. [[target]]And it never names the antigen the antibody is aimed at. It only shows that something is bound.",
+    "history": "The test is older than it looks. [[c1945]]In nineteen forty five, Coombs, Mourant and Race described anti human globulin serum for finding antibodies bound to red cells. [[c1908]]The same principle seems to have been described by Moreschi, in nineteen oh eight. [[today]]It is still one of the most valuable tools in the blood bank.",
+    "wrap": "To sum up. [[w1]]The DAT detects antibody or complement bound to red cells in the patient. [[w2]]Anti human globulin bridges coated cells into visible clumps. [[w3]]A negative is trusted only after check cells react. [[w4]]A positive shows coating, not disease, and monospecific reagents point to the pattern. [[end]]Now try the chapter practice.",
+    "final1": "Chapter practice.",
+    "finish": "Well done. That is the end of this lesson on the direct antiglobulin test."
+  }
+}
